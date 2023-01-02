@@ -44,7 +44,7 @@ The data we'll be using are documents for California's Groundwater Sustainabilit
 
 ### Getting started   
 
-**Installations**  
+#### Installations  
 
 Let's get started by downloading all four packages from the [govscienceuseR GitHub page](https://github.com/govscienceuseR):  
 
@@ -69,7 +69,8 @@ sapply(packs, require, character.only = T)
 
 You'll also need to install [Solr](https://solr.apache.org) for the final step of the process.  
 
-**Data**  
+<br>
+#### Data    
 
 The data we'll be using are documents for California's Groundwater Sustainability Plans. These documents are available publicly to download from [Box](https://ucdavis.box.com/s/9m3dogbibkrwy01pg4sdwouhzl8i6sef). Feel free to download them to your computer to a file that will be considered your document directory. There are `r length(list.files("~/Box/reference_classifier/documents_gsp/"))` plans, which total over 160,000 pages. We will set our document directory to this folder of PDFs.   
 
@@ -95,7 +96,7 @@ knitr::include_graphics('img/workflow.png')
 
 The `referenceExtract` package from govscienceuseR is designed to take unstructured PDF documents, feed them through the [anystyle.io](https://anystyle.io/) citation extraction software, and return tagged citation data in a tabular format.   
 
-
+<br>
 #### `reference_extract()`   
 
 The first step of extracting references is to input PDF documents into the `reference_extract()` function. This function reads in every PDF in the document directory (doc_dir), and runs them through anystyle.io. Anystyle extracts probable citations and exports them to the reference directory (ref_dir) as JSON files. Depending on the number and size of files, this can take some time. For example, these 114 documents took over an hour to extract.  
@@ -112,7 +113,7 @@ reference_extract(doc_dir = doc_directory,
                  layout = "none")
 ```
 
-
+<br>
 #### `reference_compile()`   
 
 Next, the `reference_compile()` function transforms the JSON files into tabular data and compiles them all in one data table, adding the file name as an identifier.  
@@ -140,7 +141,7 @@ The second challenge is related to quality: many of the probable citations are n
 unlist(dt[148, c(1,3,5)])
 ```
 
-
+<br>
 #### `reference_clean()`  
 
 To try to address the challenges in these probable citations, the `reference_clean()` function goes through a series of steps. For each column the function unlists the data and filters out unlikely candidates for that column. For instance, if a number listed in the date column does not match any reasonable date format or expectation, it is removed. If a string in the URL column actually resembles a DOI, it is moved to that column. And so on. Furthermore, if there seem to be multiple citations listed in one row that can be broken apart in parallel across all of the columns, we unnest these rows. (Note: depending on the size of the files this function may take some time. Cleaning these `r nrow(dt)` citations takes about 18 minutes).  
@@ -183,7 +184,7 @@ table(conference_match(dt$container))
 table(agency_match(dt$container, dt$author))
 ```
 --->
-
+<br>
 #### `prepared_by()` and `journal_disambig()`  
 
 [**Note: Should these be moved to the cleaning function, or to the other package?**] 
@@ -199,7 +200,7 @@ Additionally, we disambiguate the journals with the `journal_disambig()` functio
 ```{r journal disam}
 dt$container <- journal_disambig(dt$container)
 ```
-
+<br>
 #### `regex_classify()`  
 
 Now with probable references as 'clean' as possible, we use regular expressions to classify our data based on exact matches using the `regex_classify()` function. This function does two things. First it looks across all of the columns for exact matches to our indices, and if there is an exact match, it pulls out that value into a 'input' column. If there is no exact match, the value in the input column will be selected in the following order of preference: doi, container, publisher, title, author. Second, based on the matches the function will assign the potential citation into one of four classes: journal, agency, conference, or none. If none of the potential citations' data is an exact match to any of the indices, the classification is NA. 
@@ -271,7 +272,7 @@ table$class <- c("Agency", "Conference", "Journal", "Not a citation", "Unclassif
 kableExtra::kable(pivot_wider(table, names_from = class, 
                               values_from = n), booktabs = T)
 ```
-
+<br>
 #### `keras_classify()`  
 
 Next we want to classify the probable references that are not exact matches to any of our indices. To do this, we use `keras_classify()` input our probable into a neural network trained to predict the reference class. To train this model, we used data from Environmental Impact Statements, classified through both manual classification and the semi-automated regex classification explained above.  
@@ -330,7 +331,7 @@ dt <- dt %>%
   select(-c(predict_class, method_comparison)) %>% 
   filter(class != "delete")
 ```
-
+<br>
 #### Interim check in: Journals and agencies from exact matching   
 
 So far, we've identified exact matches to our high-level indices (journal, agency, conference) and then used machine learning to classify citations that are not exact matches so that we can begin to figure out their source. At this interim stage, we can take a look at the high-level classifications across citations, and the journals and agencies for which we've found exact matches. 
@@ -414,7 +415,7 @@ cowplot::plot_grid(p_jour, p_agency, rel_widths = c(1, 1))
 ### `indexBuild`  
 
 Now that we have a general sense of what kind of citation types are represented within the probable citations, the next step is to try to index these citations exactly. 
-
+<br>
 #### Identify index concepts  
 
 First we need to generate an index. The indexBuild function wraps around the OpenAlex API
@@ -461,7 +462,7 @@ keywords <- tidytext::unnest_tokens(themes, word, cat) %>%
 ```
 
 Let's use these themes and keywords to inform our index creation. I build in a quick bit of sleep time for querying the concepts from openAlex, then apply this functions across all of the themes and keywords existing in the data. (Note: This querying of over 200 concepts takes ~5 minutes.)
-
+<br>
 #### `queryConcepts()`  
 
 ```{r, eval = F}
@@ -476,6 +477,7 @@ index <- lapply(c(themes$cat, keywords$word), query_slowly)
 index[[12]]$description <- ""
 indexdf <- do.call('rbind', index) %>% unique()
 ```
+
 Now we have a number of resources representing the concepts from our existing data. Here is a random look at some of them.
 
 ```{r, echo = F}
@@ -490,12 +492,11 @@ DT::datatable(sample_n(indexdf, 100)[-c(3,5)], rownames = F)
 
 What we end up is a list of concepts, related to which are different 'works', or specific citations. We can extract the works from those concepts below. I currently break this into two extraction rounds, small and large, because they need to be handled differently. This extraction c
 
+<br>
 #### `extractWorks()`  
 
 ```{r, eval = F}
-smallworks <- filter(indexdf, works_count < 1000000)
-
-sapply(smallworks$id[i], FUN = function(x){
+sapply(indexdf$id, FUN = function(x){
   extractWorks(mailto = "belwood@ucdavis.edu",
              concept_page = x,
              dest_file = paste0("~/Box/govscienceuseR/openalex_index_gsp/", 
@@ -507,6 +508,11 @@ sapply(smallworks$id[i], FUN = function(x){
              sleep_time = 0.5)
 
 })
+```
+
+
+```{r, eval = F, echo = F}
+smallworks <- filter(indexdf, works_count < 1000000)
 
 # I did it this way so that if it breaks due to internet connection failure I can see where it leaves off
 for(i in 125:nrow(smallworks)){
@@ -525,7 +531,7 @@ sapply(smallworks$id[i], FUN = function(x){
 }
 ```
 
-```{r, eval = F}
+```{r, eval = F, echo = F}
 largeworks <- filter(indexdf, works_count >= 1000000)
 
 for(i in 1:nrow(largeworks)){
@@ -547,6 +553,7 @@ sapply(largeworks$id[i], FUN = function(x){
 
 ```
 
+<br> 
 #### `works2dt()`  
 
 ```{r compile records, eval = F}
@@ -568,7 +575,7 @@ recordsdf <- readRDS("~/Box/govscienceuseR/records.rds")
 We've generated quite a wide database, including `r nrow(recordsdf)` records in our index. However, this likely leaves out edge cases, and we are developing ways to develop broader indices.
 
 
-### `referenceSearch`  
+### 4. `referenceSearch()`  
 
 Now we have our probable citations and their groupings, we have an index to match them to, and now we want to probabilistically match them. 
 
@@ -622,6 +629,7 @@ results <- search_collection(q = queries[3],
 ```
 
 Waiting to run then, then
+
 ```{r query index large, eval = F}
 results = list()
 count = 1

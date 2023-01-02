@@ -1,7 +1,3 @@
-title: govscienceuseR
-description: Tools for bibliographic analysis of policy documents
-logo: 'img/hexstickermanual.png'
-
 navbar: 
   title: "govscienceuseR"
   left:
