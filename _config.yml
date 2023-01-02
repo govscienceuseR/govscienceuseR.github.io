@@ -1,0 +1,8 @@
+title: govscienceuseR
+description: Tools for bibliographic analysis of policy documents
+logo: 'img/hexstickermanual.png'
+show_downloads: false
+
+navbar: 
+  - text: "Vignettes"
+    href: gsp_vignette.html

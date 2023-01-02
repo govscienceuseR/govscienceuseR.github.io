@@ -17,17 +17,7 @@ theme_govuser <- function(base_size = 12, font = "Roboto mono") {
   theme_minimal(base_size = base_size) +
   theme(text = element_text(colour = "black", 
                             family = font),
-       #plot.title = element_text(colour = "black", 
-      #                          family = font, 
-      #                          size = rel(1.25)),
-      #axis.text.y = element_text(size = rel(0.9)),
-      #axis.title.y = element_text(size = rel(0.9)),
-      #axis.text.x = element_text(size = rel(.9)),
-      #axis.title.x = element_blank(),
-       #legend.position = "bottom",
-       #legend.text = element_text(size = rel(.75)),
        panel.grid = element_line(colour = "#d9d9d9")
-       #plot.caption = element_text(size = rel(0.65))
       )
 }
 ```
@@ -35,8 +25,8 @@ theme_govuser <- function(base_size = 12, font = "Roboto mono") {
 ### Introduction  
 
 Understanding the policy that goes into science is important...  
-Sarewitz - supply demand mismatch, inability of technical solutions to resolve political controversies
-Cairney  
+Sarewitz
+Cairney  - supply demand mismatch, inability of technical solutions to resolve political controversies
 
 However, it can be a tedious task...
 Koontz looks in depth at 12 plans, 1,104 references across them, but these include all kinds of sources: scholarly, articles, organizations, agencies at different levels, etc.
@@ -58,7 +48,7 @@ The data we'll be using are documents for California's Groundwater Sustainabilit
 
 Let's get started by downloading all four packages from the [govscienceuseR GitHub page](https://github.com/govscienceuseR):  
 
-```{r package setup, warning = F, message = F, results = F}
+```{r package download, warning = F, message = F, results = F}
 devtools::install_github("govscienceuseR/referenceExtract")
 devtools::install_github("govscienceuseR/referenceClassify")
 devtools::install_github("govscienceuseR/referenceBuild")
@@ -103,9 +93,11 @@ knitr::include_graphics('img/workflow.png')
 
 ### 1. `referenceExtract`  
 
-The `referenceExtract` package from govscienceuseR is designed to take unstructured PDF documents, feed them through the [anystyle.io](https://anystyle.io/) citation extraction software, and return tagged citation data in a tabular format.  
+The `referenceExtract` package from govscienceuseR is designed to take unstructured PDF documents, feed them through the [anystyle.io](https://anystyle.io/) citation extraction software, and return tagged citation data in a tabular format.   
 
-#### `reference_extract()`  
+
+#### `reference_extract()`   
+
 The first step of extracting references is to input PDF documents into the `reference_extract()` function. This function reads in every PDF in the document directory (doc_dir), and runs them through anystyle.io. Anystyle extracts probable citations and exports them to the reference directory (ref_dir) as JSON files. Depending on the number and size of files, this can take some time. For example, these 114 documents took over an hour to extract.  
 
 ```{r set ref dir covert, echo = F}
@@ -120,7 +112,9 @@ reference_extract(doc_dir = doc_directory,
                  layout = "none")
 ```
 
-#### `reference_compile()`  
+
+#### `reference_compile()`   
+
 Next, the `reference_compile()` function transforms the JSON files into tabular data and compiles them all in one data table, adding the file name as an identifier.  
 
 ```{r reference compile}
@@ -130,7 +124,7 @@ dt <- reference_compile(ref_directory)
 
 After these first two steps we can take a look at our probable citations according to the Anystyle software. Initially, there are `r nrow(dt)` probable citations across these `r length(list.files(ref_directory))` documents.  
 
-```{r show compiled data}
+```{r show compiled data, echo = F}
 DT::datatable(head(select(dt, author, date, title, `container-title`),
                    n = 100), rownames = F)
 ```
@@ -146,9 +140,10 @@ The second challenge is related to quality: many of the probable citations are n
 unlist(dt[148, c(1,3,5)])
 ```
 
+
 #### `reference_clean()`  
 
-To try to address the challenges in these probable citations, the `reference_clean()` function goes through a series of steps. For each column the function unlists the data and filters out unlikely candidates for that column. For instance, if a number listed in the date column does not match any reasonable date format or expectation, it is removed. If a string in the URL column actually resembles a DOI, it is moved to that column. And so on. Furthermore, if there seem to be multiple citations listed in one row that can be broken apart in parallel across all of the columns, we unnest these rows. (Note: depending on the size of the files this function may take some time. Cleaning these `r nrow(dt)` citations takes about 18 minutes)
+To try to address the challenges in these probable citations, the `reference_clean()` function goes through a series of steps. For each column the function unlists the data and filters out unlikely candidates for that column. For instance, if a number listed in the date column does not match any reasonable date format or expectation, it is removed. If a string in the URL column actually resembles a DOI, it is moved to that column. And so on. Furthermore, if there seem to be multiple citations listed in one row that can be broken apart in parallel across all of the columns, we unnest these rows. (Note: depending on the size of the files this function may take some time. Cleaning these `r nrow(dt)` citations takes about 18 minutes).  
 
 ```{r reference clean, eval = F}
 # Unnests list structures into tabular data and filters out low probability refs
@@ -162,9 +157,10 @@ dt <- readRDS("data/dt_post_refclean.RDS")
 
 This cleaning process has changed probable citations now a bit. Some of the probable citations have been unnested (and therefore expanded) while others have been removed, leaving us with `r nrow(dt)` probable citations. Examples of these probable citations are below:   
 
-```{r example of cleaned}
+```{r example of cleaned, echo = F}
 DT::datatable(head(select(dt, author, year, title, container, publisher), n = 100), rownames = F)
 ```
+
 
 ### `referenceClassify`  
 
@@ -213,35 +209,67 @@ Now with probable references as 'clean' as possible, we use regular expressions 
 dt <- regex_classify(dt, 'container')
 ```
 
-```{r exact match agencies, echo = F}
+```{r exact match agencies, echo = F, eval = F}
 data("agencies")
-x = dt$training_input[dt$class == "agency"]
-y = agencies
-# Attempt 1: pmap
-extract_agencies <- function(x, y){
-  agency <- str_extract(x, y)
-  return(agency)
-}
-# Thought this would work but it does not
+x = dt$training_input[dt$class == "agency" & !is.na(dt$class)]
+abbr <- agencies$Abbr[agencies$Abbr != ""]
+y = c(agencies$Agency, abbr)
+
+dt_agencies <- filter(dt, class == "agency" & !is.na(class)) %>% 
+  select(ID, training_input)
+dt_agencies$agency = NA
 t1 <- Sys.time()
-agency <- pmap_dfr(list(x, y), extract_agencies)
+for(i in 1:length(x)){
+  for(j in 1:length(y)){
+    match <- str_extract(x[i], y[j])
+  if(!is.na(match)){
+  dt_agencies$agency[i] <- match
+  }
+  }
+    if(!is.na(match)){
+      next
+  }
+}
 t2 <- Sys.time()
 t2-t1 
 
-# Attempt 2: nested maps
-dt$agency = NA
-t1 <- Sys.time()
-dt$agency[dt$class == "agency"] <- map_df(x, ~ map_df(y, function(y) {str_extract(.x, y)} ))
-t2 <- Sys.time()
-t2-t1 
+dt <- left_join(dt, dt_agencies)
+dt$agency <- ifelse(dt$agency == "Geological Survey", 
+                    "US Geological Survey", dt$agency)
+dt$agency <- ifelse(dt$agency == "Army", 
+                    "US Army", dt$agency)
+dt$agency <- ifelse(dt$agency == "Army Corps of Engineers", 
+                    "US Army Corps of Engineers", dt$agency)
+dt$agency <- ifelse(dt$agency == "Bureau of Reclamation", 
+                    "US Bureau of Reclamation", dt$agency)
+dt$agency <- ifelse(dt$agency == "Census Bureau", 
+                    "US Census Bureau", dt$agency)
+dt$agency <- ifelse(dt$agency == "Department of Agriculture", 
+                    "US Department of Agriculture", dt$agency)
+dt$agency <- ifelse(dt$agency == "Department of Health and Human Services", 
+                    "US Department of Health and Human Services", dt$agency)
+dt$agency <- ifelse(dt$agency == "Department of the Interior", 
+                    "US Department of the Interior", dt$agency)
+dt$agency <- ifelse(dt$agency == "Environmental Protection Agency", 
+                    "US Environmental Protection Agency", dt$agency)
+dt$agency <- ifelse(dt$agency == "Fish and Wildlife Service", 
+                    "US Fish and Wildlife Service", dt$agency)
+dt$agency <- ifelse(dt$agency == "Forest Service", 
+                    "US Forest Service", dt$agency)
+saveRDS(dt, 'data/dt_withagencies.rds')
+```
+
+```{r, echo = F}
+dt <- readRDS('data/dt_withagencies.rds')
 ```
 
 Based on these classifications, we can see the counts of exact matches, and which ones have not been classified.   
 
-```{r}
-table <- c(table(dt$class), table(is.na(dt$class))[2])
-names(table) <- c("Agency", "Conference", "Journal", "Not a citation", "Unclassified")
-kableExtra::kable(table)
+```{r, echo = F, fig.align = 'center'}
+table <- data.frame("n" = c(table(dt$class), table(is.na(dt$class))[2]))
+table$class <- c("Agency", "Conference", "Journal", "Not a citation", "Unclassified")
+kableExtra::kable(pivot_wider(table, names_from = class, 
+                              values_from = n), booktabs = T)
 ```
 
 #### `keras_classify()`  
@@ -249,7 +277,8 @@ kableExtra::kable(table)
 Next we want to classify the probable references that are not exact matches to any of our indices. To do this, we use `keras_classify()` input our probable into a neural network trained to predict the reference class. To train this model, we used data from Environmental Impact Statements, classified through both manual classification and the semi-automated regex classification explained above.  
 
 ```{r keras, eval = F}
-# Need to set this wd right now because I can't actually get the model object to save within the package itself
+# Use the descriptive 'input' to probabilistically identify the reference class
+## Note: Need to set this wd right now because I can't actually get the model object to save within the package itself
 setwd("~/Documents/Davis/R-Projects/referenceClassify/")
 # Something is wrong with the auto_input
 predictions <- keras_classify(dt, probability = .85, 
@@ -264,7 +293,8 @@ dt <- readRDS("data/dt_post_keras.RDS")
 ```
 
 Because we ran this model on the whole data frame, we can compare our regex classification with the Keras classifications to get a sense of the model performance.  
-```{r}
+
+```{r, echo = F, fig.align='center'}
 dt <- dt %>% 
   mutate(class = case_when(
            class == "remove_row" ~ "delete",
@@ -277,18 +307,21 @@ dt <- dt %>%
            method == "regex" & predict_class == "unsure" ~ "unsure",
            method == "regex" & class != predict_class ~ "incorrect",
            T ~ NA_character_))
-table <- table(dt$method_comparison)
-names(table) <- c("Incorrect", "Match", "Classified as unsure")
-kableExtra::kable(table)
+
+table <- data.frame(table(dt$method_comparison)) %>% select(-Var1)
+table$class <- c("Incorrect", "Match", "Classified as unsure")
+kableExtra::kable(pivot_wider(table, names_from = class, 
+                              values_from = Freq), booktabs = T)
 ```
 
 These results, altogether, suggest that the Keras model is `r 100*round(table(dt$method_comparison)[[2]]/sum(table(dt$method_comparison)),2)`% accurate in its prediction of the citations we are able to do exact matching for. Now, let's unify the classification columns and have a look at the total for each estimated grouping.   
 
-```{r}
+```{r, echo = F, fig.align='center'}
 dt$class <- ifelse(is.na(dt$class), dt$predict_class, dt$class)
-table <- c(table(dt$class), table(is.na(dt$class))[2])
-names(table) <- c("Agency", "Conference", "Not a citation", "Journal", "Unsure")
-kableExtra::kable(table)
+table <- data.frame(table(dt$class)) %>% select(-Var1)
+table$class <- c("Agency", "Conference", "Not a citation",
+                 "Journal", "Unsure")
+kableExtra::kable(pivot_wider(table, names_from = class, values_from = Freq), booktabs = T)
 ```
 
 And we'll tidy up these data by filtering out the citations classificied to 'delete' (the false positives) in preparation for our indexing in the next step.  
@@ -300,7 +333,28 @@ dt <- dt %>%
 
 #### Interim check in: Journals and agencies from exact matching   
 
-So far, we've identified exact matches to our high-level indices (journal, agency, conference) and then used machine learning to classify citations that are not exact matches so that we can begin to figure out their source. At this interim stage, we can take a look at the journals and agencies for which we've found exact matches. Below are the top 15 references journals and agencies identified by our exact matching strategies.   
+So far, we've identified exact matches to our high-level indices (journal, agency, conference) and then used machine learning to classify citations that are not exact matches so that we can begin to figure out their source. At this interim stage, we can take a look at the high-level classifications across citations, and the journals and agencies for which we've found exact matches. 
+
+First, let's take a look at the high-level matches. A reference list was required by DWR for GSPs, and indeed we see that all `r length(unique(dt$File[dt$class %in% c("journal", "agency")]))` of the documents have references that we can identify as either a scholarly journal or agency. Based on our tool's probabilistic tags, it looks like the number of references ranges from 1 to 128, with 24 being the average number of classified references. That average differs between references classes, whereby the average number of journal references is 16 and the average number of agency references is twice that, at 32. 
+
+```{r summaries of references, echo = F, results = F}
+by_doc <- dt %>% 
+  filter(class %in% c("journal", "agency")) %>% 
+  group_by(File, class) %>% 
+  count() %>% 
+  ungroup() 
+
+summary(by_doc$n)
+by_doc %>% 
+  group_by(class) %>% 
+  summarise(mean = mean(n),
+            min = min(n),
+            max = max(n))
+
+```
+
+
+Below are the top 15 references journals and agencies identified by our exact matching strategies.   
 
 ```{r wrangle data for plots, echo = F}
 data("scimago.j")
@@ -321,6 +375,7 @@ dt_journals <- dt %>%
 ```
 
 ```{r, echo = F}
+library(ggplot2)
 p_jour <- dt_journals %>% 
   group_by(container) %>% 
   count() %>% 
@@ -335,16 +390,17 @@ p_jour <- dt_journals %>%
   theme(text = element_text(colour = "black", 
                             family = "mono"))
 p_agency <- dt_agencies %>% 
-  group_by(training_input) %>% 
+  group_by(agency) %>% 
+  filter(!is.na(agency)) %>% 
   count() %>% 
   arrange(n) %>% 
   filter(n > 15) %>% 
-  mutate(agency = factor(training_input, levels = .$training_input)) %>% 
-  ggplot(aes(x = agency, y = n, title = "Top governmental agencies")) +
+  mutate(agency = factor(agency, levels = .$agency)) %>% 
+  ggplot(aes(x = agency, y = n)) +
   geom_col(fill = "#03989e") +
   coord_flip() +
   theme_minimal(base_size = 10) +
-  labs(y = "Count", x = "") +
+  labs(y = "Count", x = "", title = "Top governmental agencies") +
   theme(text = element_text(colour = "black", 
                             family = "mono"))
 ```
@@ -364,10 +420,6 @@ Now that we have a general sense of what kind of citation types are represented 
 First we need to generate an index. The indexBuild function wraps around the OpenAlex API
 
 First, what are the areas we already have known references from? We koad in the Scimago database, including journal metdata, to get an understanding of what journals can be identified through exact matching.  
-
-```{r, eval = F, echo = F}
-dt <- readRDS("data/dt_classified.rds")
-```
 
 ```{r}
 themes <- dt_journals %>% 
@@ -397,7 +449,7 @@ p_theme <- themes %>%
                             family = "mono"))
 ```
 
-```{r, out.width = '50%', fig.align='center', echo = F}
+```{r, fig.height = 3, fig.width = 5, fig.align='center', echo = F,}
 p_theme
 ```
 
@@ -432,7 +484,7 @@ indexdf <- readRDS("data/indexdf.rds")
 ```
 
 
-```{r}
+```{r, echo = F}
 DT::datatable(sample_n(indexdf, 100)[-c(3,5)], rownames = F)
 ```
 
