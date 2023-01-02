@@ -1,0 +1,16 @@
+#navabras 
+navbar: 
+  title: "govscienceuseR"
+  left:
+  - text: "Home"
+    href: README.md
+  - text: "Vignettes"
+    href: gsp_vignette.html
+
+output_dir: "."
+output:
+  html_document:
+highlight: tango
+css: 'style.css'
+lib_dir: site_libs
+self_contained: no
