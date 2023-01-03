@@ -40,7 +40,7 @@ Developments in computational tools for reading and analyzing large text corpora
 
 ### Method  
 
-This is vignette walking through the steps of the R packages in the `govscienceuseR` tool set: `referenceExtract`, `referenceClassify`, `indexBuild`, and `referenceSearch`. Together, these four packages allow researchers to go from PDF documents to a data frame of indexed citations in only a handful of steps in the R coding language. The goal of these tools is to allow researchers working with various types of policy documents to analyze citations using a systematic and reproducible approach.  
+The `govscienceuseR` tools provide a computational approach for indexing and summarizing references from policy documents. This is vignette walking through the steps of the R packages in the `govscienceuseR` tool set: `referenceExtract`, `referenceClassify`, `indexBuild`, and `referenceSearch`. Together, these four packages allow researchers to go from PDF documents to a data frame of indexed citations in only a handful of steps in the R coding language. The goal of these tools is to allow researchers working with various types of policy documents to analyze citations using a systematic and reproducible approach.  
 
 ### The case  
 
@@ -340,7 +340,7 @@ dt <- dt %>%
   filter(class != "delete")
 ```
 <br>
-#### Interim check in: Journals and agencies from exact matching   
+###Interim check in: Journals and agencies from exact matching   
 
 So far, we've identified exact matches to our high-level indices (journal, agency, conference) and then used machine learning to classify citations that are not exact matches so that we can begin to figure out their source. At this interim stage, we can take a look at the high-level classifications across citations, and the journals and agencies for which we've found exact matches. 
 
