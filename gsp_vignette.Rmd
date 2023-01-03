@@ -1,9 +1,12 @@
 ---
-title: <center>"The science informing California's Groundwater Sustainability Plans"</center>
-subtitle: <center>"A test case using `govscienceuseR` tools"
-author:
+title: <center> "The science informing California's Groundwater Sustainability Plans"</center>
+subtitle: <center>"A test case using `govscienceuseR` tools" </center>
+author: <center>
   - Liza Wood
-  - Tyler A. Scott
+  - Tyler A. Scott 
+toc: true # table of content true
+  toc_depth: 2  # upto three depths of headings (specified by #, ## and ###)
+  number_sections: true 
 ---
 
 ```{r chunk setup, include = F}
@@ -13,7 +16,7 @@ knitr::opts_chunk$set(warning = F, message = F)
 ```{r functions, echo= F}
 library(showtext)
 font_add_google("Roboto mono")
-theme_govuser <- function(base_size = 12, font = "Roboto mono") {
+theme_govuser <- function(base_size = 12, font = "mono") {
   theme_minimal(base_size = base_size) +
   theme(text = element_text(colour = "black", 
                             family = font),
@@ -24,36 +27,38 @@ theme_govuser <- function(base_size = 12, font = "Roboto mono") {
 
 ### Introduction  
 
-Aligning scientific supply with policy demand in order to develop evidence-based policy is considered a gold standard by many accounts. The Biden Administration recently reaffirmed that 'It is the policy of [the Biden] Administration to make evidence-based decisions guided by the best available science and data... Scientific findings should never be distorted or influenced by political considerations' (Biden, 2021). This sentiment has been echoed by the call for use-inspired basic research to deliver innovation in service of societal goals (Stokes 2011; Fuglie & Toole 2014).  
+Aligning scientific supply with policy demand in order to develop evidence-based policy is considered a gold standard by many accounts. The Biden Administration recently reaffirmed that 'It is the policy of [the Biden] Administration to make evidence-based decisions guided by the best available science and data... Scientific findings should never be distorted or influenced by political considerations' (Biden, 2021). This sentiment has been echoed by the calls for use-inspired basic research to deliver innovative solutions in service of social and environmental goals (Stokes 2011; Fuglie & Toole 2014). 
 
-However, there is broad recognition that promoting evidence-based policymaking at face value overlooks challenges related to knowledge politics and the selective use of science. Namely, policymakers' emphasis on science as a neutral arbiter masks the politics of generating and communicating scientific knowledge (Sarewitz 2000). Rather than seeing science as independent, supply and demand of science are politically linked (Sarewitz & Pielke 2007). As such, research to support evidence-based policymaking requires intentional engagement by scientists to not only reduce uncertainty through high-quality research, but also reduce ambiguity through strategic communication and problem framing (Cairney 2016). Emphasis on communication is echoed by literature on boundary spanners that can broker between the scientific and policy communities (Guston 2001).
+However, there is broad recognition that promoting evidence-based policymaking at face value overlooks challenges related to knowledge politics and the selective use of science. Namely, policymakers' emphasis on science as a neutral arbiter masks the politics of generating and communicating scientific knowledge (Sarewitz 2000). Rather than seeing science as independent, supply and demand of science are politically linked (Sarewitz & Pielke 2007). As such, research to support evidence-based policymaking requires intentional engagement by scientists to not only reduce uncertainty through high-quality research, but also reduce ambiguity through strategic communication and problem framing (Cairney 2016). Emphasis on communication is echoed by literature on boundary spanners that can broker between the scientific and policy communities (Guston 2001).  
 
 <!--- Qualitative case descriptions have described the recursive science-policy relationship for environmental issues such as acid rain, ozone repletion, and climate change (Pielke & Betsill 1997; Sarewitz 2000)--->
 
-Recognizing the complex interplay of science and policymaking, what methods can we used to better understand these dynamics? Through surveys and interviews of public servants, studies find wide variation in how policy makers interact with scientific information (Newman et al. 2016), and highlight that internal governmental reports and personal networks are among the most popular sources of information (Piczak et al. 2022). These findings have been supported and detailed through a handful of bibliometric analyses of policy documents. Desmaris and Herd (2014) evaluated 102 Regulatory Impact Assessments, confirming a majority of governmental citations and describing the prevalence of disciplines like economics, environmental science, and public health from high-impact journals across 1,378 scholarly citations. Koontz (2022) finds similar trends when analyzing 12 salmon recovery plans, categorizing 1,104 references from various sources (academic, governmental, organizational, etc.) and expanding on how science is used to support causal arguments.  
+Recognizing the complex interplay of science and policymaking, what methods can we use to better understand these dynamics? Through surveys and interviews of public servants, studies find wide variation in how policy makers interact with scientific information (Newman et al. 2016), and highlight that internal governmental reports and personal networks are among the most popular sources of information (Piczak et al. 2022). These findings have been supported and detailed through a handful of bibliometric analyses of policy documents. Desmaris and Herd (2014) evaluated 102 Regulatory Impact Assessments, confirming a majority of governmental citations and describing the prevalence of disciplines like economics, environmental science, and public health from high-impact journals across 1,378 scholarly citations. Koontz (2022) finds similar trends when analyzing 12 salmon recovery plans, categorizing 1,104 references from various sources (academic, governmental, organizational, etc.) and expanding on how science is used to support causal arguments.  
 
-The insights from bibliometric analyses of policy documents lay an important foundation for systematically quantifying the evidence used to support policy. However, manually extracting and indexing references can be a tedious task. Unlike 'science of science' research, where bibliometric methods are made easier through publishing norms of citations and indexing (e.g. DOIs, ORCIds, etc.), science of policy research is less systematic. Policy documents do not always follow consistent formatting or citations norms, and references outside of non-scholarly articles (which are the majority of references) are not systematically indexed. 
-
-Developments in computational tools for reading and analyzing large text corpora create an opportunity for automating some of the more tedious phases of bibliometry on policy documents.
-
+The insights from bibliometric analyses of policy documents lay an important foundation for systematically quantifying the evidence used to support policy. However, manually extracting and indexing references can be a tedious task. Unlike 'science of science' research, where bibliometric methods are made easier through publishing norms of citations and indexing (e.g. DOIs, ORCIds, etc.), science of policy research is less systematic. Policy documents do not always follow consistent formatting or citations norms, and references outside of non-scholarly articles (which are the majority of references) are not systematically indexed. However, developments in computational tools for reading and analyzing large texts create an opportunity for automating some of the more tedious phases of bibliometry on policy documents. This paper presents a set of tools for aiding bibliometic analysis of policy documents, `govscienceuseR`, which we hope will support policy process researchers in quantifying and unpacking the complex interplay of science and policymaking.  
 
 ### Method  
 
 The `govscienceuseR` tools provide a computational approach for indexing and summarizing references from policy documents. This is vignette walking through the steps of the R packages in the `govscienceuseR` tool set: `referenceExtract`, `referenceClassify`, `indexBuild`, and `referenceSearch`. Together, these four packages allow researchers to go from PDF documents to a data frame of indexed citations in only a handful of steps in the R coding language. The goal of these tools is to allow researchers working with various types of policy documents to analyze citations using a systematic and reproducible approach.  
 
-### The case  
+### The case: Groundwater Sustainability Plans    
 
-Sustainable Groundwater Management Act...
-The data we'll be using are documents for California's Groundwater Sustainability Plans. These documents are Groundwater Sustainability Agency-level plans, developed in response to the state's Sustainable Ground Management Act. Passed in 2014, SGMA has required that GSAs ('Agencies') develop plans to meeting various sustainability goals for groundwater, including... As such, these documents provide a useful case for evaluating the use of science in policy, as there are a variety of...
+California's Sustainable Groundwater Management Act (SGMA) of 2014 sets out a framework for local Groundwater Sustainability Agencies to work towards sustainable management of their groundwater basins. Agencies are required to outline their strategies in Groundwater Sustainability Plans (GSPs) -- documents reviewed by the Department of Water Resources (DWR) to ensure that Agency strategies comply with SGMA, the GSP regulations, and achieve groundwater sustainability for the basin (DWR no date). Among the criteria for plan evaluation, the California Code specifies: "When evaluating whether a Plan is likely to achieve the sustainability goal for the basin, the Department shall consider… Whether the assumptions, criteria, findings, and objectives, including the sustainability goal… are reasonable and supported by the best available information and best available science" (23 CCR § 355.4).  
 
-"When evaluating whether a Plan is likely to achieve the sustainability goal for the basin, the Department shall consider… Whether the assumptions, criteria, findings, and objectives, including the sustainability goal… are reasonable and supported by the best available information and best available science".
+There is a clear mandate that GSP documents use scientific evidence to support their strategies for groundwater sustainability, but defining and measuring sustainability is no simple feat (Kuhlman & Farrington 2010). DWR sets out six sustainability indicators, whereby the occurrence of any indicator would be an undesirable result: lowering groundwater levels, reduction of storage, seawater intrusion, degraded quality, land subsidence, and surface water depletion. However, it is the Agencies that set measurable objectives and minimum thresholds for these indicators by considering all 'beneficial users and uses' for their basin (Austin, 2019). Beneficial uses include 'domestic, municipal, agricultural, and industrial supply; power generation; recreation; aesthetic enjoyment; navigation; and preservation and enhancement of fish, wildlife, and other aquatic resources or preserves' (California Water Plan glossary 2018). 
+
+Facing the challenge of managing groundwater resources across a wide array of users and interests, we ask: **How is science used to inform the multiple dimensions of groundwater sustainability?** Analyses of the SGMA collaborative process and GSP drafts have already shown that achieving groundwater sustainability while supporting _all_ beneficial uses is unlikely. 
+* Some beneficial uses are preferenced over others: domestic well depths above minimum threshold (Bostic et al. 2020. Sustainable for whom?)  
+* Representation challenges (Dobbin)
+
+To build on this existing research, we turn to the scientific evidence used in GSPs to tell us something about how agencies are defining sustainability. (and as a result, preferencing some groundwater users over others?). We trial the govscienceuseR tool kit on 114 GSPs, published between X and X year...
 
 
 ### Getting started   
 
 #### Installations  
 
-Let's get started by downloading all four packages from the [govscienceuseR GitHub page](https://github.com/govscienceuseR):  
+To begin, download all four packages from the [govscienceuseR GitHub page](https://github.com/govscienceuseR):  
 
 ```{r package download, warning = F, message = F, results = F}
 devtools::install_github("govscienceuseR/referenceExtract")
@@ -62,7 +67,7 @@ devtools::install_github("govscienceuseR/referenceBuild")
 devtools::install_github("govscienceuseR/citationSearch")
 ```
 
-Then load these, and dependent packages, into library. [**Note: All of the dependent packages required should be imported when we load in these packages, but they currently aren't**]. You may be prompted to install some of the dependent packages if you do not already have them, such as `keras`.  
+Then load these and dependent packages into library. [**Note: All of the dependent packages required should be imported when we load in these packages, but they currently aren't -- still strugglin with package imports when function-building**]. You may be prompted to install some of the dependent packages if you do not already have them, such as `keras`.  
 
 ```{r package setup, warning = F, message = F, results = F}
 library(referenceExtract)
@@ -74,12 +79,13 @@ packs = c('data.table', 'dplyr', 'stringr', 'keras', 'tensorflow',
 sapply(packs, require, character.only = T)
 ```
 
-You'll also need to install [Solr](https://solr.apache.org) for the final step of the process.  
+Outside of R, the `referenceSearch` package also requires installation and running of  [Solr](https://solr.apache.org). This software should be downloaded to a known location on your computer.    
 
 <br>
+
 #### Data    
 
-The data we'll be using are documents for California's Groundwater Sustainability Plans. These documents are available publicly to download from [Box](https://ucdavis.box.com/s/9m3dogbibkrwy01pg4sdwouhzl8i6sef). Feel free to download them to your computer to a file that will be considered your document directory. There are `r length(list.files("~/Box/reference_classifier/documents_gsp/"))` plans, which total over 160,000 pages. We will set our document directory to this folder of PDFs.   
+The documents of interest for this paper are California's Groundwater Sustainability Plans. These documents are available publicly to download from [Box](https://ucdavis.box.com/s/9m3dogbibkrwy01pg4sdwouhzl8i6sef). To follow along with this tutorial, download the files to a file that will be considered your document directory. My document directory is specified below. There are `r length(list.files("~/Box/reference_classifier/documents_gsp/"))` plans which total over 160,000 pages.  
 
 ```{r set doc dir}
 doc_directory <- "~/Box/reference_classifier/documents_gsp/"
@@ -103,7 +109,8 @@ knitr::include_graphics('img/workflow.png')
 
 The `referenceExtract` package from govscienceuseR is designed to take unstructured PDF documents, feed them through the [anystyle.io](https://anystyle.io/) citation extraction software, and return tagged citation data in a tabular format.   
 
-<br>
+<br>  
+
 #### `reference_extract()`   
 
 The first step of extracting references is to input PDF documents into the `reference_extract()` function. This function reads in every PDF in the document directory (doc_dir), and runs them through anystyle.io. Anystyle extracts probable citations and exports them to the reference directory (ref_dir) as JSON files. Depending on the number and size of files, this can take some time. For example, these 114 documents took over an hour to extract.  
@@ -120,7 +127,8 @@ reference_extract(doc_dir = doc_directory,
                  layout = "none")
 ```
 
-<br>
+<br>  
+
 #### `reference_compile()`   
 
 Next, the `reference_compile()` function transforms the JSON files into tabular data and compiles them all in one data table, adding the file name as an identifier.  
@@ -148,7 +156,8 @@ The second challenge is related to quality: many of the probable citations are n
 unlist(dt[148, c(1,3,5)])
 ```
 
-<br>
+<br>  
+
 #### `reference_clean()`  
 
 To try to address the challenges in these probable citations, the `reference_clean()` function goes through a series of steps. For each column the function unlists the data and filters out unlikely candidates for that column. For instance, if a number listed in the date column does not match any reasonable date format or expectation, it is removed. If a string in the URL column actually resembles a DOI, it is moved to that column. And so on. Furthermore, if there seem to be multiple citations listed in one row that can be broken apart in parallel across all of the columns, we unnest these rows. (Note: depending on the size of the files this function may take some time. Cleaning these `r nrow(dt)` citations takes about 18 minutes).  
@@ -191,7 +200,8 @@ table(conference_match(dt$container))
 table(agency_match(dt$container, dt$author))
 ```
 --->
-<br>
+<br>  
+
 #### `prepared_by()` and `journal_disambig()`  
 
 [**Note: Should these be moved to the cleaning function, or to the other package?**] 
@@ -207,7 +217,8 @@ Additionally, we disambiguate the journals with the `journal_disambig()` functio
 ```{r journal disam}
 dt$container <- journal_disambig(dt$container)
 ```
-<br>
+<br>  
+
 #### `regex_classify()`  
 
 Now with probable references as 'clean' as possible, we use regular expressions to classify our data based on exact matches using the `regex_classify()` function. This function does two things. First it looks across all of the columns for exact matches to our indices, and if there is an exact match, it pulls out that value into a 'input' column. If there is no exact match, the value in the input column will be selected in the following order of preference: doi, container, publisher, title, author. Second, based on the matches the function will assign the potential citation into one of four classes: journal, agency, conference, or none. If none of the potential citations' data is an exact match to any of the indices, the classification is NA. 
@@ -273,13 +284,14 @@ dt <- readRDS('data/dt_withagencies.rds')
 
 Based on these classifications, we can see the counts of exact matches, and which ones have not been classified.   
 
-```{r, echo = F, fig.align = 'center'}
+```{r, echo = F, fig.align = 'center', results = 'asis'}
 table <- data.frame("n" = c(table(dt$class), table(is.na(dt$class))[2]))
 table$class <- c("Agency", "Conference", "Journal", "Not a citation", "Unclassified")
 kableExtra::kable(pivot_wider(table, names_from = class, 
-                              values_from = n), booktabs = T)
+                              values_from = n), booktabs = T, format = "html")
 ```
-<br>
+<br>  
+
 #### `keras_classify()`  
 
 Next we want to classify the probable references that are not exact matches to any of our indices. To do this, we use `keras_classify()` input our probable into a neural network trained to predict the reference class. To train this model, we used data from Environmental Impact Statements, classified through both manual classification and the semi-automated regex classification explained above.  
@@ -329,21 +341,23 @@ dt$class <- ifelse(is.na(dt$class), dt$predict_class, dt$class)
 table <- data.frame(table(dt$class)) %>% select(-Var1)
 table$class <- c("Agency", "Conference", "Not a citation",
                  "Journal", "Unsure")
-kableExtra::kable(pivot_wider(table, names_from = class, values_from = Freq), booktabs = T)
+kableExtra::kable(pivot_wider(table, names_from = class, values_from = Freq), 
+                  booktabs = T)
 ```
 
-And we'll tidy up these data by filtering out the citations classificied to 'delete' (the false positives) in preparation for our indexing in the next step.  
+And we'll tidy up these data by filtering out the citations classificied to 'delete' (the false positives) in preparation for our indexing in the next step.   
 ```{r}
 dt <- dt %>% 
   select(-c(predict_class, method_comparison)) %>% 
   filter(class != "delete")
 ```
-<br>
-###Interim check in: Journals and agencies from exact matching   
+<br>  
 
-So far, we've identified exact matches to our high-level indices (journal, agency, conference) and then used machine learning to classify citations that are not exact matches so that we can begin to figure out their source. At this interim stage, we can take a look at the high-level classifications across citations, and the journals and agencies for which we've found exact matches. 
+#### Interim check in: Journals and agencies from exact matching   
 
-First, let's take a look at the high-level matches. A reference list was required by DWR for GSPs, and indeed we see that all `r length(unique(dt$File[dt$class %in% c("journal", "agency")]))` of the documents have references that we can identify as either a scholarly journal or agency. Based on our tool's probabilistic tags, it looks like the number of references ranges from 1 to 128, with 24 being the average number of classified references. That average differs between references classes, whereby the average number of journal references is 16 and the average number of agency references is twice that, at 32. 
+So far, we've identified exact matches to our high-level indices (journal, agency, conference) and then used machine learning to classify citations that are not exact matches so that we can begin to figure out their source. At this interim stage, we can take a look at the high-level classifications across citations, and the journals and agencies for which we've found exact matches.  
+
+First, let's take a look at the high-level matches. A reference list was required by DWR for GSPs, and indeed we see that all `r length(unique(dt$File[dt$class %in% c("journal", "agency")]))` of the documents have references that we can identify as either a scholarly journal or agency. Based on our tool's probabilistic tags, it looks like the number of references ranges from 1 to 128, with 24 being the average number of classified references. That average differs between references classes, whereby the average number of journal references is 16 and the average number of agency references is twice that, at 32. In total, there are 1,865 journal references and 3,675 agency references.  
 
 ```{r summaries of references, echo = F, results = F}
 by_doc <- dt %>% 
@@ -353,24 +367,44 @@ by_doc <- dt %>%
   ungroup() 
 
 summary(by_doc$n)
+
 by_doc %>% 
   group_by(class) %>% 
   summarise(mean = mean(n),
             min = min(n),
             max = max(n))
 
+dt %>% 
+  filter(class %in% c("journal", "agency")) %>% 
+  group_by(class) %>% 
+  count()
 ```
 
-
-Below are the top 15 references journals and agencies identified by our exact matching strategies.   
+Of these references, we display the top 15 references journals and agencies identified by our exact matching strategies. At a glance, we see a strong representation of geological, hydrological, and agricultural science...
 
 ```{r wrangle data for plots, echo = F}
 data("scimago.j")
+# Get metadata to be a summarize of 
 journal_metadata <- data.frame(sjrdata::sjr_journals) %>% 
-  select(sourceid, title, categories, sjr) %>% 
+  group_by(sourceid, title) %>% 
+  summarize(sjr_avg = mean(sjr, na.rm = T)) %>% 
+  right_join(select(data.frame(sjrdata::sjr_journals), sourceid, title, categories)) %>% 
   separate(categories, into = paste0("cat", 1:15), sep = ";") %>% 
+  pivot_longer(cols = cat1:cat15, 
+               names_to = "number",
+               values_to = "cat") %>% 
+  filter(!is.na(cat)) %>% 
+  mutate(cat = trimws(str_remove_all(cat, '\\(Q\\d\\)'))) %>% 
+  mutate(cat = trimws(str_remove_all(tolower(cat),
+                                     '\\(miscellaneous\\)|,|-'))) %>% 
+  select(-number) %>% 
   unique() %>% 
-  rename("journal_title" = "title")
+  rename("journal_title" = "title") %>% 
+  group_by(sourceid, journal_title, sjr_avg) %>% 
+  mutate(number = paste0('cat', 1:n())) %>% 
+  pivot_wider(id_cols = c(sourceid, journal_title, sjr_avg),
+              names_from = "number", values_from = "cat") %>% 
+  unique()
 
 dt_agencies <- dt %>% 
   filter(class == "agency") 
@@ -380,6 +414,9 @@ dt_journals <- dt %>%
   left_join(scimago.j, by = c("container" = "title")) %>% 
   left_join(journal_metadata, by = "sourceid") %>% 
   filter(!is.na(sourceid))
+
+dt_journals$container[dt_journals$container == "Proceedings of the National Academy of Sciences of the United States of America"] <- "PNAS"
+
 ```
 
 ```{r, echo = F}
@@ -388,15 +425,13 @@ p_jour <- dt_journals %>%
   group_by(container) %>% 
   count() %>% 
   arrange(n) %>% 
-  filter(n > 37) %>% 
+  filter(n > 13) %>% 
   mutate(container = factor(container, levels = .$container)) %>% 
   ggplot(aes(x = container, y = n)) +
   geom_col(fill = "#03989e") +
   coord_flip() +
-  theme_minimal(base_size = 10) +
-  labs(y = "Count", x = "", title = "Top scholarly journals") +
-  theme(text = element_text(colour = "black", 
-                            family = "mono"))
+  theme_govuser(base_size = 10)
+
 p_agency <- dt_agencies %>% 
   group_by(agency) %>% 
   filter(!is.na(agency)) %>% 
@@ -407,54 +442,60 @@ p_agency <- dt_agencies %>%
   ggplot(aes(x = agency, y = n)) +
   geom_col(fill = "#03989e") +
   coord_flip() +
-  theme_minimal(base_size = 10) +
-  labs(y = "Count", x = "", title = "Top governmental agencies") +
-  theme(text = element_text(colour = "black", 
-                            family = "mono"))
+  theme_govuser(base_size = 10)
 ```
 
-[**Note: I need to exact match agency**]
 
 ```{r, fig.align='center', fig.width=12, fig.height=3}
-cowplot::plot_grid(p_jour, p_agency, rel_widths = c(1, 1))
+cowplot::plot_grid(p_jour, p_agency, rel_widths = c(1, 1.05))
 ```
+
+Regarding the impact factor of academic references...
+
+```{r, fig.align='center', fig.width=4, fig.height=3}
+dt_journals %>% 
+  group_by(journal_title, sjr_avg) %>% 
+  count() %>% 
+  ungroup() %>% 
+  ggplot(aes(x = sjr_avg, y = n)) +
+  geom_point() +
+  geom_smooth(method = 'lm', color = "#03989e") +
+  labs(x = 'Journal impact factor', y = 'Number of citations') +
+  theme_govuser(base_size = 10)
+```
+
 
 ### `indexBuild`  
 
-Now that we have a general sense of what kind of citation types are represented within the probable citations, the next step is to try to index these citations exactly. 
-<br>
+Now that we have a general sense of what kind of reference types are represented within the probable citations, the next step is to try to index these reference exactly. The `indexBuild` package is designed to query the [openAlex API](https://docs.openalex.org/), an open access catalog of research, in order to build a personalized catalog relevant to the field of research. This step is optional for the `govscienceuseR` workflow, as the tool kit provides a default index with the top X research categories over the past X years [**Note: need to build some default index**]. However, building an index for a given research project will likely increase the matching abilities of the tool.  
+
 #### Identify index concepts  
 
-First we need to generate an index. The indexBuild function wraps around the OpenAlex API
-
-First, what are the areas we already have known references from? We koad in the Scimago database, including journal metdata, to get an understanding of what journals can be identified through exact matching.  
+To build an index, we first need to define the scope. openAlex allows indices to be built based on five different types of entities: authors, institutions, venues, concepts, and works. We choose to build our index based on concepts, as this casts the widest and most inclusive net. We use the known journal names we already have in our data to define the concepts that we want in build our index on. To identify these concepts we use journals' disciplinary category metadata from the Scimago database.   
 
 ```{r}
 themes <- dt_journals %>% 
-  select(sourceid, journal_title, cat1:cat15) %>% 
-  pivot_longer(cols = cat1:cat15, 
+  select(sourceid, journal_title, cat1:cat13) %>% 
+  pivot_longer(cols = cat1:cat13, 
                names_to = "number",
                values_to = "cat") %>% 
   filter(!is.na(cat)) %>% 
-  mutate(cat = trimws(str_remove_all(cat, '\\(Q\\d\\)'))) %>% 
-  mutate(cat = trimws(str_remove_all(tolower(cat),
-                                     '\\(miscellaneous\\)|,|-'))) %>% 
   group_by(cat) %>% 
   count() %>% 
   arrange(n) %>% 
   mutate(cat = factor(cat, levels = .$cat))
 ```
 
+Across the journals identified in our references there are `r nrow(themes)` disciplinary categories and the top categories are displayed below.  
+
 ```{r, echo = F}
 p_theme <- themes %>% 
-  filter(n > 145) %>% 
+  filter(n > 48) %>% 
   ggplot(aes(x = cat, y = n)) +
   geom_col(fill = "#03989e") +
   coord_flip() +
-  theme_minimal(base_size = 12) +
   labs(y = "Count", x = "", title = "Top journal themes") +
-  theme(text = element_text(colour = "black", 
-                            family = "mono"))
+  theme_govuser(base_size = 10)
 ```
 
 ```{r, fig.height = 3, fig.width = 5, fig.align='center', echo = F,}
@@ -469,7 +510,8 @@ keywords <- tidytext::unnest_tokens(themes, word, cat) %>%
 ```
 
 Let's use these themes and keywords to inform our index creation. I build in a quick bit of sleep time for querying the concepts from openAlex, then apply this functions across all of the themes and keywords existing in the data. (Note: This querying of over 200 concepts takes ~5 minutes.)
-<br>
+<br>  
+
 #### `queryConcepts()`  
 
 ```{r, eval = F}
@@ -499,7 +541,8 @@ DT::datatable(sample_n(indexdf, 100)[-c(3,5)], rownames = F)
 
 What we end up is a list of concepts, related to which are different 'works', or specific citations. We can extract the works from those concepts below. I currently break this into two extraction rounds, small and large, because they need to be handled differently. This extraction c
 
-<br>
+<br>  
+
 #### `extractWorks()`  
 
 ```{r, eval = F}
@@ -560,7 +603,8 @@ sapply(largeworks$id[i], FUN = function(x){
 
 ```
 
-<br> 
+<br>   
+
 #### `works2dt()`  
 
 Here, extractions of 117 concepts resulted in over 3 million works. This conversion from json concepts to works took 12.5 hours.
