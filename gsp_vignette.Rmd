@@ -1,6 +1,6 @@
 ---
-title: "The science informing California's Groundwater Sustainability Plans"
-subtitle: "A test case using `govscienceuseR` tools"
+title: <center>"The science informing California's Groundwater Sustainability Plans"</center>
+subtitle: <center>"A test case using `govscienceuseR` tools"
 author:
   - Liza Wood
   - Tyler A. Scott
