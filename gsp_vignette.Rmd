@@ -1,12 +1,14 @@
 ---
-title: <center> "The science informing California's Groundwater Sustainability Plans"</center>
-subtitle: <center>"A test case using `govscienceuseR` tools" </center>
-author: <center>
+pagetitle: "The science informing California's Groundwater Sustainability Plans"
+title: "The science informing California's Groundwater Sustainability Plans"
+subtitle: "A test case using `govscienceuseR` tools"
+author: 
   - Liza Wood
   - Tyler A. Scott 
-toc: true # table of content true
-  toc_depth: 2  # upto three depths of headings (specified by #, ## and ###)
-  number_sections: true 
+output:
+  html_document:
+    toc: true
+    toc_float: true
 ---
 
 ```{r chunk setup, include = F}
@@ -39,9 +41,14 @@ The insights from bibliometric analyses of policy documents lay an important fou
 
 ### Method  
 
-The `govscienceuseR` tools provide a computational approach for indexing and summarizing references from policy documents. This is vignette walking through the steps of the R packages in the `govscienceuseR` tool set: `referenceExtract`, `referenceClassify`, `indexBuild`, and `referenceSearch`. Together, these four packages allow researchers to go from PDF documents to a data frame of indexed citations in only a handful of steps in the R coding language. The goal of these tools is to allow researchers working with various types of policy documents to analyze citations using a systematic and reproducible approach.  
+The `govscienceuseR` tools provide a computational approach for indexing and summarizing references from policy documents. This is vignette walking through the steps of the R packages in the `govscienceuseR` tool set: `referenceExtract`, `referenceClassify`, `indexBuild`, and `referenceSearch`. Together, these four packages allow researchers to go from PDF documents to a data frame of indexed citations in only a handful of steps in the R coding language (steps mapped below). The goal of these tools is to allow researchers working with various types of policy documents to analyze citations using a systematic and reproducible approach.  
 
-### The case: Groundwater Sustainability Plans    
+
+```{r workflow image, echo=FALSE, out.width='75%', fig.align = "center"}
+knitr::include_graphics('img/workflow.png')
+```
+
+### Case: Groundwater Sustainability Plans    
 
 California's Sustainable Groundwater Management Act (SGMA) of 2014 sets out a framework for local Groundwater Sustainability Agencies to work towards sustainable management of their groundwater basins. Agencies are required to outline their strategies in Groundwater Sustainability Plans (GSPs) -- documents reviewed by the Department of Water Resources (DWR) to ensure that Agency strategies comply with SGMA, the GSP regulations, and achieve groundwater sustainability for the basin (DWR no date). Among the criteria for plan evaluation, the California Code specifies: "When evaluating whether a Plan is likely to achieve the sustainability goal for the basin, the Department shall consider… Whether the assumptions, criteria, findings, and objectives, including the sustainability goal… are reasonable and supported by the best available information and best available science" (23 CCR § 355.4).  
 
@@ -81,8 +88,6 @@ sapply(packs, require, character.only = T)
 
 Outside of R, the `referenceSearch` package also requires installation and running of  [Solr](https://solr.apache.org). This software should be downloaded to a known location on your computer.    
 
-<br>
-
 #### Data    
 
 The documents of interest for this paper are California's Groundwater Sustainability Plans. These documents are available publicly to download from [Box](https://ucdavis.box.com/s/9m3dogbibkrwy01pg4sdwouhzl8i6sef). To follow along with this tutorial, download the files to a file that will be considered your document directory. My document directory is specified below. There are `r length(list.files("~/Box/reference_classifier/documents_gsp/"))` plans which total over 160,000 pages.  
@@ -99,17 +104,9 @@ pages <- sum(as.numeric(pdfs$pages))
 pages/nrow(pdfs)
 ```
 
-Using these GSP documents we'll be walking through the following steps of the process:
-
-```{r workflow image, echo=FALSE, out.width='75%', fig.align = "center"}
-knitr::include_graphics('img/workflow.png')
-```
-
 ### 1. `referenceExtract`  
 
 The `referenceExtract` package from govscienceuseR is designed to take unstructured PDF documents, feed them through the [anystyle.io](https://anystyle.io/) citation extraction software, and return tagged citation data in a tabular format.   
-
-<br>  
 
 #### `reference_extract()`   
 
@@ -126,8 +123,6 @@ reference_extract(doc_dir = doc_directory,
                  ref_dir = ref_directory, 
                  layout = "none")
 ```
-
-<br>  
 
 #### `reference_compile()`   
 
@@ -156,8 +151,6 @@ The second challenge is related to quality: many of the probable citations are n
 unlist(dt[148, c(1,3,5)])
 ```
 
-<br>  
-
 #### `reference_clean()`  
 
 To try to address the challenges in these probable citations, the `reference_clean()` function goes through a series of steps. For each column the function unlists the data and filters out unlikely candidates for that column. For instance, if a number listed in the date column does not match any reasonable date format or expectation, it is removed. If a string in the URL column actually resembles a DOI, it is moved to that column. And so on. Furthermore, if there seem to be multiple citations listed in one row that can be broken apart in parallel across all of the columns, we unnest these rows. (Note: depending on the size of the files this function may take some time. Cleaning these `r nrow(dt)` citations takes about 18 minutes).  
@@ -179,7 +172,7 @@ DT::datatable(head(select(dt, author, year, title, container, publisher), n = 10
 ```
 
 
-### `referenceClassify`  
+### 2. `referenceClassify`  
 
 The `referenceClassify` package is designed to take a data frame of tabular, tagged citation data (author, year, container, publisher, doi, etc), look for exact matches between those tags and various high-level indices (mainly journal and agency names), and begin to classify probable citations into these high-level categories. These indices are 1:) an index of academic journals from the [`sjr` package](https://rdrr.io/github/ikashnitsky/sjrdata/man/sjr_journals.html) relying on the [Scimago database](https://www.scimagojr.com/), 2) an index of academic conference papers/proceedings also from the Scimago database, 3) and an index of US state and federal agencies, curated by the package authors. All three of these indices are built into this package and can be accessed with `data(scimago.j)` for journals, `data(scimago.c)` for conferences, and `data(agencies)` for agencies.  
 
@@ -200,7 +193,6 @@ table(conference_match(dt$container))
 table(agency_match(dt$container, dt$author))
 ```
 --->
-<br>  
 
 #### `prepared_by()` and `journal_disambig()`  
 
@@ -217,7 +209,6 @@ Additionally, we disambiguate the journals with the `journal_disambig()` functio
 ```{r journal disam}
 dt$container <- journal_disambig(dt$container)
 ```
-<br>  
 
 #### `regex_classify()`  
 
@@ -287,10 +278,11 @@ Based on these classifications, we can see the counts of exact matches, and whic
 ```{r, echo = F, fig.align = 'center', results = 'asis'}
 table <- data.frame("n" = c(table(dt$class), table(is.na(dt$class))[2]))
 table$class <- c("Agency", "Conference", "Journal", "Not a citation", "Unclassified")
-kableExtra::kable(pivot_wider(table, names_from = class, 
-                              values_from = n), booktabs = T, format = "html")
+library(kableExtra)
+kable(pivot_wider(table, names_from = class, 
+                              values_from = n), booktabs = T, align = 'c') %>% 
+  kable_styling()
 ```
-<br>  
 
 #### `keras_classify()`  
 
@@ -330,8 +322,9 @@ dt <- dt %>%
 
 table <- data.frame(table(dt$method_comparison)) %>% select(-Var1)
 table$class <- c("Incorrect", "Match", "Classified as unsure")
-kableExtra::kable(pivot_wider(table, names_from = class, 
-                              values_from = Freq), booktabs = T)
+kable(pivot_wider(table, names_from = class, 
+                              values_from = Freq), booktabs = T, align = 'c') %>% 
+  kable_styling()
 ```
 
 These results, altogether, suggest that the Keras model is `r 100*round(table(dt$method_comparison)[[2]]/sum(table(dt$method_comparison)),2)`% accurate in its prediction of the citations we are able to do exact matching for. Now, let's unify the classification columns and have a look at the total for each estimated grouping.   
@@ -341,8 +334,9 @@ dt$class <- ifelse(is.na(dt$class), dt$predict_class, dt$class)
 table <- data.frame(table(dt$class)) %>% select(-Var1)
 table$class <- c("Agency", "Conference", "Not a citation",
                  "Journal", "Unsure")
-kableExtra::kable(pivot_wider(table, names_from = class, values_from = Freq), 
-                  booktabs = T)
+kable(pivot_wider(table, names_from = class, values_from = Freq), 
+                  booktabs = T, align = 'c')  %>% 
+  kable_styling()
 ```
 
 And we'll tidy up these data by filtering out the citations classificied to 'delete' (the false positives) in preparation for our indexing in the next step.   
@@ -351,7 +345,6 @@ dt <- dt %>%
   select(-c(predict_class, method_comparison)) %>% 
   filter(class != "delete")
 ```
-<br>  
 
 #### Interim check in: Journals and agencies from exact matching   
 
@@ -429,6 +422,7 @@ p_jour <- dt_journals %>%
   mutate(container = factor(container, levels = .$container)) %>% 
   ggplot(aes(x = container, y = n)) +
   geom_col(fill = "#03989e") +
+  labs(y = "Count", x = "", title = "Top referenced journals") +
   coord_flip() +
   theme_govuser(base_size = 10)
 
@@ -441,31 +435,32 @@ p_agency <- dt_agencies %>%
   mutate(agency = factor(agency, levels = .$agency)) %>% 
   ggplot(aes(x = agency, y = n)) +
   geom_col(fill = "#03989e") +
+  labs(y = "Count", x = "", title = "Top referenced agencies") +
   coord_flip() +
   theme_govuser(base_size = 10)
 ```
 
 
-```{r, fig.align='center', fig.width=12, fig.height=3}
+```{r, fig.align='center', fig.width=12, fig.height=3, echo = F}
 cowplot::plot_grid(p_jour, p_agency, rel_widths = c(1, 1.05))
 ```
 
 Regarding the impact factor of academic references...
 
-```{r, fig.align='center', fig.width=4, fig.height=3}
+```{r, fig.align='center', fig.width=5, fig.height=3, out.width= '50%'}
 dt_journals %>% 
   group_by(journal_title, sjr_avg) %>% 
   count() %>% 
   ungroup() %>% 
   ggplot(aes(x = sjr_avg, y = n)) +
-  geom_point() +
+  geom_point(alpha = .5) +
   geom_smooth(method = 'lm', color = "#03989e") +
   labs(x = 'Journal impact factor', y = 'Number of citations') +
   theme_govuser(base_size = 10)
 ```
 
 
-### `indexBuild`  
+### 3. `indexBuild`  
 
 Now that we have a general sense of what kind of reference types are represented within the probable citations, the next step is to try to index these reference exactly. The `indexBuild` package is designed to query the [openAlex API](https://docs.openalex.org/), an open access catalog of research, in order to build a personalized catalog relevant to the field of research. This step is optional for the `govscienceuseR` workflow, as the tool kit provides a default index with the top X research categories over the past X years [**Note: need to build some default index**]. However, building an index for a given research project will likely increase the matching abilities of the tool.  
 
@@ -482,37 +477,44 @@ themes <- dt_journals %>%
   filter(!is.na(cat)) %>% 
   group_by(cat) %>% 
   count() %>% 
-  arrange(n) %>% 
-  mutate(cat = factor(cat, levels = .$cat))
+  arrange(n)
 ```
 
 Across the journals identified in our references there are `r nrow(themes)` disciplinary categories and the top categories are displayed below.  
 
 ```{r, echo = F}
-p_theme <- themes %>% 
+p_theme <- themes %>%
+  mutate(cat = factor(cat, levels = .$cat)) %>% 
   filter(n > 48) %>% 
   ggplot(aes(x = cat, y = n)) +
   geom_col(fill = "#03989e") +
   coord_flip() +
-  labs(y = "Count", x = "", title = "Top journal themes") +
+  labs(y = "Count", x = "", title = "Top themes from journals") +
   theme_govuser(base_size = 10)
 ```
 
-```{r, fig.height = 3, fig.width = 5, fig.align='center', echo = F,}
+```{r, fig.height = 3, fig.width = 6, fig.align='center', echo = F,out.width= '50%'}
 p_theme
 ```
-
+[Also consider taking keywords? This is mainly because even though 'water science and technology' is the main theme, this doesn't match to an openAlex concept, and so I didn't want to lose out on concepts like 'water'. But then opens up a whole long list of things I'm not interested in, and because this is a massive list of concepts to build from I'd like to figure out a way to scale it back].  
 ```{r}
-keywords <- tidytext::unnest_tokens(themes, word, cat) %>% 
-  dplyr::filter(!word %in% tidytext::stop_words$word) %>% 
+personal_stop <- c("science", "theory", "apply", "theoretical", "information",
+                   "uncertainty", "system", "plan", "model", "change")
+keywords <- themes %>% 
+  tidytext::unnest_tokens(word, cat) %>% 
+  dplyr::filter(!word %in% tidytext::stop_words$word & 
+                  !word %in% personal_stop) %>% 
   mutate(word = textstem::lemmatize_words(word)) %>% 
   unique()
 ```
 
-Let's use these themes and keywords to inform our index creation. I build in a quick bit of sleep time for querying the concepts from openAlex, then apply this functions across all of the themes and keywords existing in the data. (Note: This querying of over 200 concepts takes ~5 minutes.)
-<br>  
+Let's use these themes and keywords to inform our index creation. 
 
 #### `queryConcepts()`  
+
+The `queryConcepts()` function allows us to enter themes into openAlex API and find a number of associated research concepts. I input the 192 Scimago themes and keywords into the `concept_string` argument to query the API. 
+
+[**Note: I think we should build in sleep time to this function because if you try to input multiple concepts it is rejected**]
 
 ```{r, eval = F}
 query_slowly <- function(x){
@@ -521,31 +523,41 @@ query_slowly <- function(x){
   return(index)
   Sys.sleep(1)
 }
-index <- lapply(c(themes$cat, keywords$word), query_slowly)
-# For whatever reason there was no description column for 7
-index[[12]]$description <- ""
+key_themes <- unique(c(themes$cat, keywords$word))
+index <- lapply(key_themes, query_slowly)
+# For some reason there was a bit of missing data for particular concepts
+index[[66]]$description <- ''
 indexdf <- do.call('rbind', index) %>% unique()
 ```
-
-Now we have a number of resources representing the concepts from our existing data. Here is a random look at some of them.
 
 ```{r, echo = F}
 #saveRDS(indexdf, "data/indexdf.rds")
 indexdf <- readRDS("data/indexdf.rds")
 ```
 
+From the 192 themes, openAlex identifies `r nrow(indexdf)` associated concepts, representing `r sum(indexdf$works_count)` works. 
+
+[**Note: This is not a sustainable number of works to index, so... need to ditch this or limit it severely**]
 
 ```{r, echo = F}
-DT::datatable(sample_n(indexdf, 100)[-c(3,5)], rownames = F)
+indexdf <- indexdf %>% 
+   filter(level == 0)
 ```
 
-What we end up is a list of concepts, related to which are different 'works', or specific citations. We can extract the works from those concepts below. I currently break this into two extraction rounds, small and large, because they need to be handled differently. This extraction c
+To focus our index, we select only the concepts that are associated with the themes at 'level 0' -- that is, the highest match of relevance (?). This reduces our concepts down to 15, high-level concepts, representing `r sum(indexdf$works_count)` works.
 
-<br>  
+A summary of these concepts is below:
+
+```{r, echo = F}
+DT::datatable(indexdf[,-c(3,5)], rownames = F)
+```
 
 #### `extractWorks()`  
 
+Using the concept page ID from the previous function, the `extractWorks()` function extracts the associated works from the openAlex API and saves them as compressed .json.gz files. 
+
 ```{r, eval = F}
+for(j in 2000:2020){
 sapply(indexdf$id, FUN = function(x){
   extractWorks(mailto = "belwood@ucdavis.edu",
              concept_page = x,
@@ -553,12 +565,15 @@ sapply(indexdf$id, FUN = function(x){
                               stringr::str_extract(x,'[A-Za-z0-9]+$'),
                               "_2000_2020", ".json.gz"),
              per_page = 200, # must be between 1 and 200
-             to_date = 2022,
-             from_date = 2000,
+             to_date = j,
+             from_date = j,
              sleep_time = 0.5)
 
 })
+}
 ```
+
+The .json.gz files are stored in the `dest_file` specified. 
 
 
 ```{r, eval = F, echo = F}
@@ -585,7 +600,7 @@ sapply(smallworks$id[i], FUN = function(x){
 largeworks <- filter(indexdf, works_count >= 1000000)
 
 for(i in 1:nrow(largeworks)){
-  for(j in 2000:2022){
+  for(j in 2000:2010){
 sapply(largeworks$id[i], FUN = function(x){
   extractWorks(mailto = "belwood@ucdavis.edu",
              concept_page = x,
@@ -603,11 +618,10 @@ sapply(largeworks$id[i], FUN = function(x){
 
 ```
 
-<br>   
-
 #### `works2dt()`  
 
-Here, extractions of 117 concepts resulted in over 3 million works. This conversion from json concepts to works took 12.5 hours.
+[Note: From here on we are using only a sample of the index, since it takes time to extract]. Intermin index has over 3 million works. This conversion from json concepts to works took 12.5 hours.
+
 ```{r compile records, eval = F}
 jsons <- list.files("~/Box/govscienceuseR/openalex_index_gsp/", full.names = T)
 # Anything that is 23 is empty
@@ -616,7 +630,14 @@ t1 <- Sys.time()
 records <- lapply(jsons, works2dt)
 recordsdf <- do.call("rbind", records)
 t2 <- Sys.time()
-t2-t1
+```
+
+We'll also want to make sure our record data frame has the column names that are compatible with the next stage, so let's go ahead and rename them appropriately.  
+```{r set up records, eval = F} 
+colnames(recordsdf)[c(1,2,3,5,7,8,10,12)] <- c("source", "title", "doi", 
+                                               "year", "miscid",
+                                               "journal_title",
+                                               "publisher", "authors")
 ```
 
 ```{r loads records df covert, echo = F}
@@ -624,15 +645,16 @@ t2-t1
 recordsdf <- readRDS("~/Box/govscienceuseR/records.rds")
 ```
 
-
 We've generated quite a wide database, including [draft number based on only a fraction of the concepts of interest: `r nrow(recordsdf)`] records in our index. However, this likely leaves out edge cases, and we are developing ways to develop broader indices.
 
+### 4. `referenceSearch`  
 
-### 4. `referenceSearch()`  
+Now we have our probable citations and their groupings and we have an index in which to look them up. The final step, supported by the `referenceSearch` package, is to probabilistically match the citation outputs from our GSP documents to the index of journal citations that we just built. 
 
-Now we have our probable citations and their groupings, we have an index to match them to, and now we want to probabilistically match them. 
+#### `create_queries()` 
 
 Let's isolate our probable citations that would likely map onto our index of academic reference. 
+
 ```{r}
 dt_solr <- dt %>% 
   filter(class == "journal") %>% 
@@ -645,12 +667,11 @@ dt_solr <- dt %>%
 queries <- create_queries(dt_solr)
 ```
 
-This is where you'll need your Solr instance running
-In your command line/terminal, navigate to your solr download, then start a cloud instance by ..
+#### `index_records()`  
 
-```
-path/to/solr.9.0.1/bin/solr start -c
-```
+Once our probable references have been converted into queries, we will index them with `index_records()`. We input the records data frame we generated from the index building and assign it a collection name.  
+
+This is the stage of the process where we also use the Solr software. To start a Solr instance, in the command line/terminal, navigate to your solr download, then start a cloud instance with the `start -c` command. On my computer, Solr is located in my Applications, so my Terminal commands looks like this:  
 
 ```{bash end solr 1, echo = F, eval = F}
 ~/Applications/solr-9.1.0/bin/solr stop
@@ -660,28 +681,31 @@ path/to/solr.9.0.1/bin/solr start -c
 ~/Applications/solr-9.1.0/bin/solr start -c
 ```
 
+**CHALLENGES
+For index_records, I get this error: 
+Error in collapse(tmp, inner = FALSE, indent = indent) : 
+  R character strings are limited to 2^31-1 bytes
+  
+Is it too big? 
 
-
-```{r set up records}
-#records <- "~/Box/govscienceuseR/openalex_index_gsp/"
-colnames(recordsdf)[c(1,2,3,5,7,8,10,12)] <- c("source", "title", "doi", 
-                                               "year", "miscid",
-                                           "journal_title",
-                                           "publisher", "authors")
-```
+Also the overwrite = T argument does not seem to activate anything, so I have now written gsp_index, gsp_index2, gsp_index3, ugh**
 
 ```{r index records, eval = F}
-index_records(recordsdf, collection_name = "gsp_index", overwrite = T)
+index_records(recordsdf, collection_name = "gsp_index3", overwrite = T)
 ```
 
-This does not run, I get " Error: 400 - undefined field year "
+Because the index won't build, I tried to see what would happen with just the demo data, but I also get an error: 
+
+For search_collection, I get this error:
+" Error: 400 - undefined field year " 
+
 ```{r query index one, eval = F}
 results <- search_collection(q = queries[3], 
 			                       collection_name = "WOS_demo", 
 			                       topn = 3)
 ```
 
-Waiting to run then, then
+So just saving this until later. 
 
 ```{r query index large, eval = F}
 results = list()
