@@ -24,13 +24,18 @@ theme_govuser <- function(base_size = 12, font = "Roboto mono") {
 
 ### Introduction  
 
-Understanding the policy that goes into science is important...  
-Sarewitz
-Cairney  - supply demand mismatch, inability of technical solutions to resolve political controversies
+Aligning scientific supply with policy demand in order to develop evidence-based policy is considered a gold standard by many accounts. The Biden Administration recently reaffirmed that 'It is the policy of [the Biden] Administration to make evidence-based decisions guided by the best available science and data... Scientific findings should never be distorted or influenced by political considerations' (Biden, 2021). This sentiment has been echoed by the call for use-inspired basic research to deliver innovation in service of societal goals (Stokes 2011; Fuglie & Toole 2014).  
 
-However, it can be a tedious task...
-Koontz looks in depth at 12 plans, 1,104 references across them, but these include all kinds of sources: scholarly, articles, organizations, agencies at different levels, etc.
-Desmaris and Herd (2014) 102 Regulatory Impact Assessments, describing 1,378 scholarly citations, and though recognizing the significant presence of non-scholarly citations, they do not anylze those
+However, there is broad recognition that promoting evidence-based policymaking at face value overlooks challenges related to knowledge politics and the selective use of science. Namely, policymakers' emphasis on science as a neutral arbiter masks the politics of generating and communicating scientific knowledge (Sarewitz 2000). Rather than seeing science as independent, supply and demand of science are politically linked (Sarewitz & Pielke 2007). As such, research to support evidence-based policymaking requires intentional engagement by scientists to not only reduce uncertainty through high-quality research, but also reduce ambiguity through strategic communication and problem framing (Cairney 2016). Emphasis on communication is echoed by literature on boundary spanners that can broker between the scientific and policy communities (Guston 2001).
+
+<!--- Qualitative case descriptions have described the recursive science-policy relationship for environmental issues such as acid rain, ozone repletion, and climate change (Pielke & Betsill 1997; Sarewitz 2000)--->
+
+Recognizing the complex interplay of science and policymaking, what methods can we used to better understand these dynamics? Through surveys and interviews of public servants, studies find wide variation in how policy makers interact with scientific information (Newman et al. 2016), and highlight that internal governmental reports and personal networks are among the most popular sources of information (Piczak et al. 2022). These findings have been supported and detailed through a handful of bibliometric analyses of policy documents. Desmaris and Herd (2014) evaluated 102 Regulatory Impact Assessments, confirming a majority of governmental citations and describing the prevalence of disciplines like economics, environmental science, and public health from high-impact journals across 1,378 scholarly citations. Koontz (2022) finds similar trends when analyzing 12 salmon recovery plans, categorizing 1,104 references from various sources (academic, governmental, organizational, etc.) and expanding on how science is used to support causal arguments.  
+
+The insights from bibliometric analyses of policy documents lay an important foundation for systematically quantifying the evidence used to support policy. However, it can be a tedious task...
+Unlike science of science research, where bibliometric methods are made easier through publishing norms of citations and indexing (e.g. DOIs, ORCIds, etc.), science of policy is less systematic. 
+
+Developments in computational tools for reading and analyzing large text corpora create an opportunity for automating some of the more tedious phases of bibliometry on policy documents.
 
 
 ### Method  
@@ -41,6 +46,9 @@ This is vignette walking through the steps of the R packages in the `govscienceu
 
 Sustainable Groundwater Management Act...
 The data we'll be using are documents for California's Groundwater Sustainability Plans. These documents are Groundwater Sustainability Agency-level plans, developed in response to the state's Sustainable Ground Management Act. Passed in 2014, SGMA has required that GSAs ('Agencies') develop plans to meeting various sustainability goals for groundwater, including... As such, these documents provide a useful case for evaluating the use of science in policy, as there are a variety of...
+
+"When evaluating whether a Plan is likely to achieve the sustainability goal for the basin, the Department shall consider… Whether the assumptions, criteria, findings, and objectives, including the sustainability goal… are reasonable and supported by the best available information and best available science".
+
 
 ### Getting started   
 
@@ -360,7 +368,7 @@ Below are the top 15 references journals and agencies identified by our exact ma
 ```{r wrangle data for plots, echo = F}
 data("scimago.j")
 journal_metadata <- data.frame(sjrdata::sjr_journals) %>% 
-  select(sourceid, title, categories) %>% 
+  select(sourceid, title, categories, sjr) %>% 
   separate(categories, into = paste0("cat", 1:15), sep = ";") %>% 
   unique() %>% 
   rename("journal_title" = "title")
@@ -556,6 +564,7 @@ sapply(largeworks$id[i], FUN = function(x){
 <br> 
 #### `works2dt()`  
 
+Here, extractions of 117 concepts resulted in over 3 million works. This conversion from json concepts to works took 12.5 hours.
 ```{r compile records, eval = F}
 jsons <- list.files("~/Box/govscienceuseR/openalex_index_gsp/", full.names = T)
 # Anything that is 23 is empty
@@ -564,6 +573,7 @@ t1 <- Sys.time()
 records <- lapply(jsons, works2dt)
 recordsdf <- do.call("rbind", records)
 t2 <- Sys.time()
+t2-t1
 ```
 
 ```{r loads records df covert, echo = F}
@@ -572,7 +582,7 @@ recordsdf <- readRDS("~/Box/govscienceuseR/records.rds")
 ```
 
 
-We've generated quite a wide database, including `r nrow(recordsdf)` records in our index. However, this likely leaves out edge cases, and we are developing ways to develop broader indices.
+We've generated quite a wide database, including [draft number based on only a fraction of the concepts of interest: `r nrow(recordsdf)`] records in our index. However, this likely leaves out edge cases, and we are developing ways to develop broader indices.
 
 
 ### 4. `referenceSearch()`  
