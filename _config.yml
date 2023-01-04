@@ -7,4 +7,4 @@ navbar:
   - text: "Vignettes"
     href: gsp_vignette.html
     
-remote_theme: benbalter/retlab
+remote_theme: mmistakes/minimal-mistakes
