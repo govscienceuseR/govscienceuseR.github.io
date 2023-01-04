@@ -6,5 +6,13 @@ show_downloads: false
 navbar: 
   - text: "Vignettes"
     href: gsp_vignette.html
-    
+
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jemoji
+  - jekyll-include-cache
+
 remote_theme: mmistakes/minimal-mistakes
