@@ -17,4 +17,4 @@ plugins:
   - jemoji
   - jekyll-include-cache
 
-remote_theme: daviddarnes/alembic
+theme: alembic-jekyll-theme
