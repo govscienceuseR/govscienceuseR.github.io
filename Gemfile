@@ -3,7 +3,11 @@
 source "https://rubygems.org"
 
 # gem "rails"
-
-gem "alembic-jekyll-theme"
-gem "jekyll", "~> 4.3"
+#gem "jekyll", "~> 4.3"
 gem "jekyll-gist"
+gem "jemoji"
+gem 'jekyll-sitemap'
+gem 'jekyll-paginate'
+gem 'jekyll-feed'
+gem 'jekyll-include-cache'
+gem "alembic-jekyll-theme"

@@ -2,6 +2,7 @@ title: govscienceuseR
 description: Tools for bibliographic analysis of policy documents
 logo: 'img/hexstickermanual.png'
 show_downloads: false
+url: "https://govscienceuser.github.io"
 
 header_pages:
   - gsp_vignette.html
