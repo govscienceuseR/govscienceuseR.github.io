@@ -10,4 +10,4 @@ gem 'jekyll-sitemap'
 gem 'jekyll-paginate'
 gem 'jekyll-feed'
 gem 'jekyll-include-cache'
-gem "alembic-jekyll-theme"
+gem "alembic-jekyll-theme", "~> 0.4"
