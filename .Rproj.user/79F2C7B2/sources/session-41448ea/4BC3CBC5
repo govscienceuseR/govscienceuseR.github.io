@@ -3,24 +3,24 @@
     "path": "~/Documents/GitHub/govscienceuseR.github.io/Gemfile",
     "project_path": "Gemfile",
     "type": "text",
-    "hash": "267918893",
+    "hash": "0",
     "contents": "",
-    "dirty": false,
+    "dirty": true,
     "created": 1672900943592.0,
     "source_on_save": false,
     "relative_order": 2,
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "11,1",
-        "scrollLine": "6"
+        "cursorPosition": "11,19",
+        "scrollLine": "4"
     },
     "folds": "",
     "lastKnownWriteTime": 1672939925,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1672939925109,
+    "last_content_update": 1672940726828,
     "read_only": false,
     "read_only_alternatives": []
 }
