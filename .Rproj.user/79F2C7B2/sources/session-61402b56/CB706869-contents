@@ -1,0 +1,21 @@
+title: govscienceuseR
+description: Tools for bibliographic analysis of policy documents
+logo: 'img/hexstickermanual.png'
+show_downloads: false
+url: "https://govscienceuser.github.io"
+
+header_pages:
+  - gsp_vignette.html
+#navbar: 
+#  - text: "Vignettes"
+#    href: gsp_vignette.html
+
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jemoji
+  - jekyll-include-cache
+
+theme: alembic-jekyll-theme
