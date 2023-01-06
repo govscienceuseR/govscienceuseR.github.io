@@ -1,6 +1,6 @@
 ---
 layout: page
-title: govscienceuseR 
+title: About 
 permalink: /about/
 ---
 

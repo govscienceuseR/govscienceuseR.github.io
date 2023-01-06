@@ -2,6 +2,7 @@
 pagetitle: "Vignette"
 title: "The science informing California's Groundwater Sustainability Plans"
 subtitle: "A test case using `govscienceuseR` tools"
+permalink: /vignette/
 author: 
   - Liza Wood
   - Tyler A. Scott 
@@ -9,13 +10,14 @@ output:
   html_document:
     toc: true
     toc_float: true
+    code_download: true
 ---
 
 ```{r chunk setup, include = F}
 knitr::opts_chunk$set(warning = F, message = F)
 ```
 
-```{r functions, echo= F}
+```{r functions, echo= F,message = F}
 library(showtext)
 font_add_google("Roboto mono")
 theme_govuser <- function(base_size = 12, font = "mono") {
@@ -81,8 +83,11 @@ library(referenceExtract)
 library(referenceClassify)
 library(referenceBuild)
 library(citationSearch)
-packs = c('data.table', 'dplyr', 'stringr', 'keras', 'tensorflow',
-          'tidyr', 'purrr')
+packs <- c('data.table', 'dplyr', 'stringr', 'keras', 'tensorflow',
+          'tidyr', 'purrr','sjrdata')
+if(!'sjrdata' %in% installed.packages()[,'Package']){
+  devtools::install_github('ikashnitsky/sjrdata')
+}
 sapply(packs, require, character.only = T)
 ```
 
@@ -113,12 +118,12 @@ The `referenceExtract` package from govscienceuseR is designed to take unstructu
 The first step of extracting references is to input PDF documents into the `reference_extract()` function. This function reads in every PDF in the document directory (doc_dir), and runs them through anystyle.io. Anystyle extracts probable citations and exports them to the reference directory (ref_dir) as JSON files. Depending on the number and size of files, this can take some time. For example, these 114 documents took over an hour to extract.  
 
 ```{r set ref dir covert, echo = F}
-ref_directory <- "data/ref_dir"
+ref_directory <- "gsp_vignette_files/data/ref_dir"
 ```
 
 ```{r reference extract, eval = F}
 # Extract probable citations from PDF documents and convert them to .json files
-ref_directory <- "data/ref_dir"
+ref_directory <- "gsp_vignette_files/data/ref_dir"
 reference_extract(doc_dir = doc_directory, 
                  ref_dir = ref_directory, 
                  layout = "none")
@@ -130,6 +135,7 @@ Next, the `reference_compile()` function transforms the JSON files into tabular 
 
 ```{r reference compile}
 # Compile json files into a singular tabular data table
+ref_directory
 dt <- reference_compile(ref_directory)
 ```
 
@@ -161,8 +167,8 @@ dt <- reference_clean(dt)
 ```
 
 ```{r load ref clean dt covert, echo = F}
-#saveRDS(cleaned_dt, "data/dt_post_refclean.RDS")
-dt <- readRDS("data/dt_post_refclean.RDS")
+#saveRDS(cleaned_dt, "gsp_vignette_files/data/dt_post_refclean.RDS")
+dt <- readRDS("gsp_vignette_files/data/dt_post_refclean.RDS")
 ```
 
 This cleaning process has changed probable citations now a bit. Some of the probable citations have been unnested (and therefore expanded) while others have been removed, leaving us with `r nrow(dt)` probable citations. Examples of these probable citations are below:   
@@ -266,11 +272,11 @@ dt$agency <- ifelse(dt$agency == "Fish and Wildlife Service",
                     "US Fish and Wildlife Service", dt$agency)
 dt$agency <- ifelse(dt$agency == "Forest Service", 
                     "US Forest Service", dt$agency)
-saveRDS(dt, 'data/dt_withagencies.rds')
+saveRDS(dt, 'gsp_vignette_files/data/dt_withagencies.rds')
 ```
 
 ```{r, echo = F}
-dt <- readRDS('data/dt_withagencies.rds')
+dt <- readRDS('gsp_vignette_files/data/dt_withagencies.rds')
 ```
 
 Based on these classifications, we can see the counts of exact matches, and which ones have not been classified.   
@@ -300,8 +306,8 @@ dt <- cbind(dt, select(predictions, predict_class))
 ```
 
 ```{r load post keras dt covert, echo = F}
-#saveRDS(dt, "data/dt_post_keras.RDS")
-dt <- readRDS("data/dt_post_keras.RDS")
+#saveRDS(dt, "gsp_vignette_files/data/dt_post_keras.RDS")
+dt <- readRDS("gsp_vignette_files/data/dt_post_keras.RDS")
 ```
 
 Because we ran this model on the whole data frame, we can compare our regex classification with the Keras classifications to get a sense of the model performance.  
@@ -531,8 +537,8 @@ indexdf <- do.call('rbind', index) %>% unique()
 ```
 
 ```{r, echo = F}
-#saveRDS(indexdf, "data/indexdf.rds")
-indexdf <- readRDS("data/indexdf.rds")
+#saveRDS(indexdf, "gsp_vignette_files/data/indexdf.rds")
+indexdf <- readRDS("gsp_vignette_files/data/indexdf.rds")
 ```
 
 From the 192 themes, openAlex identifies `r nrow(indexdf)` associated concepts, representing `r sum(indexdf$works_count)` works. 

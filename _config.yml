@@ -5,7 +5,7 @@ theme: minima
 
 header_pages:
   - about.md
-  - gsp_vignette.html
+  - gsp_vignette.Rmd
 
 
 # Welcome to Jekyll!
