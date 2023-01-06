@@ -3,7 +3,7 @@
     "path": "~/Documents/GitHub/govscienceuseR.github.io/Gemfile",
     "project_path": "Gemfile",
     "type": "text",
-    "hash": "3287945787",
+    "hash": "1569196289",
     "contents": "",
     "dirty": false,
     "created": 1672946877909.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "11,19",
-        "scrollLine": "2"
+        "cursorPosition": "13,0",
+        "scrollLine": "4"
     },
     "folds": "",
-    "lastKnownWriteTime": 1672981241,
+    "lastKnownWriteTime": 1672992145,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1672981241909,
+    "last_content_update": 1672992145487,
     "read_only": false,
     "read_only_alternatives": []
 }

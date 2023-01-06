@@ -1,7 +1,12 @@
 title: govscienceuseR
 #email: your-email@example.com
 description: Tools for automated extraction and disambiguation of scientific resources cited in government documents.  
-theme: just-the-docs
+theme: minima
+
+header_pages:
+  - about.md
+  - gsp_vignette.html
+
 
 # Welcome to Jekyll!
 #

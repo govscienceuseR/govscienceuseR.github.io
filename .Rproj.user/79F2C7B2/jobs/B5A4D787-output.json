@@ -1,0 +1,6 @@
+[1,"Installing 'markdown' for R Markdown...\n"]
+[2,"trying URL 'https://cran.rstudio.com/bin/macosx/contrib/4.2/markdown_1.4.tgz'\n"]
+[2,"Content type 'application/x-gzip' length 113528 bytes (110 KB)\n======="]
+[1,"The downloaded binary packages are in\n"]
+[1,"\t/var/folders/n_/4b1w6nqd5gdgtmmlrm6pm82c0000gn/T//Rtmp9BP8mW/downloaded_packages\n"]
+[2,"===========================================\ndownloaded 110 KB\n\n\n\n✔ Package 'markdown' successfully installed.\n"]
