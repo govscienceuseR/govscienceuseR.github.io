@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "32,10",
-        "scrollLine": "27"
+        "cursorPosition": "22,17",
+        "scrollLine": "15"
     },
     "folds": "",
-    "lastKnownWriteTime": 1672945684,
+    "lastKnownWriteTime": 1672981091,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1672945684,
+    "last_content_update": 1672981091840,
     "read_only": false,
     "read_only_alternatives": []
 }
