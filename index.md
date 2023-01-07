@@ -14,4 +14,4 @@ Tools for automated extraction and disambiguation of scientific resources cited 
 3. [indexBuild](https://github.com/govscienceuseR/indexBuild): Create a database of academic work to search against for disambiguation of extracted citations  
 4. [referenceSearch](https://github.com/govscienceuseR/referenceSearch): Search extracted citations against indexed database of canonical citations to match and disambiguate extracted citations 
 
-Check out a worked example applied to the [science informing California's Groundwater Sustainability Plans](https://htmlpreview.github.io/?https://github.com/govscienceuseR/govscienceuseR/vignettes/gsp_vignette.html). 
+Check out a worked example applied to the [science informing California's Groundwater Sustainability Plans](https://htmlpreview.github.io/?https://raw.githubusercontent.com/govscienceuseR/govscienceuseR/main/vignettes/gsp_vignette.html). 
