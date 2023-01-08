@@ -5,9 +5,7 @@ theme: minima
 
 header_pages:
   - about.md
-  - gsp_vignette.html
-
-
+  
 # Welcome to Jekyll!
 #
 # This config file is meant for settings that affect your whole blog, values
