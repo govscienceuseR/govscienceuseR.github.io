@@ -14,7 +14,7 @@ govscienceuseR Development Team (Tyler A. Scott, Liza Wood, and Arthur Koehl) (2
 
 @software{govscienceuseR,
   title = {govscienceuseR: Tools for automated extraction and disambiguation of scientific resources cited in government documents.},
-  author = {Tyler A. Scott, Liza Wood, and Arthur Koehl},
+  author = {Tyler A. Scott; Liza Wood; Arthur Koehl},
   date = {2022/2023},
   url = {govscienceuseR.github.io},
   organization = {GovscienceuseR Development Team}
