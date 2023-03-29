@@ -8,11 +8,6 @@ govscienceuseR is maintained by the [Center for Environmental Policy & Behavior]
 
 The govsciencesuseR software suite is open source. We encourage others to make use of these tools, and also welcome collaborations. If you use these tools, please cite the following:
 
-@Manual{,
-    author = {Liza Wood, Arthur Koehl, and Tyler A. Scott},
-    title = {govscienceuseR: Tools for automated extraction and disambiguation of scientific resources cited in government documents.},
-    organization = {govscienceuseR
-      (\url{http://www.govscienceuseR.github.io})},
-    year = {2023},
-    note = {R package version 0.1}
-  }
+govscienceuseR Development Team (Tyler A. Scott, Liza Wood, and Arthur Koehl) (2022-2023). govscienceuseR: Tools for automated extraction and disambiguation of scientific resources cited in government documents. govscienceuseR.github.io
+
+@software{govscienceuseR, title = {govscienceuseR: Tools for automated extraction and disambiguation of scientific resources cited in government documents.}, author = {Tyler A. Scott, Liza Wood, and Arthur Koehl}, date = {2022/2023}, url = {govscienceuseR.github.io}, organization = {GovscienceuseR Development Team} }
