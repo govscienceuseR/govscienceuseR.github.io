@@ -1,0 +1,1124 @@
+[
+  {
+    "author": [
+      {
+        "family": "Anderson",
+        "given": "M.Kat"
+      }
+    ],
+    "date": [
+      "2005"
+    ],
+    "title": [
+      "Taming the Wild"
+    ],
+    "publisher": [
+      "University of California Press"
+    ],
+    "location": [
+      "Berkeley, California"
+    ],
+    "type": "book"
+  },
+  {
+    "author": [
+      {
+        "family": "Alt",
+        "given": "David"
+      },
+      {
+        "family": "Hyndman",
+        "given": "Donald"
+      }
+    ],
+    "date": [
+      "1984"
+    ],
+    "title": [
+      "Roadside Geology of Washington"
+    ],
+    "publisher": [
+      "Mountain Press Publishing Company"
+    ],
+    "location": [
+      "Missoula, Montana"
+    ],
+    "type": "book"
+  },
+  {
+    "author": [
+      {
+        "family": "Berger",
+        "given": "M."
+      },
+      {
+        "family": "Whitney",
+        "given": "R."
+      },
+      {
+        "family": "Gerlinger",
+        "given": "R."
+      },
+      {
+        "family": "Tonasket",
+        "given": "P."
+      }
+    ],
+    "date": [
+      "2005"
+    ],
+    "title": [
+      "Colville Confederated Tribes Fish and Wildlife Department"
+    ],
+    "note": [
+      "Colville Confederated Tribes Columbian Sharp-tailed Grouse Management Plan."
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "family": "Backiel",
+        "given": "Adela"
+      }
+    ],
+    "date": [
+      "1994"
+    ],
+    "title": [
+      "Components of Successful Ecosystem Management.” Partnerships for Sustainable Forest Ecosystem Management, Rocky Mountain Forest and Range Experiment Station. USDA-Forest Service"
+    ],
+    "genre": [
+      "GTR RM-GTR-266."
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "family": "Becker",
+        "given": "S.A."
+      },
+      {
+        "family": "Roussin",
+        "given": "T."
+      },
+      {
+        "family": "Spence",
+        "given": "G."
+      },
+      {
+        "family": "Krausz",
+        "given": "E."
+      },
+      {
+        "family": "Martorello",
+        "given": "D."
+      },
+      {
+        "family": "Simek",
+        "given": "S."
+      },
+      {
+        "family": "Eaton",
+        "given": "K."
+      }
+    ],
+    "date": [
+      "2014"
+    ],
+    "title": [
+      "Washington Gray Wolf Conservation and Management 2013 Annual Report: A cooperative effort by the Washington Department of Fish and Wildlife, the Confederated Colville Tribes, the Spokane Tribe of Indians and the U.S. Fish and Wildlife Service"
+    ],
+    "type": null
+  },
+  {
+    "title": [
+      "British Columbia Ministry of Forests Research Program",
+      "Seral Stages Across Forested Landscapes: Relationships To Biodiversity"
+    ],
+    "date": [
+      "1998"
+    ],
+    "location": [
+      "Victoria, B.C"
+    ],
+    "publisher": [
+      "April"
+    ],
+    "type": "book"
+  },
+  {
+    "author": [
+      {
+        "literal": "Bureau of Economic Analysis - U.S. Department of Commerce."
+      }
+    ],
+    "date": [
+      "2016-04-15"
+    ],
+    "note": [
+      "Regional Input-Output Modeling System (RIMS II) ."
+    ],
+    "publisher": [
+      "El Paso"
+    ],
+    "location": [
+      "Texas"
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "literal": "Bureau of Economic Analysis - U.S. Department of Commerce."
+      }
+    ],
+    "date": [
+      "2016-04-15"
+    ],
+    "note": [
+      "Regional Input-Output Modeling System (RIMS II) ."
+    ],
+    "publisher": [
+      "El Paso"
+    ],
+    "location": [
+      "Texas"
+    ],
+    "type": null
+  },
+  {
+    "title": [
+      "Bureau of Indian Affairs and the Confederated Tribes of the Colville Reservation"
+    ],
+    "date": [
+      "1992"
+    ],
+    "publisher": [
+      "Interim Forest Management Plan"
+    ],
+    "type": "book"
+  },
+  {
+    "publisher": [
+      "Center for Applied Research"
+    ],
+    "date": [
+      "2014"
+    ],
+    "title": [
+      "Resource Assessment of the Colville Reservation"
+    ],
+    "type": "book"
+  },
+  {
+    "title": [
+      "Center for Applied Research, 2015a"
+    ],
+    "publisher": [
+      "Integrated Resource Management Plan"
+    ],
+    "type": "book"
+  },
+  {
+    "title": [
+      "Center for Applied Research, 2015b, Results of the 2014 Colville Reservation Community Survey"
+    ],
+    "type": null
+  },
+  {
+    "title": [
+      "Center for Applied Research, 2016"
+    ],
+    "publisher": [
+      "The Scoping Meetings Report"
+    ],
+    "type": "book"
+  },
+  {
+    "author": [
+      {
+        "family": "Reservation",
+        "given": "U.S.Fish"
+      },
+      {
+        "family": "Service",
+        "given": "Wildlife"
+      }
+    ],
+    "date": [
+      "1993"
+    ],
+    "title": [
+      "Grizzly Bear Recovery Plan"
+    ],
+    "location": [
+      "Missoula, Montana"
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "family": "Klock",
+        "given": "Glen"
+      }
+    ],
+    "title": [
+      "Western Resources Analysis, Inc",
+      "Integrated Resource Management Plan 2000-2014 - Final Environmental Impact Statement"
+    ],
+    "date": [
+      "2000"
+    ],
+    "note": [
+      "Confederated Tribes of the Colville Reservation."
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "family": "Klock",
+        "given": "Glen"
+      },
+      {
+        "family": "Arneson",
+        "given": "Arnie"
+      }
+    ],
+    "title": [
+      "Western Resources Analysis"
+    ],
+    "container-title": [
+      "Inc. and the Confederated Tribes of the Colville Reservation Department of Natural Resources"
+    ],
+    "date": [
+      "2001"
+    ],
+    "type": "chapter"
+  },
+  {
+    "title": [
+      "Wildland Fire Management Plan for the Colville Indian Reservation"
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "family": "Miller",
+        "given": "B.F."
+      },
+      {
+        "others": true
+      }
+    ],
+    "date": [
+      "2014"
+    ],
+    "title": [
+      "Okanogan Basin Monitoring and Evaluation Program 2014 Annual Report"
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "family": "McKim",
+        "given": "Jennifer"
+      }
+    ],
+    "date": [
+      "2012"
+    ],
+    "title": [
+      "Improvement of Anadromous Fish Habitat and Passage in Omak Creek - 2010 Annual Report"
+    ],
+    "note": [
+      "Bonneville Project Number 2000-0001-00."
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "family": "Moerman",
+        "given": "Daniel E."
+      }
+    ],
+    "date": [
+      "1998"
+    ],
+    "publisher": [
+      "Native American Ethnobotany., Timber Press"
+    ],
+    "location": [
+      "Portland - London"
+    ],
+    "type": "book"
+  },
+  {
+    "author": [
+      {
+        "family": "Murray",
+        "given": "Marian"
+      }
+    ],
+    "date": [
+      "1967"
+    ],
+    "title": [
+      "Hunting for Fossils"
+    ],
+    "publisher": [
+      "Collier Books"
+    ],
+    "location": [
+      "New York"
+    ],
+    "type": "book"
+  },
+  {
+    "author": [
+      {
+        "family": "Meyer",
+        "given": "Jon"
+      }
+    ],
+    "date": [
+      "2015"
+    ],
+    "title": [
+      "The Aftermath of the 2015 Fire Season on the Colville Reservation"
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "family": "Service",
+        "given": "Natural Resource Conservation"
+      }
+    ],
+    "date": [
+      "2004"
+    ],
+    "title": [
+      "Plant Guide"
+    ],
+    "publisher": [
+      "U.S. Department of Agriculture Natural Plants Data Center"
+    ],
+    "location": [
+      "Baton Rouge, LA"
+    ],
+    "type": "book"
+  },
+  {
+    "author": [
+      {
+        "family": "Service",
+        "given": "Natural Resources Conservation"
+      }
+    ],
+    "date": [
+      "2002"
+    ],
+    "title": [
+      "Soil Survey of Colville Indian Reservation, Washington, Parts of Ferry and Okanogan Counties"
+    ],
+    "container-title": [
+      "National Cooperative Soil Survey, U.S"
+    ],
+    "publisher": [
+      "Department of Agriculture"
+    ],
+    "type": "chapter"
+  },
+  {
+    "author": [
+      {
+        "family": "Consulting",
+        "given": "North Wind Resource"
+      }
+    ],
+    "date": [
+      "2015"
+    ],
+    "title": [
+      "Agricultural Resource Management Plan for the Colville Reservation"
+    ],
+    "type": null
+  },
+  {
+    "title": [
+      "North Wind Resource Consulting and Bureau of Indian Affairs Colville Agency"
+    ],
+    "date": [
+      "2015"
+    ],
+    "type": null
+  },
+  {
+    "title": [
+      "Integrated Weed Management Plan for the Colville Reservation"
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "family": "Consulting",
+        "given": "North Wind Resource"
+      }
+    ],
+    "date": [
+      "2013",
+      "2012"
+    ],
+    "publisher": [
+      "Colville Reservation Range Inventory"
+    ],
+    "type": "book"
+  },
+  {
+    "author": [
+      {
+        "family": "Consulting",
+        "given": "North Wind Resource"
+      }
+    ],
+    "date": [
+      "2015"
+    ],
+    "note": [
+      "LLC. Range Management Plan for the Colville Reservation."
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "family": "Products",
+        "given": "Omak Wood"
+      }
+    ],
+    "date": [
+      "2015"
+    ],
+    "title": [
+      "Report to the Community, 2014-2015"
+    ],
+    "location": [
+      "Omak, Washington"
+    ],
+    "publisher": [
+      "Omak Wood Products"
+    ],
+    "type": "book"
+  },
+  {
+    "author": [
+      {
+        "family": "Institute",
+        "given": "Pacific Biodiversity"
+      }
+    ],
+    "date": [
+      "2014"
+    ],
+    "title": [
+      "Wildlife Profiles"
+    ],
+    "location": [
+      "Winthrop, CA"
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "family": "Institute",
+        "given": "Pacific Biodiversity"
+      }
+    ],
+    "date": [
+      "2014"
+    ],
+    "title": [
+      "Comments on the Resource Assessment and additional information"
+    ],
+    "location": [
+      "Winthrop, CA"
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "family": "Parker",
+        "given": "Patricia L."
+      },
+      {
+        "family": "King",
+        "given": "Thomas F."
+      }
+    ],
+    "date": [
+      "1998"
+    ],
+    "title": [
+      "Guidelines for Evaluating and Documenting Traditional Cultural Properties"
+    ],
+    "volume": [
+
+    ],
+    "publisher": [
+      "U.S. Department of the Interior, National Park Service"
+    ],
+    "location": [
+      "Washington, D.C"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "National Register Bulletin"
+    ],
+    "issue": [
+      "38"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Passmore",
+        "given": "Gary"
+      },
+      {
+        "family": "Thorn",
+        "given": "Todd"
+      }
+    ],
+    "date": [
+      "2012"
+    ],
+    "title": [
+      "Confederated Tribes of the Colville Reservation"
+    ],
+    "publisher": [
+      "Office of Environmental Trust, Wetland Program Plan"
+    ],
+    "type": "book"
+  },
+  {
+    "author": [
+      {
+        "family": "Palmer",
+        "given": "Pete"
+      }
+    ],
+    "date": [
+      "2014"
+    ],
+    "title": [
+      "Draft Comprehensive Plan for the Colville Indian Reservation"
+    ],
+    "type": null
+  },
+  {
+    "title": [
+      "Contemporary American Indian Planning Report"
+    ],
+    "publisher": [
+      "Eastern Washington University"
+    ],
+    "date": [
+      "2014"
+    ],
+    "type": "book"
+  },
+  {
+    "title": [
+      "Parks and Recreation Program, Confederated Tribes of the Colville Reservation, 2011"
+    ],
+    "publisher": [
+      "Parks & Recreation Plan"
+    ],
+    "type": "book"
+  },
+  {
+    "author": [
+      {
+        "family": "Program",
+        "given": "Range"
+      }
+    ],
+    "date": [
+      "2011"
+    ],
+    "note": [
+      "Range Management Plan 2008-2012, Draft."
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "family": "Ray",
+        "given": "Kris"
+      }
+    ],
+    "date": [
+      "2013",
+      "2011"
+    ],
+    "title": [
+      "Environmental Trust Department, Air Emissions Inventory Criteria Pollutants Base year"
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "family": "Rellergert-Taylor",
+        "given": "Mary"
+      },
+      {
+        "family": "O’Dea",
+        "given": "Jack"
+      }
+    ],
+    "date": [
+      "1988"
+    ],
+    "title": [
+      "Bitterroot and Precision Pine A 1988 Forest History of the Colville Reservation"
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "family": "Ruby",
+        "given": "Robert H."
+      },
+      {
+        "family": "Brown",
+        "given": "John A.Collings"
+      },
+      {
+        "family": "C",
+        "given": "Cary"
+      }
+    ],
+    "date": [
+      "2013"
+    ],
+    "title": [
+      "A Guide to the Indian Tribes of the Pacific Northwest"
+    ],
+    "publisher": [
+      "University of Oklahoma Press"
+    ],
+    "location": [
+      "Norman, Oklahoma"
+    ],
+    "type": "book"
+  },
+  {
+    "author": [
+      {
+        "family": "Thomas",
+        "given": "Jack Ward"
+      }
+    ],
+    "date": [
+      "1979",
+      "2015",
+      "2015"
+    ],
+    "title": [
+      "Wildlife Habitats in Managed Forests: The Blue Mountains of Oregon and Washington",
+      "Forest Roads Management Draft"
+    ],
+    "container-title": [
+      "USDA Forest Service Agriculture Handbook"
+    ],
+    "volume": [
+
+    ],
+    "pages": [
+      "512"
+    ],
+    "publisher": [
+      "Thorn, Todd, Environmental Trust Department"
+    ],
+    "issue": [
+      "553"
+    ],
+    "type": "article-journal"
+  },
+  {
+    "author": [
+      {
+        "family": "Thorn",
+        "given": "Todd"
+      }
+    ],
+    "title": [
+      "Environmental Trust Department"
+    ],
+    "date": [
+      "2013"
+    ],
+    "note": [
+      "Water Quality Assessment Report for the CTCR for the Period 2009-2013."
+    ],
+    "type": "report"
+  },
+  {
+    "author": [
+      {
+        "family": "Warren",
+        "given": "D.D."
+      }
+    ],
+    "date": [
+      "2011-07",
+      "2010"
+    ],
+    "title": [
+      "Production, Prices, Employment, and Trade in Northwest Forest Industries",
+      "Pacific Northwest Research Station: United States Department of Agriculture"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "All Quarters"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Fish",
+        "given": "Washington Department",
+        "particle": "of"
+      },
+      {
+        "given": "Wildlife"
+      }
+    ],
+    "date": [
+      "2013"
+    ],
+    "title": [
+      "Threatened and Endangered Wildlife in Washington: 2012 Annual Report"
+    ],
+    "publisher": [
+      "Listing and Recovery Section, Wildlife Program, Washington Department of Fish and Wildlife"
+    ],
+    "location": [
+      "Olympia"
+    ],
+    "type": "book"
+  },
+  {
+    "author": [
+      {
+        "family": "Fish",
+        "given": "Washington Department",
+        "particle": "of"
+      },
+      {
+        "given": "Wildlife"
+      }
+    ],
+    "date": [
+      "2008",
+      "1999"
+    ],
+    "title": [
+      "Priority Habitats and Species List",
+      "Effectiveness of Forest Road and Timber Harvest Best Management Practices with Respect to Sediment-Related Water Quality Impacts"
+    ],
+    "location": [
+      "Olympia"
+    ],
+    "publisher": [
+      "Washington",
+      "Washington State Department of Ecology"
+    ],
+    "pages": [
+      "159"
+    ],
+    "volume": [
+
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Publication"
+    ],
+    "issue": [
+      "99-317"
+    ]
+  },
+  {
+    "title": [
+      "Washington State Office of Financial Management",
+      "Housing and Occupancy on the Colville Reservation"
+    ],
+    "date": [
+      "2014"
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "family": "Pacific",
+        "given": "W.H.P."
+      }
+    ],
+    "date": [
+      "2014",
+      "2014"
+    ],
+    "title": [
+      "Confederated Tribes of the Colville Reservation"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Long Range Transportation Plan"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Wiles",
+        "given": "G.J."
+      },
+      {
+        "family": "Allen",
+        "given": "H.L."
+      },
+      {
+        "family": "Hayes",
+        "given": "G.E."
+      }
+    ],
+    "date": [
+      "2011"
+    ],
+    "title": [
+      "Wolf Conservation and Management Plan For Washington"
+    ],
+    "publisher": [
+      "Washington Department of Fish and Wildlife"
+    ],
+    "location": [
+      "Olympia, Washington"
+    ],
+    "type": "book"
+  },
+  {
+    "author": [
+      {
+        "family": "Zhou",
+        "given": "X."
+      }
+    ],
+    "date": [
+      "2015"
+    ],
+    "title": [
+      "Production, Prices, Employment, and Trade in Northwest Forest Industries, All Quarters 2013"
+    ],
+    "location": [
+      "Pacific Northwest Research Station"
+    ],
+    "publisher": [
+      "United States Department of Agriculture"
+    ],
+    "type": "book"
+  },
+  {
+    "title": [
+      "Confederated Tribes of the Colville Reservation",
+      "Chapter 4-8 Water Quality Standards"
+    ],
+    "date": [
+      "2010"
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "given": "E.P.A."
+      }
+    ],
+    "date": [
+      "2005"
+    ],
+    "title": [
+      "Water Quality Standards Regulations: Confederated Tribes of the Colville Reservation"
+    ],
+    "url": [
+      "https://www.epa.gov/wqs-tech/water-quality-standards-regulations-confederated-tribes-colville-reservation."
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "given": "E.P.A."
+      }
+    ],
+    "date": [
+      "2007"
+    ],
+    "title": [
+      "Final Guidance on Awards of Grants to Indian Tribes under Section 106 of the Clean Water Act"
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "given": "E.P.A."
+      },
+      {
+        "family": "Hunner",
+        "given": "W."
+      }
+    ],
+    "date": [
+      "2016",
+      "2014"
+    ],
+    "title": [
+      "Storage and Retrieval and Water Quality Exchange"
+    ],
+    "url": [
+      "https://www.epa.gov/"
+    ],
+    "genre": [
+      "Hydrology Report,"
+    ],
+    "publisher": [
+      "Confederated Tribes of the Colville Reservation"
+    ],
+    "type": "report"
+  },
+  {
+    "title": [
+      "Office of Environmental Trust. Prepared as part of the 2015 Integrated Resources Management Plan"
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "family": "Thorn",
+        "given": "T."
+      }
+    ],
+    "date": [
+      "2013"
+    ],
+    "title": [
+      "Water Quality Assessment Report for the Confederated Tribes of the Colville Reservation for Period 2009-2013.Office of Environmental Trust"
+    ],
+    "type": null
+  },
+  {
+    "title": [
+      "Year Natural Resource Code Section 2001 4-7-7 Deviation from application 4-7-75 Housekeeping 2001 222-24-070 Ground-based logging 2002 4-7-61 Road maintenance 4-7-70 Skid trail 2002 4-7-61 Road maintenance 4-7-70 Skid trail 2002 4-7-61 Road maintenance 2002 4-7-7 Deviation from application 4-7-70 Skidding in SMZ 2002 4-7-61 Road erosion 2002 4-7-61 Road maintenance 2002 4-7-7 Deviation from application 4-7-70 Skidding in creek 2002 4-7-61 Road maintenance 2002 4-7-7 Logging without permit 2002 222-20-060 Deviation from application 222-24-020 Road location"
+    ],
+    "note": [
+      "in stream 2003 222-20-010 Logging without permit 2003 222-30-022 Logging in RMZ 4-7-61 Road maintenance 2003 4-7-61 Road maintenance 2003 4-7-61 Road erosion, drainage"
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "family": "Violations",
+        "given": "Natural Resource Code"
+      }
+    ],
+    "date": [
+      "2001"
+    ],
+    "title": [
+      "- 2015 Year Natural Resource Code Section 2007 4-7-60 Deficient water crossing 2007 4-9- Deviation from approved permit 2007 4-7-61 Eroding roads and crossings 2008 4-7-7 Deviation from application 4-7-9 Failure to comply w approval conditions 4-7-67 Falling"
+    ],
+    "note": [
+      "skidding, landings in RMZ 4-7-68 Failure to leave reserve trees 4-9-6 Skidding across stream"
+    ],
+    "type": null
+  },
+  {
+    "citation-number": [
+      "2008"
+    ],
+    "title": [
+      "4-7-60 Deficient water crossing, road erosion 2008 4-9-5 Machinery in stream 2008 4-7-67 Machinery in RMZ 4-9-5 Machinery in stream 2009 4-7-7 Deviation from application 4-7-67 Felling and landings in"
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "family": "Violations",
+        "given": "Natural Resource Code"
+      }
+    ],
+    "date": [
+      "2001"
+    ],
+    "title": [
+      "- 2015 Year Natural Resource Code SecDocumentation tion 2010 4-7-72 Site prep Memo 2011 4-9-10 Pond built in floodplain Notice with no permit 2013 4-7-66 Skid trail in draw Report 4-7-65 Landing erosion 4-7-60 Road erosion Informal Meeting 2014 4-7-7 Salvage Harvest w/out Permit on-site 4-7-66"
+    ],
+    "note": [
+      "Trees felled in the inner Riparian Management Zone of Capoose Creek 2014 4-7-75 Soil contamination, Notice to Comply trash"
+    ],
+    "type": null
+  },
+  {
+    "date": [
+      "2014"
+    ],
+    "title": [
+      "4-9-5 Crossed Stranger Creek Informal Meeting with Dozer without HPA Ap- on-site proval"
+    ],
+    "type": null
+  },
+  {
+    "date": [
+      "2014"
+    ],
+    "title": [
+      "4-7-7 Deviation from applica- Notice to Comply tion 4-7-9 Departure from approval conditions 4-7-66/67 Equipment in RMZ 4-9-7 Departure from approval conditions 4-9-49 Equipment crossing stream 2015 4-7-61(b"
+    ],
+    "note": [
+      "Lack of Road Main- Inf. Conf. Note tenance"
+    ],
+    "type": null
+  },
+  {
+    "citation-number": [
+      "2015"
+    ],
+    "title": [
+      "4-7-9 Deviation from applica- Inf. Conf. Note tion 4-7-61 Road drainage 4-7-66/67 Falling and harvest in RMZ"
+    ],
+    "type": null
+  },
+  {
+    "title": [
+      "Year Natural Resource Code Section 2015 4-7-9 Deviation from application 4-7-61 Road drainage 4-7-66/67 Falling and harvest in RMZ 2015 4-7-75 Soil Contamination 2015 4-9-51(1) Placing suction hoses without a Temporary Water Withdrawal Permit 4-9-57(i) Erosion with associated drafting 4-9-65 Soil Contamination 2015 4-9-49 Road approaches and ditch lines draining to natural spring near Rebecca Lake"
+    ],
+    "type": null
+  }
+]

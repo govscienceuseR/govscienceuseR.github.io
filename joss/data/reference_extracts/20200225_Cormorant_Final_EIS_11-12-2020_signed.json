@@ -1,0 +1,6787 @@
+[
+  {
+    "author": [
+      {
+        "family": "Cavitt",
+        "given": "J.F."
+      },
+      {
+        "family": "Jones",
+        "given": "S.L."
+      },
+      {
+        "family": "Wilson",
+        "given": "N.M."
+      },
+      {
+        "family": "Dieni",
+        "given": "J.S."
+      },
+      {
+        "family": "Zimmerman",
+        "given": "T.S."
+      },
+      {
+        "family": "Doster",
+        "given": "R.H."
+      },
+      {
+        "family": "Howe",
+        "given": "W.H."
+      }
+    ],
+    "date": [
+      "2014"
+    ],
+    "title": [
+      "Atlas of breeding colonial waterbirds in the interior western United States"
+    ],
+    "genre": [
+      "Research Report,"
+    ],
+    "publisher": [
+      "U.S. Department of the Interior, Fish and Wildlife Service"
+    ],
+    "location": [
+      "Denver, Colorado"
+    ],
+    "type": "report"
+  },
+  {
+    "author": [
+      {
+        "family": "Chastant",
+        "given": "J.E."
+      },
+      {
+        "family": "King",
+        "given": "D.T."
+      },
+      {
+        "family": "Weseloh",
+        "given": "D.V.C."
+      },
+      {
+        "family": "Moore",
+        "given": "D.J."
+      }
+    ],
+    "date": [
+      "2014"
+    ],
+    "title": [
+      "Population dynamics of double-crested cormorants in two interior breeding areas"
+    ],
+    "volume": [
+      "78"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Journal Wildlife Management"
+    ],
+    "pages": [
+      "3–11"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Dolbeer",
+        "given": "R.A."
+      }
+    ],
+    "date": [
+      "1991"
+    ],
+    "title": [
+      "Migration patterns of double-crested cormorants east of the Rocky Mountains"
+    ],
+    "volume": [
+      "62"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "J. Field Ornithology"
+    ],
+    "pages": [
+      "83–93"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Dorr",
+        "given": "B.S."
+      },
+      {
+        "family": "Hanson-Dorr",
+        "given": "K.C."
+      },
+      {
+        "family": "Barras",
+        "given": "S.C."
+      },
+      {
+        "family": "DeVault",
+        "given": "T.L."
+      }
+    ],
+    "date": [
+      "2016"
+    ],
+    "title": [
+      "Reproductive characteristics of double-crested cormorants (Phalacrocorax auritus) in the eastern United States: demographic information for an intensely managed species"
+    ],
+    "volume": [
+      "39"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Waterbirds"
+    ],
+    "pages": [
+      "81–85"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Dorr",
+        "given": "B.S."
+      },
+      {
+        "family": "Hatch",
+        "given": "J.J."
+      },
+      {
+        "family": "Weseloh",
+        "given": "D.V."
+      },
+      {
+        "family": "Dorr",
+        "given": "B.S."
+      },
+      {
+        "family": "Taylor",
+        "given": "J.D.",
+        "suffix": "II"
+      },
+      {
+        "family": "Werner",
+        "given": "S.J."
+      },
+      {
+        "family": "King",
+        "given": "D.T."
+      },
+      {
+        "family": "Farquar",
+        "given": "J.F."
+      },
+      {
+        "family": "Mazzocchi",
+        "given": "I.M."
+      },
+      {
+        "family": "McCullough",
+        "given": "R.D."
+      }
+    ],
+    "date": [
+      "2014",
+      "2012"
+    ],
+    "title": [
+      "Double-crested cormorant (Phalacrocorax auritus",
+      "Summer and migrational movements of satellite-marked double-crested cormorants from a breeding colony managed by egg-oiling in Lake"
+    ],
+    "container-title": [
+      "The Birds of North America"
+    ],
+    "editor": [
+      {
+        "family": "Rodewald",
+        "given": "P.G."
+      },
+      {
+        "given": "Ed)"
+      }
+    ],
+    "location": [
+      "Ithaca",
+      "Ontario, USA"
+    ],
+    "publisher": [
+      "Cornell Lab of Ornithology"
+    ],
+    "note": [
+      "Retrieved from the Birds of North America:",
+      "Waterbirds 35(special publ 1):114–123."
+    ],
+    "url": [
+      "https://birdsoftheworld.org/bow/species/doccor/cur/introduction"
+    ],
+    "type": "chapter"
+  },
+  {
+    "author": [
+      {
+        "literal": "Guillaumet, A., B. Dorr, G. Wang, J.D. Taylor 2nd, R.B. Chipman, H. Scherr, J. Bowman, K.F. Abraham, T. J. Doyle, and E. Cranker."
+      }
+    ],
+    "date": [
+      "2011"
+    ],
+    "title": [
+      "Determinants of local and migratory movements of Great Lakes doublecrested cormorants"
+    ],
+    "volume": [
+      "22"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Behavioral Ecology"
+    ],
+    "pages": [
+      "1096–1103"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Hatch",
+        "given": "J.J."
+      }
+    ],
+    "date": [
+      "1995"
+    ],
+    "title": [
+      "Changing populations of double-crested cormorants"
+    ],
+    "volume": [
+      "18"
+    ],
+    "note": [
+      "Special Publication 1):8–24."
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Colonial Waterbirds"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Johnson",
+        "given": "F.A."
+      },
+      {
+        "family": "Walters",
+        "given": "M.A.H."
+      },
+      {
+        "family": "Boomer",
+        "given": "G.S."
+      }
+    ],
+    "date": [
+      "2012"
+    ],
+    "title": [
+      "Allowable levels of take for the trade in Nearctic songbirds"
+    ],
+    "volume": [
+      "22"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Ecological Applications"
+    ],
+    "pages": [
+      "1114–1130"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Team",
+        "given": "R.Core"
+      }
+    ],
+    "date": [
+      "2012"
+    ],
+    "title": [
+      "R: A language and environment for statistical computing"
+    ],
+    "publisher": [
+      "R Foundation for Statistical Computing"
+    ],
+    "location": [
+      "Vienna, Austria"
+    ],
+    "type": "book"
+  },
+  {
+    "author": [
+      {
+        "family": "Runge",
+        "given": "M.C."
+      },
+      {
+        "family": "Kendall",
+        "given": "W.L."
+      },
+      {
+        "family": "Nichols",
+        "given": "J.D."
+      }
+    ],
+    "date": [
+      "2004"
+    ],
+    "title": [
+      "Exploitation"
+    ],
+    "genre": [
+      "Pages. 303–328"
+    ],
+    "editor": [
+      {
+        "family": "Sutherland",
+        "given": "W.J."
+      },
+      {
+        "family": "Newton",
+        "given": "I."
+      },
+      {
+        "family": "Green",
+        "given": "R.E."
+      }
+    ],
+    "container-title": [
+      "Bird ecology and conservation: a handbook of techniques"
+    ],
+    "publisher": [
+      "Oxford University Press"
+    ],
+    "location": [
+      "Oxford, United Kingdom"
+    ],
+    "type": "chapter"
+  },
+  {
+    "author": [
+      {
+        "family": "Runge",
+        "given": "M.C."
+      },
+      {
+        "family": "Sauer",
+        "given": "J.R."
+      },
+      {
+        "family": "Avery",
+        "given": "M.L."
+      },
+      {
+        "family": "Blackwell",
+        "given": "B.F."
+      },
+      {
+        "family": "Koneff",
+        "given": "M.D."
+      }
+    ],
+    "date": [
+      "2009"
+    ],
+    "title": [
+      "Assessing allowable take of migratory birds"
+    ],
+    "volume": [
+      "73"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Journal of Wildlife Management"
+    ],
+    "pages": [
+      "556–565"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Scherr",
+        "given": "H."
+      },
+      {
+        "family": "Bowman",
+        "given": "J."
+      },
+      {
+        "family": "Abraham",
+        "given": "K.F."
+      }
+    ],
+    "date": [
+      "2010"
+    ],
+    "title": [
+      "Migration and winter movements of double-crested cormorants breeding in Georgian Bay, Ontario"
+    ],
+    "volume": [
+      "33"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Waterbirds"
+    ],
+    "pages": [
+      "451–460"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Sheehan",
+        "given": "K."
+      }
+    ],
+    "date": [
+      "2013"
+    ],
+    "title": [
+      "Distribution, ecology, and trophic relationships of a colonial waterbird: the doublecrested cormorant"
+    ],
+    "genre": [
+      "PhD Dissertation,"
+    ],
+    "publisher": [
+      "Clemson University"
+    ],
+    "note": [
+      "Available at:"
+    ],
+    "url": [
+      "https://tigerprints.clemson.edu/all_dissertations/1230"
+    ],
+    "type": "thesis"
+  },
+  {
+    "author": [
+      {
+        "family": "Seamans",
+        "given": "M.E."
+      },
+      {
+        "family": "Ludwig",
+        "given": "J.P."
+      },
+      {
+        "family": "Stromborg",
+        "given": "K."
+      },
+      {
+        "family": "Ludwig",
+        "given": "F.E.",
+        "suffix": "II"
+      },
+      {
+        "family": "Ludwig",
+        "given": "F.E."
+      }
+    ],
+    "date": [
+      "2012",
+      "1979"
+    ],
+    "title": [
+      "Annual survival of double-crested cormorants from the Great Lakes"
+    ],
+    "note": [
+      "Waterbirds 35 (Special Publication):23–30."
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "family": "Fish",
+        "given": "U.S."
+      },
+      {
+        "family": "Service",
+        "given": "Wildlife"
+      }
+    ],
+    "date": [
+      "2009"
+    ],
+    "title": [
+      "Migratory bird permits: revision of expiration dates for doublecrested cormorant depredation orders"
+    ],
+    "volume": [
+      "74"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Federal Register"
+    ],
+    "pages": [
+      "15394–15398"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Fish",
+        "given": "U.S."
+      },
+      {
+        "family": "Service",
+        "given": "Wildlife"
+      }
+    ],
+    "date": [
+      "2020"
+    ],
+    "title": [
+      "Double-crested cormorant western population status evaluation, final annual 2019 report"
+    ],
+    "container-title": [
+      "Unpublished Report by Migratory Birds and Habitat Programs, U.S. Fish and Wildlife Service"
+    ],
+    "location": [
+      "Portland, Oregon"
+    ],
+    "type": "chapter"
+  },
+  {
+    "author": [
+      {
+        "family": "Wade",
+        "given": "P."
+      }
+    ],
+    "date": [
+      "1998"
+    ],
+    "title": [
+      "Calculating limits to the allowable human-caused mortality of cetaceans and pinnipeds"
+    ],
+    "volume": [
+      "14"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Marine Mammal Science"
+    ],
+    "pages": [
+      "1–37"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Aderman",
+        "given": "A.R."
+      },
+      {
+        "family": "Hill",
+        "given": "E.P."
+      }
+    ],
+    "date": [
+      "1995"
+    ],
+    "title": [
+      "Locations and numbers of double-crested cormorants using winter roosts in the Delta region of Mississippi"
+    ],
+    "volume": [
+      "18"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Colonial Waterbirds"
+    ],
+    "issue": [
+      "Spec. Pub. 1"
+    ],
+    "pages": [
+      "143–151"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Adkins",
+        "given": "J.Y."
+      },
+      {
+        "family": "Roby",
+        "given": "D.D."
+      },
+      {
+        "family": "Lyons",
+        "given": "D.E."
+      },
+      {
+        "family": "Courtot",
+        "given": "K.N."
+      },
+      {
+        "family": "Collis",
+        "given": "K."
+      },
+      {
+        "family": "Carter",
+        "given": "H.R."
+      },
+      {
+        "family": "Shuford",
+        "given": "W.D."
+      },
+      {
+        "family": "Capitolo",
+        "given": "P.J."
+      }
+    ],
+    "date": [
+      "2014"
+    ],
+    "title": [
+      "Recent population size, trends, and limiting factors for the double-crested cormorant in western North America"
+    ],
+    "volume": [
+      "78"
+    ],
+    "doi": [
+      "10.1002/jwmg.737"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Journal of Wildlife Management"
+    ],
+    "issue": [
+      "7"
+    ],
+    "pages": [
+      "1131–1142"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Adrean",
+        "given": "L."
+      }
+    ],
+    "date": [
+      "2013"
+    ],
+    "title": [
+      "Avian Predation Program: 2012 Final Report. Oregon Department of Fish and Wildlife"
+    ],
+    "location": [
+      "Tillamook, Oregon"
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "family": "Council",
+        "given": "Atlantic Flyway"
+      },
+      {
+        "family": "Council",
+        "given": "Mississippi Flyway"
+      },
+      {
+        "family": "Ayers",
+        "given": "C.R."
+      },
+      {
+        "family": "Hanson-Dorr",
+        "given": "K.C."
+      },
+      {
+        "family": "O’Dell",
+        "given": "S."
+      },
+      {
+        "family": "Lovell",
+        "given": "C.D."
+      },
+      {
+        "family": "Jones",
+        "given": "M.L."
+      },
+      {
+        "family": "Suckow",
+        "given": "J.R."
+      },
+      {
+        "family": "Dorr",
+        "given": "B.S."
+      }
+    ],
+    "date": [
+      "2010",
+      "2015"
+    ],
+    "title": [
+      "Atlantic and Mississippi Flyways Doublecrested Cormorant management plan. Cormorant Ad hoc Committees, Atlantic and Mississippi Flyway Council, Nongame Migratory Bird Technical Section"
+    ],
+    "pages": [
+      "12"
+    ],
+    "type": null
+  },
+  {
+    "title": [
+      "Impacts of colonial waterbirds on vegetation and potential restoration of island habitats"
+    ],
+    "volume": [
+      "23"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Restoration Ecology"
+    ],
+    "pages": [
+      "252–260"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Bédard",
+        "given": "J."
+      },
+      {
+        "family": "Nadeau",
+        "given": "A."
+      },
+      {
+        "family": "Lepage",
+        "given": "M."
+      }
+    ],
+    "date": [
+      "1995"
+    ],
+    "title": [
+      "Double-crested Cormorant culling in the St. Lawrence River Estuary"
+    ],
+    "volume": [
+      "18"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Colonial Waterbirds"
+    ],
+    "issue": [
+      "Special Publication 1"
+    ],
+    "pages": [
+      "78–85"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Belyea",
+        "given": "G.Y."
+      },
+      {
+        "family": "Maruca",
+        "given": "S.L."
+      },
+      {
+        "family": "Diana",
+        "given": "J.S."
+      },
+      {
+        "family": "Schneeberger",
+        "given": "P.J."
+      },
+      {
+        "family": "Scott",
+        "given": "S.J."
+      },
+      {
+        "family": "R.D. Clark",
+        "given": "J.P.Ludwig",
+        "suffix": "Jr."
+      },
+      {
+        "family": "Summer",
+        "given": "C.L."
+      }
+    ],
+    "date": [
+      "1999"
+    ],
+    "title": [
+      "Impact of double-crested cormorant predation on the yellow perch population of the Les Cheneaux Islands of Michigan"
+    ],
+    "container-title": [
+      "Pages 47-59 In Symposium on Doublecrested Cormorants: Population Status and Management Issues in the Midwest (M.E"
+    ],
+    "editor": [
+      {
+        "family": "Tobin",
+        "given": "ed)"
+      }
+    ],
+    "type": "paper-conference"
+  },
+  {
+    "title": [
+      "USDA Tech"
+    ],
+    "volume": [
+
+    ],
+    "pages": [
+      "164"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Bull"
+    ],
+    "issue": [
+      "1879"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Berkeley",
+        "given": "S.A."
+      },
+      {
+        "family": "Hixon",
+        "given": "M.A."
+      },
+      {
+        "family": "Larson",
+        "given": "R.J."
+      },
+      {
+        "family": "Love",
+        "given": "M.S."
+      }
+    ],
+    "date": [
+      "2004"
+    ],
+    "title": [
+      "Fisheries Sustainability via Protection of Age Structure and Spatial Distribution of Fish Populations"
+    ],
+    "volume": [
+      "29"
+    ],
+    "pages": [
+      "23–32"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Fisheries"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Laboratory",
+        "given": "Bird Banding"
+      }
+    ],
+    "title": [
+      "Longevity Records of North American Birds"
+    ],
+    "container-title": [
+      "Version 2019.2. Patuxent Wildlife Research Center. U.S. Geological Survey"
+    ],
+    "location": [
+      "Laurel, MD"
+    ],
+    "type": "chapter"
+  },
+  {
+    "author": [
+      {
+        "family": "Bivings",
+        "given": "A.E."
+      },
+      {
+        "family": "Hoy",
+        "given": "M.D."
+      },
+      {
+        "family": "Jones",
+        "given": "J.W."
+      }
+    ],
+    "date": [
+      "1989"
+    ],
+    "title": [
+      "Fall food habits of double-crested cormorants in Arkansas"
+    ],
+    "container-title": [
+      "Great Plains Wildlife Damage Control Workshop Proceedings. Paper 416"
+    ],
+    "url": [
+      "http://digitalcommons.unl.edu/gpwdcwp/416."
+    ],
+    "type": "paper-conference"
+  },
+  {
+    "author": [
+      {
+        "family": "Blockpoel",
+        "given": "H."
+      },
+      {
+        "family": "Blohm",
+        "given": "R.J."
+      }
+    ],
+    "date": [
+      "1976",
+      "1989"
+    ],
+    "title": [
+      "Bird hazards to aircraft. Books Canada Inc",
+      "Introduction to harvest: understanding surveys and season setting"
+    ],
+    "location": [
+      "Buffalo, NY",
+      "Washington D.C"
+    ],
+    "pages": [
+      "236"
+    ],
+    "container-title": [
+      "Proceedings of the International Waterfowl Symposium"
+    ],
+    "note": [
+      "6:118-133."
+    ],
+    "type": "paper-conference"
+  },
+  {
+    "author": [
+      {
+        "family": "Boutin",
+        "given": "C."
+      },
+      {
+        "family": "Dobbie",
+        "given": "T."
+      },
+      {
+        "family": "Carpenter",
+        "given": "D."
+      },
+      {
+        "family": "Hebert",
+        "given": "C.E."
+      }
+    ],
+    "date": [
+      "2011"
+    ],
+    "title": [
+      "Effects of double-crested cormorants (Phalacrocorax auritus Less.) on island vegetation, seedbank, and soil chemistry: Evaluating island restoration potential"
+    ],
+    "volume": [
+      "19"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Restoration Ecology"
+    ],
+    "pages": [
+      "720–727"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Burnett",
+        "given": "J.A.D."
+      },
+      {
+        "family": "Ringler",
+        "given": "N.H."
+      },
+      {
+        "family": "Lantry",
+        "given": "B.F."
+      },
+      {
+        "family": "Johnson",
+        "given": "J.H."
+      }
+    ],
+    "date": [
+      "2002"
+    ],
+    "title": [
+      "Double-crested cormorant predation on yellow perch in the eastern basin of Lake Ontario"
+    ],
+    "volume": [
+      "28"
+    ],
+    "pages": [
+      "202211"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "J. Great Lakes Res"
+    ],
+    "issue": [
+      "2"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Burr",
+        "given": "P.C."
+      }
+    ],
+    "date": [
+      "2019"
+    ],
+    "title": [
+      "Longitudinal evaluation of habitat use and foraging ecology of piscivorous avian species wintering in the Mississippi Delta"
+    ],
+    "genre": [
+      "Dissertation,"
+    ],
+    "publisher": [
+      "Mississippi State University, Department of Wildlife, Fisheries and Aquaculture"
+    ],
+    "location": [
+      "Mississippi State, Mississippi"
+    ],
+    "type": "thesis"
+  },
+  {
+    "citation-number": [
+      "https://ir.library.msstate.edu/handle/11668/14530"
+    ],
+    "note": [
+      "accessed 20 March, 2020)."
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "family": "Campo",
+        "given": "J.J."
+      },
+      {
+        "family": "Thompson",
+        "given": "B.C."
+      },
+      {
+        "family": "Barron",
+        "given": "J.C."
+      },
+      {
+        "family": "Telfair",
+        "given": "R.C.",
+        "suffix": "II"
+      },
+      {
+        "family": "Durocher",
+        "given": "P.P."
+      },
+      {
+        "family": "Gutreuter",
+        "given": "S.J."
+      }
+    ],
+    "date": [
+      "1993"
+    ],
+    "title": [
+      "Diet of Double-crested Cormorants wintering in Texas"
+    ],
+    "volume": [
+      "64"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Journal of Field Ornithology"
+    ],
+    "pages": [
+      "135–144"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Carter",
+        "given": "H.R."
+      },
+      {
+        "family": "Sowls",
+        "given": "A.L."
+      },
+      {
+        "family": "Rodway",
+        "given": "M.S."
+      },
+      {
+        "family": "Wilson",
+        "given": "U.W."
+      },
+      {
+        "family": "Lowe",
+        "given": "R.W."
+      },
+      {
+        "family": "McChesney",
+        "given": "G.J."
+      },
+      {
+        "family": "Gress",
+        "given": "F."
+      },
+      {
+        "family": "Anderson",
+        "given": "D.W."
+      }
+    ],
+    "date": [
+      "1995"
+    ],
+    "title": [
+      "Population size, trends, and conservation problems of the double-crested cormorants on the Pacific coast of North America"
+    ],
+    "volume": [
+      "18"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Colonial Waterbirds"
+    ],
+    "pages": [
+      "189–215"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Chapdelaine",
+        "given": "G."
+      },
+      {
+        "family": "Bédard",
+        "given": "J."
+      }
+    ],
+    "date": [
+      "1995",
+      "1978"
+    ],
+    "title": [
+      "Recent changes in the abundance and distribution of the doublecrested cormorant in the St",
+      "Colonial Waterbirds 18 (Spec"
+    ],
+    "location": [
+      "Lawrence River, estuary and gulf, Quebec"
+    ],
+    "volume": [
+      "1"
+    ],
+    "pages": [
+      "70–77"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Publ"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Charbonneau",
+        "given": "Joseph John"
+      },
+      {
+        "family": "Caudill",
+        "given": "J."
+      }
+    ],
+    "date": [
+      "2010",
+      "2010-09"
+    ],
+    "title": [
+      "Conserving America’s Fisheries, An Assessment of Economic Contributions from Fisheries and Aquatic Resource Conservation. U.S"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Fish and Wildlife Service, Division of Economics"
+    ]
+  },
+  {
+    "url": [
+      "https://www.fws.gov/home/feature/2011/pdf/FisheriesEconomicReport.pdf."
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "family": "Charlebois",
+        "given": "P.M."
+      },
+      {
+        "family": "Corkum",
+        "given": "L.D."
+      },
+      {
+        "family": "Jude",
+        "given": "D.J."
+      },
+      {
+        "family": "Knight",
+        "given": "C."
+      }
+    ],
+    "date": [
+      "2001"
+    ],
+    "title": [
+      "The Round Goby (Neogobius melanostomus) invasion: current research and future needs"
+    ],
+    "volume": [
+      "27"
+    ],
+    "pages": [
+      "263266"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Journal of Great Lakes Research"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Christie",
+        "given": "T.W."
+      }
+    ],
+    "date": [
+      "2019"
+    ],
+    "title": [
+      "Predation risk of Double-crested Cormorants (Phalacrocorax auritus) on commercial catfish production in the Mississippi Delta"
+    ],
+    "genre": [
+      "M.S. thesis,"
+    ],
+    "publisher": [
+      "Mississippi State University"
+    ],
+    "location": [
+      "Starkville, Mississippi"
+    ],
+    "url": [
+      "https://hdl.handle.net/11668/16474"
+    ],
+    "type": "thesis"
+  },
+  {
+    "author": [
+      {
+        "family": "Christie",
+        "given": "T."
+      },
+      {
+        "family": "Dorr",
+        "given": "B."
+      },
+      {
+        "family": "Roy",
+        "given": "L."
+      },
+      {
+        "family": "Engle",
+        "given": "C."
+      },
+      {
+        "family": "Burr",
+        "given": "P."
+      },
+      {
+        "family": "Davis",
+        "given": "B."
+      },
+      {
+        "family": "Senten",
+        "given": "J.",
+        "particle": "van"
+      },
+      {
+        "family": "Clements",
+        "given": "S."
+      },
+      {
+        "family": "Stahl",
+        "given": "T."
+      },
+      {
+        "family": "Schreck",
+        "given": "C.B."
+      }
+    ],
+    "date": [
+      "2020",
+      "2012"
+    ],
+    "title": [
+      "Cormorant Predation of Commercial Catfish Aquaculture in the Mississippi Delta. Virginia Cooperative Extension, Virginia Tech University",
+      "A comparison of the behavior and survival of coho salmon (Onchorhynchus kisutch) and steelhead trout (O. mykiss) in a small estuary system"
+    ],
+    "url": [
+      "https://www.pubs.ext.vt.edu/content/dam/pubs_ext_vt_edu/AAEC/aaec-231/AAEC-231.pdf"
+    ],
+    "volume": [
+      "363"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Aquaculture"
+    ],
+    "pages": [
+      "148–157"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Coleman",
+        "given": "J.T.H."
+      }
+    ],
+    "date": [
+      "2009"
+    ],
+    "title": [
+      "Diving behavior, predator-prey dynamics, and management efficacy of doublecrested cormorants in New York state"
+    ],
+    "publisher": [
+      "Dissertation. Cornell University"
+    ],
+    "type": "book"
+  },
+  {
+    "author": [
+      {
+        "family": "Coleman",
+        "given": "J.T.H."
+      },
+      {
+        "family": "Adams",
+        "given": "C.M."
+      },
+      {
+        "family": "Kandel",
+        "given": "M."
+      },
+      {
+        "family": "Richmond",
+        "given": "M.E."
+      }
+    ],
+    "date": [
+      "2012"
+    ],
+    "title": [
+      "Eat the invaders: the prevalence of round goby (Apollonia melanostomus) in the Diet of Double-Crested Cormorants on the Niagara River"
+    ],
+    "volume": [
+      "35"
+    ],
+    "pages": [
+      "103–113"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Waterbirds"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Collis",
+        "given": "K."
+      },
+      {
+        "family": "Adamany",
+        "given": "S."
+      },
+      {
+        "family": "Roby",
+        "given": "D.D."
+      },
+      {
+        "family": "Craig",
+        "given": "D.P."
+      },
+      {
+        "family": "Lyons",
+        "given": "D.E."
+      }
+    ],
+    "date": [
+      "2000"
+    ],
+    "title": [
+      "Avian predation on juvenile salmonids in the lower Columbia River. Annual Report for 1998 research to the Bonneville Power Administration"
+    ],
+    "location": [
+      "Portland, OR"
+    ],
+    "url": [
+      "http://www.efw.bpa.gov/Environment/EW/EWP/DOCS/REPORTS/DOWNSTRM/D334752.pdf)."
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "family": "Collis",
+        "given": "K."
+      },
+      {
+        "family": "Roby",
+        "given": "D.D."
+      },
+      {
+        "family": "Craig",
+        "given": "D.P."
+      },
+      {
+        "family": "Ryan",
+        "given": "B.A."
+      },
+      {
+        "family": "Ledgerwood",
+        "given": "R.D."
+      }
+    ],
+    "date": [
+      "2001"
+    ],
+    "title": [
+      "Colonial Waterbird Predation on Juvenile Salmonids Tagged with Passive Integrated Transponders in the Columbia River Estuary: Vulnerability of Different Salmonid Species, Stocks, and Rearing Types"
+    ],
+    "volume": [
+      "130"
+    ],
+    "pages": [
+      "385–396"
+    ],
+    "doi": [
+      "10.1577/1548-8659(2001)130"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Transactions of the American Fisheries Society"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Conniff",
+        "given": "R."
+      }
+    ],
+    "date": [
+      "1991"
+    ],
+    "title": [
+      "Why catfish farmers want to throttle the crow of the sea"
+    ],
+    "volume": [
+      "22"
+    ],
+    "pages": [
+      "54–55",
+      "44–50"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Smithsonian"
+    ],
+    "issue": [
+      "4"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Conover",
+        "given": "M.R."
+      },
+      {
+        "family": "Pitt",
+        "given": "W.C."
+      },
+      {
+        "family": "Kessler",
+        "given": "K.K."
+      },
+      {
+        "family": "Dubow",
+        "given": "T.J."
+      },
+      {
+        "family": "Sanborn",
+        "given": "W.A."
+      }
+    ],
+    "date": [
+      "1995"
+    ],
+    "title": [
+      "Review of human injuries, illnesses and economic-based losses caused by wildlife in the United States"
+    ],
+    "volume": [
+      "23"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Wildlife Society Bulletin"
+    ],
+    "pages": [
+      "407–414"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Ornithology",
+        "given": "Cornell Lab",
+        "particle": "of"
+      }
+    ],
+    "date": [
+      "2010"
+    ],
+    "title": [
+      "All about birds"
+    ],
+    "url": [
+      "http://www.allaboutbirds.org/"
+    ],
+    "publisher": [
+      "NetCommunity/ Page.aspx?pid=1189"
+    ],
+    "type": "book"
+  },
+  {
+    "author": [
+      {
+        "family": "Craig",
+        "given": "E.C."
+      },
+      {
+        "family": "Elbin",
+        "given": "S.B."
+      },
+      {
+        "family": "Danoff-Burg",
+        "given": "J.A."
+      },
+      {
+        "family": "Palmer",
+        "given": "M.I."
+      }
+    ],
+    "date": [
+      "2012"
+    ],
+    "title": [
+      "Impacts of double-crested cormorants (Phalacrocorax auritus) and other colonial waterbirds on plant and arthropod communities on islands in an urban estuary"
+    ],
+    "volume": [
+      "35"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Waterbirds"
+    ],
+    "issue": [
+      "Special Publication 1"
+    ],
+    "pages": [
+      "4–12"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Craig",
+        "given": "E.C."
+      },
+      {
+        "family": "King",
+        "given": "D.T."
+      },
+      {
+        "family": "Sparks",
+        "given": "J.P."
+      },
+      {
+        "family": "Curtis",
+        "given": "P.D."
+      }
+    ],
+    "date": [
+      "2016"
+    ],
+    "title": [
+      "Aquaculture depredation by double crested cormorants breeding in Eastern North America"
+    ],
+    "volume": [
+      "80"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Journal of Wildlife Management"
+    ],
+    "pages": [
+      "57–62"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Craig",
+        "given": "J.R."
+      },
+      {
+        "family": "Rimstidt",
+        "given": "J.D."
+      },
+      {
+        "family": "Bonnaffon",
+        "given": "C.A."
+      },
+      {
+        "family": "Collins",
+        "given": "T.K."
+      },
+      {
+        "family": "Scanlon",
+        "given": "P.F."
+      }
+    ],
+    "date": [
+      "1999"
+    ],
+    "title": [
+      "Surface water transport of lead at a shooting range"
+    ],
+    "volume": [
+      "63"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Bulletin of Environmental Contamination and Toxicology"
+    ],
+    "pages": [
+      "312–319"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Cuthbert",
+        "given": "F.J."
+      },
+      {
+        "family": "Wires",
+        "given": "L.R."
+      },
+      {
+        "family": "McKearnan",
+        "given": "J.E."
+      }
+    ],
+    "date": [
+      "2002"
+    ],
+    "title": [
+      "Potential impacts of nesting double-crested cormorants on great blue herons and black-crowned night-herons in the U.S"
+    ],
+    "volume": [
+      "28"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Great Lakes Region. Journal of Great Lakes Research"
+    ],
+    "pages": [
+      "145–154"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "M.",
+        "given": "Dalton C."
+      },
+      {
+        "family": "Ellis",
+        "given": "D."
+      },
+      {
+        "family": "Post",
+        "given": "D.M."
+      }
+    ],
+    "date": [
+      "2009"
+    ],
+    "title": [
+      "The impact of double-crested cormorant (Phalacrocorax auritus) predation on anadromous alewife (Alosa pseudoharengus) in south-central Connecticut, USA"
+    ],
+    "volume": [
+      "66"
+    ],
+    "pages": [
+      "177–186,"
+    ],
+    "url": [
+      "https://doi.org/10.1139/F08-198"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Canadian Journal of Fisheries and Aquatic Sciences"
+    ],
+    "issue": [
+      "2"
+    ],
+    "doi": [
+      "10.1139/F08-198"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "DeBruyne",
+        "given": "R.L."
+      },
+      {
+        "family": "Coleman",
+        "given": "J.T.H."
+      },
+      {
+        "family": "Jackson",
+        "given": "J.R."
+      },
+      {
+        "family": "Rudstram",
+        "given": "L.G."
+      },
+      {
+        "family": "VanDeValk",
+        "given": "A.J."
+      }
+    ],
+    "date": [
+      "2013"
+    ],
+    "title": [
+      "Analysis of prey selection by double-crested cormorants: a 15-year diet study in Oneida Lake, New York"
+    ],
+    "volume": [
+      "142"
+    ],
+    "pages": [
+      "430–446"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Transactions of the American Fisheries Society"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "DeBruyne",
+        "given": "Robin L."
+      },
+      {
+        "family": "DeVault",
+        "given": "Travis L."
+      },
+      {
+        "family": "Duerr",
+        "given": "Adam E."
+      },
+      {
+        "family": "Capen",
+        "given": "David E."
+      },
+      {
+        "family": "Pogmore",
+        "given": "Fred E."
+      },
+      {
+        "family": "Jackson",
+        "given": "James R."
+      },
+      {
+        "family": "Rudstam",
+        "given": "Lars G."
+      }
+    ],
+    "title": [
+      "Spatial and temporal comparisons of double-crested cormorant diets following the establishment of alewife in Lake Champlain"
+    ],
+    "location": [
+      "USA"
+    ],
+    "date": [
+      "2012"
+    ],
+    "publisher": [
+      "USDA National Wildlife Research Center - Staff Publications"
+    ],
+    "note": [
+      "1119."
+    ],
+    "url": [
+      "https://digitalcommons.unl.edu/icwdm_usdanwrc/1119"
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "family": "DesGranges",
+        "given": "J.L."
+      },
+      {
+        "family": "Reed",
+        "given": "A."
+      }
+    ],
+    "date": [
+      "1981"
+    ],
+    "title": [
+      "Disturbance and control of selected colonies of double-crested cormorants in Quebec"
+    ],
+    "volume": [
+      "4"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Colonial Waterbirds"
+    ],
+    "pages": [
+      "12–19"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "DeVault",
+        "given": "T.L."
+      },
+      {
+        "family": "Belant",
+        "given": "J.L."
+      },
+      {
+        "family": "Blackwell",
+        "given": "B.F."
+      },
+      {
+        "family": "Seamans",
+        "given": "T.W."
+      }
+    ],
+    "date": [
+      "2011"
+    ],
+    "title": [
+      "Interspecific variation in wildlife hazards to aircraft: implications for wildlife hazard management"
+    ],
+    "volume": [
+      "35"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Wildlife Society Bulletin"
+    ],
+    "pages": [
+      "394–402"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Dolbeer",
+        "given": "R.A."
+      }
+    ],
+    "date": [
+      "1991"
+    ],
+    "title": [
+      "Migration patterns of Double-crested Cormorants east of the Rocky Mountains"
+    ],
+    "volume": [
+
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "J. Field Ornithol"
+    ],
+    "issue": [
+      "62:83-93"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Dolbeer",
+        "given": "R.A."
+      },
+      {
+        "family": "Eschenfelder",
+        "given": "P."
+      }
+    ],
+    "date": [
+      "2003"
+    ],
+    "title": [
+      "Amplified bird-strike risks related to population increases of large birds in North America"
+    ],
+    "container-title": [
+      "Pages 49-67 in Proceedings of the 26th International Bird Strike Committee Meeting"
+    ],
+    "volume": [
+      "2"
+    ],
+    "location": [
+      "Warsaw, Poland"
+    ],
+    "type": "paper-conference"
+  },
+  {
+    "author": [
+      {
+        "family": "Dolbeer",
+        "given": "R.A."
+      },
+      {
+        "family": "Weller",
+        "given": "J.R."
+      },
+      {
+        "family": "Anderson",
+        "given": "A.L."
+      },
+      {
+        "family": "Begier",
+        "given": "M.J."
+      },
+      {
+        "family": "Dorr",
+        "given": "B.S."
+      },
+      {
+        "family": "Burger",
+        "given": "L.W."
+      },
+      {
+        "family": "Barras",
+        "given": "S.C."
+      },
+      {
+        "family": "Godwin",
+        "given": "K.C."
+      }
+    ],
+    "date": [
+      "2016",
+      "2012"
+    ],
+    "title": [
+      "Wildlife strikes to civil aircraft in the United States"
+    ],
+    "container-title": [
+      "Federal Aviation Administration National Wildlife Strike Database Serial Report"
+    ],
+    "volume": [
+
+    ],
+    "pages": [
+      "121"
+    ],
+    "note": [
+      "Economic impact of double-crested cormorant, Phalacrocorax auritus, depredation on Channel Catfish, Ictalurus punctatus, aquaculture in Mississippi, USA. Journal of the World Aquaculture Society 43:502-513."
+    ],
+    "issue": [
+      "22"
+    ],
+    "type": "article-journal"
+  },
+  {
+    "author": [
+      {
+        "family": "Dorr",
+        "given": "B.S."
+      },
+      {
+        "family": "Hanisch",
+        "given": "S.L."
+      },
+      {
+        "family": "Butchko",
+        "given": "P.H."
+      },
+      {
+        "family": "Fielder",
+        "given": "D.G."
+      }
+    ],
+    "date": [
+      "2012"
+    ],
+    "title": [
+      "Management of double crested cormorants to improve sport fisheries in Michigan: three case studies"
+    ],
+    "volume": [
+      "6"
+    ],
+    "pages": [
+      "155–168"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Human-Wildlife Interaction"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Dorr",
+        "given": "B.S."
+      },
+      {
+        "family": "Engle",
+        "given": "C.R."
+      }
+    ],
+    "date": [
+      "2015"
+    ],
+    "title": [
+      "Influence of Simulated Double‐crested Cormorant, Phalacrocorax auritus , Predation on Multiple‐batch Production of Channel Catfish, Ictalurus punctatus"
+    ],
+    "volume": [
+      "46"
+    ],
+    "pages": [
+      "319–327"
+    ],
+    "doi": [
+      "10.1111/jwas.12187"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "J World Aquacult Soc"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Dorr",
+        "given": "B.S."
+      },
+      {
+        "family": "Hanson-Dorr",
+        "given": "K.C."
+      },
+      {
+        "family": "Barras",
+        "given": "S.C."
+      },
+      {
+        "family": "DeVault",
+        "given": "T.L."
+      }
+    ],
+    "date": [
+      "2016"
+    ],
+    "title": [
+      "Reproductive characteristics of double-crested cormorants (Phalacrocorax auritus) in the eastern United States: demographic information for an intensely managed species"
+    ],
+    "volume": [
+      "39"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Waterbirds"
+    ],
+    "pages": [
+      "81–85"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Dorr",
+        "given": "B.S."
+      },
+      {
+        "family": "Hatch",
+        "given": "J.J."
+      },
+      {
+        "family": "Weseloh",
+        "given": "D.V."
+      }
+    ],
+    "date": [
+      "2014"
+    ],
+    "title": [
+      "Double-crested Cormorant (Phalacrocorax auritus), version 2.0"
+    ],
+    "container-title": [
+      "The Birds of North America"
+    ],
+    "editor": [
+      {
+        "family": "Poole",
+        "given": "A.F."
+      }
+    ],
+    "publisher": [
+      "Cornell Lab of Ornithology"
+    ],
+    "location": [
+      "Ithaca, NY, USA"
+    ],
+    "url": [
+      "https://doi.org/10.2173/bna.441"
+    ],
+    "doi": [
+      "10.2173/bna.441"
+    ],
+    "type": "chapter"
+  },
+  {
+    "author": [
+      {
+        "family": "Dorr",
+        "given": "B.S."
+      },
+      {
+        "family": "Moerke",
+        "given": "A."
+      },
+      {
+        "family": "Bur",
+        "given": "M."
+      },
+      {
+        "family": "Bassett",
+        "given": "C."
+      },
+      {
+        "family": "Aderman",
+        "given": "T."
+      },
+      {
+        "family": "Taynor",
+        "given": "D."
+      },
+      {
+        "others": true
+      }
+    ],
+    "date": [
+      "2010"
+    ],
+    "title": [
+      "Evaluation of harassment of migrating double-crested cormorants to limit depredation on sport fisheries in Michigan"
+    ],
+    "volume": [
+      "36"
+    ],
+    "pages": [
+      "215 – 223"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Journal of Great Lakes Research"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Dorr",
+        "given": "B.S."
+      },
+      {
+        "family": "Taylor",
+        "given": "J.D.",
+        "suffix": "II"
+      },
+      {
+        "family": "Werner",
+        "given": "S.J."
+      },
+      {
+        "family": "King",
+        "given": "D.T."
+      },
+      {
+        "family": "Farquar",
+        "given": "J.F."
+      },
+      {
+        "family": "Mazzocchi",
+        "given": "I.M."
+      },
+      {
+        "family": "McCullough",
+        "given": "R.D."
+      }
+    ],
+    "date": [
+      "2012"
+    ],
+    "title": [
+      "Summer and migrational movements of satellite-marked double-crested cormorants from a breeding colony managed by egg-oiling in Lake"
+    ],
+    "location": [
+      "Ontario, USA"
+    ],
+    "note": [
+      "Waterbirds 35(special publ 1):114-123."
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "family": "Doucette",
+        "given": "J.L."
+      },
+      {
+        "family": "Wissel",
+        "given": "B."
+      },
+      {
+        "family": "Somers",
+        "given": "C.M."
+      }
+    ],
+    "date": [
+      "2011"
+    ],
+    "title": [
+      "Cormorant–fisheries conflicts: Stable isotopes reveal a consistent niche for avian piscivores in diverse food webs"
+    ],
+    "volume": [
+      "21"
+    ],
+    "pages": [
+      "2987–3001"
+    ],
+    "url": [
+      "https://doi.org/10.1890/10-2384.1"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Ecological Applications"
+    ],
+    "doi": [
+      "10.1890/10-2384.1"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Duerr",
+        "given": "A.E."
+      },
+      {
+        "family": "Donovan",
+        "given": "T.M."
+      },
+      {
+        "family": "Capen",
+        "given": "D.E."
+      }
+    ],
+    "date": [
+      "2007"
+    ],
+    "title": [
+      "Management-induced reproductive failure and breeding dispersal in double-crested cormorants on Lake Champlain"
+    ],
+    "volume": [
+      "71"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Journal of Wildlife Management"
+    ],
+    "pages": [
+      "2565–2574"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Dunlop",
+        "given": "E.S."
+      },
+      {
+        "family": "Riley",
+        "given": "S."
+      }
+    ],
+    "date": [
+      "2013"
+    ],
+    "title": [
+      "The contribution of cold winter temperatures to the 2003 alewife population collapse in Lake Huron"
+    ],
+    "volume": [
+      "39"
+    ],
+    "pages": [
+      "682–689"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Journal of Great Lakes Research"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Durham",
+        "given": "L."
+      }
+    ],
+    "date": [
+      "1955"
+    ],
+    "title": [
+      "Effects of predation by cormorants and gars on fish populations of ponds in Illinois"
+    ],
+    "genre": [
+      "PhD. Dissertation,"
+    ],
+    "publisher": [
+      "Univ. Ill"
+    ],
+    "pages": [
+      "– 117"
+    ],
+    "type": "thesis"
+  },
+  {
+    "author": [
+      {
+        "family": "Eisenhower",
+        "given": "M.D."
+      },
+      {
+        "family": "Parrish",
+        "given": "D.L."
+      }
+    ],
+    "title": [
+      "Double-crested cormorant and fish interactions in a shallow basin of Lake Champlain"
+    ],
+    "volume": [
+      "32"
+    ],
+    "date": [
+      "2009"
+    ],
+    "pages": [
+      "388–399"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Waterbirds: The International Journal of Waterbird Biology"
+    ],
+    "issue": [
+      "3"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Ellison",
+        "given": "L.N."
+      },
+      {
+        "family": "Cleary",
+        "given": "L."
+      }
+    ],
+    "date": [
+      "1978"
+    ],
+    "title": [
+      "Effects of human disturbance on breeding of double-crested cormorants"
+    ],
+    "volume": [
+      "95"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Auk"
+    ],
+    "pages": [
+      "510–517"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Engle",
+        "given": "Carole R."
+      }
+    ],
+    "title": [
+      "Total Economic Effects of Catfish Losses to Birds. Catfish Farmers of Arkansas 2020 Conventions"
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "given": "Environment"
+      },
+      {
+        "family": "Canada",
+        "given": "Climate Change"
+      },
+      {
+        "family": "U.S. Environmental Protection Agency",
+        "particle": "the"
+      }
+    ],
+    "date": [
+      "2017"
+    ],
+    "title": [
+      "State of the Great Lakes 2017 Technical Report"
+    ],
+    "volume": [
+
+    ],
+    "pages": [
+      "3 1 –"
+    ],
+    "genre": [
+      "EPA 905‐R‐17‐001."
+    ],
+    "note": [
+      "Available at binational.net."
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Cat"
+    ],
+    "issue": [
+      "En161"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Database",
+        "given": "F.A.A.Wildlife Strike"
+      }
+    ],
+    "date": [
+      "2020"
+    ],
+    "note": [
+      "Version: 4.1.3 Dated on 04/27/2020."
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "family": "Farquhar",
+        "given": "J.F."
+      },
+      {
+        "family": "Mazzocchi",
+        "given": "I.M."
+      },
+      {
+        "family": "McCullough",
+        "given": "R.D."
+      },
+      {
+        "family": "Chipman",
+        "given": "R.B."
+      },
+      {
+        "family": "DeVault",
+        "given": "T.L."
+      }
+    ],
+    "date": [
+      "2012"
+    ],
+    "title": [
+      "Mitigation of Double-Crested Cormorant Impacts on Lake Ontario: From Planning and Practice to Product Delivery"
+    ],
+    "volume": [
+      "35"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Waterbirds"
+    ],
+    "pages": [
+      "56–65"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Fenech",
+        "given": "A.S."
+      },
+      {
+        "family": "Lochmann",
+        "given": "S.E."
+      },
+      {
+        "family": "Radomski",
+        "given": "A.A."
+      }
+    ],
+    "date": [
+      "2004"
+    ],
+    "title": [
+      "Seasonal diets of male and female doublecrested cormorants from an Oxbow Lake in Arkansas, USA"
+    ],
+    "volume": [
+      "27"
+    ],
+    "pages": [
+      "170–76"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Waterbirds: The International Journal of Waterbird Biology"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Fielder",
+        "given": "D.G."
+      }
+    ],
+    "date": [
+      "2004",
+      "July 20–24, 2003"
+    ],
+    "title": [
+      "Collapse of the yellow perch fishery in Les Cheneaux Islands, Lake Huron and possible causes. Pages 129–130 in T.P"
+    ],
+    "editor": [
+      {
+        "given": "Barry"
+      },
+      {
+        "family": "Jeffrey",
+        "given": "A."
+      }
+    ],
+    "container-title": [
+      "Proceedings of PERCIS III, third international percid fish symposium"
+    ],
+    "publisher": [
+      "University of Wisconsin"
+    ],
+    "location": [
+      "Madison, Wisconsin, USA"
+    ],
+    "type": "paper-conference"
+  },
+  {
+    "author": [
+      {
+        "family": "Fielder",
+        "given": "D.G."
+      }
+    ],
+    "date": [
+      "2008"
+    ],
+    "title": [
+      "Examination of factors contributing to the decline of yellow perch population and fishery in Les Cheneaux Islands, Lake Huron, with emphasis on the role of double-crested cormorants"
+    ],
+    "volume": [
+      "34"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Journal of Great Lakes Research"
+    ],
+    "pages": [
+      "506–523"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Fielder",
+        "given": "D.G."
+      }
+    ],
+    "date": [
+      "2010"
+    ],
+    "title": [
+      "Response of the yellow perch in the Les Cheneaux Islands, Lake Huron to declining numbers of double-crested cormorants stemming from control activities"
+    ],
+    "volume": [
+      "36"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Journal of Great Lakes Research"
+    ],
+    "pages": [
+      "207–214"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Fielder",
+        "given": "D.G."
+      },
+      {
+        "family": "Borgeson",
+        "given": "D.J."
+      },
+      {
+        "family": "Bowen",
+        "given": "A.K."
+      },
+      {
+        "family": "Koproski",
+        "given": "S.R."
+      },
+      {
+        "family": "Greenwood",
+        "given": "S.J."
+      },
+      {
+        "family": "Wright",
+        "given": "G.M."
+      }
+    ],
+    "date": [
+      "2003"
+    ],
+    "type": null
+  },
+  {
+    "title": [
+      "Population dynamics of the St. Marys River fish community 1975–2002"
+    ],
+    "publisher": [
+      "Great Lakes Fisheries Commission, Ann Arbor"
+    ],
+    "location": [
+      "Michigan, USA"
+    ],
+    "type": "book"
+  },
+  {
+    "author": [
+      {
+        "family": "Fielder",
+        "given": "D.G."
+      }
+    ],
+    "date": [
+      "2008"
+    ],
+    "title": [
+      "Examination of factors contributing to the decline of yellow perch population and fishery in Les Cheneaux Islands, Lake Huron with emphasis on the role of double-crested cormorants"
+    ],
+    "volume": [
+      "34"
+    ],
+    "pages": [
+      "506–523"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "J Great Lakes Res"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Fielder",
+        "given": "D.G."
+      },
+      {
+        "family": "Godby",
+        "given": "N."
+      },
+      {
+        "family": "Bowen",
+        "given": "A."
+      },
+      {
+        "family": "O’Connor",
+        "given": "L."
+      },
+      {
+        "family": "Parish",
+        "given": "J."
+      },
+      {
+        "family": "Greenwood",
+        "given": "S."
+      },
+      {
+        "family": "Chong",
+        "given": "S."
+      },
+      {
+        "family": "Wright",
+        "given": "G."
+      }
+    ],
+    "date": [
+      "2007"
+    ],
+    "type": null
+  },
+  {
+    "title": [
+      "Population dynamics of the St. Marys River fish community 1975–2006"
+    ],
+    "publisher": [
+      "Great Lakes Fisheries Commission, Ann Arbor"
+    ],
+    "location": [
+      "Michigan, USA"
+    ],
+    "type": "book"
+  },
+  {
+    "author": [
+      {
+        "family": "Center",
+        "given": "Fish Passage"
+      }
+    ],
+    "date": [
+      "2014"
+    ],
+    "title": [
+      "Fish Passage Center Adult Passage Data"
+    ],
+    "note": [
+      "Available on-line at"
+    ],
+    "url": [
+      "https://www.fpc.org/."
+    ],
+    "type": null
+  },
+  {
+    "title": [
+      "Food and Agriculture Organization of the United Nations (FAO",
+      "The State of World Fisheries and Aquaculture 2018 - Meeting the sustainable development goals"
+    ],
+    "date": [
+      "2018"
+    ],
+    "location": [
+      "Rome"
+    ],
+    "note": [
+      "License: CC BY-NC-SA 3.0 IGO."
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "family": "Glahn",
+        "given": "J.F."
+      },
+      {
+        "family": "Brugger",
+        "given": "K.E."
+      }
+    ],
+    "date": [
+      "1995"
+    ],
+    "title": [
+      "The impact of double-crested cormorants on the Mississippi delta catfish industry: a bioenergetic model"
+    ],
+    "volume": [
+      "18"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Colonial Waterbirds"
+    ],
+    "issue": [
+      "Spec. Publ. 1"
+    ],
+    "pages": [
+      "137–142"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Glahn",
+        "given": "J.F."
+      },
+      {
+        "family": "Dixson",
+        "given": "P.J."
+      },
+      {
+        "family": "Littauer",
+        "given": "G.A."
+      },
+      {
+        "family": "McCoy",
+        "given": "R.B."
+      }
+    ],
+    "date": [
+      "1995"
+    ],
+    "title": [
+      "Food habits of double-crested cormorants wintering in the Delta Region of Mississippi"
+    ],
+    "volume": [
+      "18"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Colonial Waterbirds"
+    ],
+    "issue": [
+      "Spec. Publ. 1"
+    ],
+    "pages": [
+      "158–167"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Glahn",
+        "given": "J.F."
+      },
+      {
+        "family": "Harrel",
+        "given": "J.B."
+      },
+      {
+        "family": "Vyles",
+        "given": "C."
+      }
+    ],
+    "date": [
+      "1998"
+    ],
+    "title": [
+      "The diet of wintering double-crested cormorants feeding at lakes in the southeastern United States"
+    ],
+    "volume": [
+      "21"
+    ],
+    "pages": [
+      "445–52"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Colonial Waterbirds"
+    ],
+    "issue": [
+      "3"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Glahn",
+        "given": "J.F."
+      },
+      {
+        "family": "Tobin",
+        "given": "M.E."
+      },
+      {
+        "family": "Blackwell",
+        "given": "B.F."
+      }
+    ],
+    "date": [
+      "2000"
+    ],
+    "title": [
+      "A science-based initiative to manage double-crested cormorant damage to Southern Aquaculture"
+    ],
+    "location": [
+      "USDA, APHIS",
+      "Colorado"
+    ],
+    "publisher": [
+      "WS National Wildlife Research Center Staff Publications",
+      "Fort Collins"
+    ],
+    "pages": [
+      "532"
+    ],
+    "type": "book"
+  },
+  {
+    "author": [
+      {
+        "family": "Glahn",
+        "given": "J.F."
+      },
+      {
+        "family": "Tobin",
+        "given": "M.E."
+      },
+      {
+        "family": "Harrel",
+        "given": "J.B."
+      }
+    ],
+    "date": [
+      "1999"
+    ],
+    "title": [
+      "Possible effects of catfish exploitation on overwinter body condition of double-crested cormorants"
+    ],
+    "note": [
+      "Pg 107-113 in (M.E. Tobin, Tech."
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "given": "Coord"
+      }
+    ],
+    "title": [
+      "Symposium on double-crested cormorants: Population status and management issues in the Midwest",
+      "Milwaukee, Wisconsin"
+    ],
+    "date": [
+      "1997-12-09"
+    ],
+    "genre": [
+      "Tech. Bull. 1879."
+    ],
+    "location": [
+      "Washington, D.C"
+    ],
+    "publisher": [
+      "U.S. Department of Agriculture, Animal and Plant Health Inspection Service"
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "family": "Göktepe",
+        "given": "O."
+      },
+      {
+        "family": "Hundt",
+        "given": "P."
+      },
+      {
+        "family": "Porter",
+        "given": "W."
+      },
+      {
+        "family": "Pereira",
+        "given": "D."
+      }
+    ],
+    "date": [
+      "2012"
+    ],
+    "title": [
+      "Comparing Bioenergetics Models of Doublecrested Cormorant (Phalacrocorax auritus"
+    ],
+    "volume": [
+      "35"
+    ],
+    "pages": [
+      "91–102"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Fish Consumption. Waterbirds"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Gresh",
+        "given": "T."
+      },
+      {
+        "family": "Lichatowich",
+        "given": "J.A."
+      },
+      {
+        "family": "Schoonmaker",
+        "given": "P."
+      }
+    ],
+    "date": [
+      "2000"
+    ],
+    "title": [
+      "An estimation of historic and current levels of salmon production in the Northeast Pacific ecosystem: evidence of a nutrient deficit in the freshwater systems of the Pacific Northwest"
+    ],
+    "volume": [
+      "25"
+    ],
+    "pages": [
+      "15–21"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Fisheries"
+    ],
+    "issue": [
+      "1"
+    ]
+  },
+  {
+    "editor": [
+      {
+        "family": "Groot",
+        "given": "C."
+      },
+      {
+        "given": "LMargolis"
+      }
+    ],
+    "date": [
+      "1991"
+    ],
+    "title": [
+      "Pacific Salmon Life Histories"
+    ],
+    "publisher": [
+      "UBC, Press, University of British Columbia"
+    ],
+    "location": [
+      "Vancouver, Canada"
+    ],
+    "type": "book"
+  },
+  {
+    "author": [
+      {
+        "family": "Guillaumet",
+        "given": "A."
+      },
+      {
+        "family": "Dorr",
+        "given": "B."
+      },
+      {
+        "family": "Wang",
+        "given": "G."
+      },
+      {
+        "family": "Doyle",
+        "given": "T."
+      }
+    ],
+    "date": [
+      "2014"
+    ],
+    "title": [
+      "The cumulative effects of management on the population dynamics of the Double-crested Cormorant Phalacrocorax auritus in the Great Lakes"
+    ],
+    "volume": [
+      "156"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Ibis"
+    ],
+    "pages": [
+      "141–152"
+    ]
+  },
+  {
+    "author": [
+      {
+        "literal": "Guillaumet, A., B. Dorr, G. Wang, J. Taylor, 2nd, R. B. Chipman, H. Scherr, J. Bowman, K. F. Abraham, T. Doyle, E. Cranker."
+      }
+    ],
+    "date": [
+      "2011"
+    ],
+    "title": [
+      "Determinants of local and migratory movements of Great Lakes Double-crested Cormorants"
+    ],
+    "volume": [
+      "22"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Behavioral Ecology"
+    ],
+    "pages": [
+      "1096–1103"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "I.",
+        "given": "Han"
+      },
+      {
+        "family": "Yoo.",
+        "given": "K."
+      },
+      {
+        "family": "Wee",
+        "given": "G.N."
+      },
+      {
+        "family": "No",
+        "given": "J.H."
+      },
+      {
+        "family": "Park",
+        "given": "J."
+      },
+      {
+        "family": "Min",
+        "given": "S.J."
+      },
+      {
+        "family": "Kim",
+        "given": "S.H."
+      },
+      {
+        "family": "Leea",
+        "given": "T.K."
+      }
+    ],
+    "date": [
+      "2017"
+    ],
+    "title": [
+      "Short-term effects of great cormorant droppings on water quality and microbial community of an artificial agricultural reservoir"
+    ],
+    "volume": [
+      "46"
+    ],
+    "pages": [
+      "470–476"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "J. Environ qual. Mar"
+    ],
+    "issue": [
+      "2"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Hatch",
+        "given": "J.J."
+      }
+    ],
+    "date": [
+      "1995"
+    ],
+    "title": [
+      "Changing population of double-crested cormorants"
+    ],
+    "volume": [
+      "18"
+    ],
+    "note": [
+      "Special Publications 1):8-24."
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Colonial Waterbirds"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Hebert",
+        "given": "C.E."
+      },
+      {
+        "family": "Duffe",
+        "given": "J."
+      },
+      {
+        "family": "Weseloh",
+        "given": "D.V.C."
+      },
+      {
+        "family": "Senese",
+        "given": "E.M.T."
+      },
+      {
+        "family": "Haffner",
+        "given": "G.D."
+      }
+    ],
+    "date": [
+      "2005"
+    ],
+    "title": [
+      "Unique island habitats may be threatened by double-crested cormorants"
+    ],
+    "volume": [
+      "69"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Journal of Wildlife Management"
+    ],
+    "pages": [
+      "68–76"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Hegde",
+        "given": "Shraddha"
+      },
+      {
+        "family": "Kumar",
+        "given": "G."
+      },
+      {
+        "family": "Mississippi State Hirsch",
+        "given": "K."
+      }
+    ],
+    "date": [
+      "2019",
+      "1986"
+    ],
+    "title": [
+      "Economics of Bird Depredation: A Catfish Case Study",
+      "Colony expansion and food habits of double-crested cormorants in Minnesota"
+    ],
+    "publisher": [
+      "National Warmwater Aquaculture Center"
+    ],
+    "volume": [
+      "13"
+    ],
+    "pages": [
+      "32–33"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Pacific Seabird Group Bull"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Hobson",
+        "given": "K.A."
+      },
+      {
+        "family": "Knapton",
+        "given": "R.W."
+      },
+      {
+        "family": "Lysack",
+        "given": "W."
+      }
+    ],
+    "date": [
+      "1989",
+      "1987"
+    ],
+    "title": [
+      "Population, diet and reproductive success of doublecrested cormorants breeding on Lake Winnipegosis"
+    ],
+    "location": [
+      "Manitoba"
+    ],
+    "volume": [
+      "12"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Colonial Waterbirds"
+    ],
+    "pages": [
+      "191–197"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Hunter",
+        "given": "W.C."
+      },
+      {
+        "family": "Golder",
+        "given": "W."
+      },
+      {
+        "family": "Melvin",
+        "given": "S."
+      },
+      {
+        "family": "Wheeler",
+        "given": "J."
+      }
+    ],
+    "date": [
+      "2006"
+    ],
+    "title": [
+      "Southeast United States Regional Waterbird Conservation Plan. Waterbird Conservation for the Americas"
+    ],
+    "url": [
+      "http://www.waterbirdconservation.org/."
+    ],
+    "note": [
+      "Accessed May 12, 2017"
+    ],
+    "type": null
+  },
+  {
+    "title": [
+      "Idaho Department of Fish and Game",
+      "Fishery Management 2013 Annual Report, Southeast Region"
+    ],
+    "date": [
+      "2015"
+    ],
+    "genre": [
+      "IDFG 15-101."
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "family": "Jackson",
+        "given": "J.A."
+      },
+      {
+        "family": "Jackson",
+        "given": "B.J.S."
+      }
+    ],
+    "date": [
+      "1995"
+    ],
+    "title": [
+      "The Double-crested Cormorant in the south-central United States: habitat and population changes of a feathered pariah"
+    ],
+    "volume": [
+      "18"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Colon. Waterbirds"
+    ],
+    "issue": [
+      "Spec. Publ. 1"
+    ],
+    "pages": [
+      "118–130"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Jarvie",
+        "given": "S."
+      },
+      {
+        "family": "Blokpoel",
+        "given": "H."
+      },
+      {
+        "family": "Chipperfield",
+        "given": "T."
+      }
+    ],
+    "date": [
+      "1997",
+      "1997-12-09"
+    ],
+    "title": [
+      "A geographic information system to monitor nest distributions of double-crested cormorants and black-crowned night-herons at shared colony sites near Toronto, Canada"
+    ],
+    "container-title": [
+      "Pp 121-129 in (M.E. Tobin, Tech. Coord.). Symposium on double-crested cormorants: Population status and management issues in the Midwest"
+    ],
+    "location": [
+      "Milwaukee"
+    ],
+    "publisher": [
+      "WI"
+    ],
+    "genre": [
+      "Tech. Bull."
+    ],
+    "type": "paper-conference"
+  },
+  {
+    "citation-number": [
+      "1879."
+    ],
+    "location": [
+      "Washington, D.C.:U.S"
+    ],
+    "publisher": [
+      "Department of Agriculture, Animal and Plant Health Inspection Service"
+    ],
+    "type": "book"
+  },
+  {
+    "author": [
+      {
+        "family": "Johnsgard",
+        "given": "P.A."
+      },
+      {
+        "family": "Johnson",
+        "given": "J.H."
+      },
+      {
+        "family": "M.Klindt",
+        "given": "R."
+      },
+      {
+        "family": "I.Mazzocchi",
+        "given": "A.Mathers"
+      }
+    ],
+    "date": [
+      "1993",
+      "2015"
+    ],
+    "title": [
+      "Cormorants, Darters, and Pelicans of the World. Smithsonian Inst",
+      "From yellow perch to round goby: A review of double-crested cormorant diet and fish consumption at Three St"
+    ],
+    "publisher": [
+      "Press"
+    ],
+    "location": [
+      "Washington, D.C",
+      "Lawrence River"
+    ],
+    "pages": [
+      "445"
+    ],
+    "type": "book"
+  },
+  {
+    "author": [
+      {
+        "given": "Colonies"
+      }
+    ],
+    "date": [
+      "1999"
+    ],
+    "volume": [
+      "41"
+    ],
+    "pages": [
+      "259–265"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Journal of Great Lakes Research"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Johnson",
+        "given": "J.H."
+      },
+      {
+        "family": "Ross",
+        "given": "R.M."
+      },
+      {
+        "family": "McCullough",
+        "given": "R.D."
+      }
+    ],
+    "date": [
+      "2002"
+    ],
+    "title": [
+      "Little Galloo Island, Lake Ontario: A Review of Nine Years of Double-crested Cormorant Diet and Fish Consumption Information"
+    ],
+    "volume": [
+      "28"
+    ],
+    "pages": [
+      "182–192"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Journal of Great Lakes Research"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Johnson",
+        "given": "J.H."
+      },
+      {
+        "family": "Ross",
+        "given": "R.M."
+      },
+      {
+        "family": "McCullough",
+        "given": "R.D."
+      },
+      {
+        "family": "Mathers",
+        "given": "A."
+      }
+    ],
+    "date": [
+      "2010"
+    ],
+    "title": [
+      "Diet shift of double-crested cormorants in eastern Lake Ontario associated with the expansion of the invasive round goby"
+    ],
+    "volume": [
+      "36"
+    ],
+    "pages": [
+      "242–247"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Journal of Great Lakes Research"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Kamstra",
+        "given": "J.M."
+      },
+      {
+        "family": "Oldham",
+        "given": "M.J."
+      },
+      {
+        "family": "Woodliffe",
+        "given": "P.A."
+      }
+    ],
+    "date": [
+      "1995"
+    ],
+    "title": [
+      "A life science inventory and evaluation of six natural areas in the Erie islands"
+    ],
+    "location": [
+      "Essex County, Ontario",
+      "Aylmer District",
+      "Aylmer, Ontario, Canada"
+    ],
+    "publisher": [
+      "Fish Point",
+      "Ontario Ministry of Natural Resources"
+    ],
+    "container-title": [
+      "Provincial Nature Reserve, Lighthouse Point Provincial Nature Reserve, Stone Road Complex, Middle Point, East Sister Island Provincial Nature Reserve and Middle Island"
+    ],
+    "type": "chapter"
+  },
+  {
+    "author": [
+      {
+        "family": "Kendall",
+        "given": "R.J."
+      },
+      {
+        "family": "T. E. Lacher",
+        "given": "C.Bunck",
+        "suffix": "Jr."
+      },
+      {
+        "family": "Daniel",
+        "given": "B."
+      },
+      {
+        "family": "Driver",
+        "given": "C."
+      },
+      {
+        "family": "Grue",
+        "given": "C.E."
+      },
+      {
+        "family": "Leighton",
+        "given": "F."
+      },
+      {
+        "family": "Stansley",
+        "given": "W."
+      },
+      {
+        "family": "Watanabe",
+        "given": "P.G."
+      },
+      {
+        "family": "Whitworth",
+        "given": "M."
+      }
+    ],
+    "date": [
+      "1996"
+    ],
+    "title": [
+      "An ecological risk assessment of lead shot exposure in nonwaterfowl avian species: Upland game birds and raptors"
+    ],
+    "volume": [
+      "15"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Environmental Toxicology and Chemistry"
+    ],
+    "issue": [
+      "420"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Keefer",
+        "given": "M.L."
+      },
+      {
+        "family": "Peery",
+        "given": "C.A."
+      }
+    ],
+    "date": [
+      "2008"
+    ],
+    "title": [
+      "A literature review relevant to juvenile fall Chinook salmon habitat use, migration behavior, and survival in the lower Snake River. A technical report for Contract W912EF-08-D-005"
+    ],
+    "note": [
+      "Available at:"
+    ],
+    "url": [
+      "http://www.webpages.uidaho.edu/uiferl/pdf%20reports/UI%20Snake%20River%20Fall"
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "family": "Kimble",
+        "given": "S.J.A."
+      },
+      {
+        "family": "Dorr",
+        "given": "B.S."
+      },
+      {
+        "family": "Hanson-Dorr",
+        "given": "K.C."
+      },
+      {
+        "family": "Rhodes",
+        "given": "O.E.",
+        "suffix": "Jr"
+      },
+      {
+        "family": "DeVault",
+        "given": "T.L."
+      }
+    ],
+    "date": [
+      "2020"
+    ],
+    "title": [
+      "Migratory Flyways May Affect Population Structure in Double‐Crested Cormorants"
+    ],
+    "volume": [
+      "84"
+    ],
+    "url": [
+      "https://DOI.org/10.1002/jwmg.21848."
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "The Journal of Wildlife Management"
+    ],
+    "issue": [
+      "5"
+    ],
+    "pages": [
+      "948–956"
+    ],
+    "doi": [
+      "10.1002/jwmg.21848."
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "King",
+        "given": "D."
+      },
+      {
+        "family": "Finch",
+        "given": "D.M."
+      }
+    ],
+    "date": [
+      "2013",
+      "2013"
+    ],
+    "title": [
+      "The Effects of Climate Change on Terrestrial Birds of North America",
+      "U.S"
+    ],
+    "publisher": [
+      "June",
+      "Department of Agriculture"
+    ],
+    "location": [
+      "Forest Service, Climate Change Resource Center"
+    ],
+    "note": [
+      "www.fs.usda.gov/ccrc/topics/wildlife/birds"
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "family": "Klett",
+        "given": "B.F."
+      },
+      {
+        "family": "Parkhurst",
+        "given": "D.F."
+      },
+      {
+        "family": "Gaines",
+        "given": "F.R."
+      },
+      {
+        "family": "P",
+        "given": "Klimaszyk"
+      },
+      {
+        "family": "Rzymski",
+        "given": "P."
+      }
+    ],
+    "date": [
+      "1998",
+      "2016"
+    ],
+    "title": [
+      "The Kensico Watershed Study: 1993 – 1995",
+      "The complexity of ecological impacts induced by great cormorants"
+    ],
+    "url": [
+      "http://www.epa.gov/owowwtrl/watershed/Proceed/klett.html"
+    ],
+    "volume": [
+      "771"
+    ],
+    "editor": [
+      {
+        "family": "Koh",
+        "given": "S."
+      },
+      {
+        "family": "Tanentzap",
+        "given": "A.J."
+      },
+      {
+        "family": "Mouland",
+        "given": "G."
+      },
+      {
+        "family": "Dobbie",
+        "given": "T."
+      },
+      {
+        "family": "Carr",
+        "given": "L."
+      },
+      {
+        "family": "Keitel",
+        "given": "J."
+      },
+      {
+        "family": "Hogsden",
+        "given": "K."
+      },
+      {
+        "family": "Harvey",
+        "given": "G."
+      },
+      {
+        "family": "Hudson",
+        "given": "J."
+      },
+      {
+        "given": "R."
+      }
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Hydrobiologia"
+    ],
+    "pages": [
+      "13–31"
+    ]
+  },
+  {
+    "author": [
+      {
+        "given": "Thorndyke"
+      }
+    ],
+    "date": [
+      "2012"
+    ],
+    "title": [
+      "Double-crested cormorants alter forest structure and increase damage indices of individual trees on island habitats in Lake Erie"
+    ],
+    "volume": [
+      "35"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Waterbirds"
+    ],
+    "pages": [
+      "13–22"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Korfanty",
+        "given": "C."
+      },
+      {
+        "family": "Miyasaki",
+        "given": "W.G."
+      },
+      {
+        "family": "Harcus",
+        "given": "J.L."
+      }
+    ],
+    "date": [
+      "1999",
+      "1997-12-09"
+    ],
+    "title": [
+      "Review of the population status and management of double-crested cormorants in Ontario"
+    ],
+    "container-title": [
+      "Pg 131-145 in (M.E. Tobin, Tech. Coord.) Symposium on doublecrested cormorants: Population status and management issues in the Midwest"
+    ],
+    "location": [
+      "Milwaukee",
+      "Washington, D.C"
+    ],
+    "publisher": [
+      "WI",
+      "U.S. Department of Agriculture, Animal and Plant Health Inspection Service"
+    ],
+    "genre": [
+      "Tech. Bull. 1879."
+    ],
+    "type": "paper-conference"
+  },
+  {
+    "author": [
+      {
+        "family": "Kury",
+        "given": "C.R."
+      },
+      {
+        "family": "Gochfeld",
+        "given": "M."
+      }
+    ],
+    "date": [
+      "1975"
+    ],
+    "title": [
+      "Human interference and gull predation in cormorant colonies"
+    ],
+    "volume": [
+      "8"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Biological Conservation"
+    ],
+    "pages": [
+      "23–34"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "R.",
+        "given": "Lafferty J."
+      },
+      {
+        "family": "Hanson-Dorr",
+        "given": "K.C."
+      },
+      {
+        "family": "Prisock",
+        "given": "A.M."
+      },
+      {
+        "family": "Dorr",
+        "given": "B.S."
+      }
+    ],
+    "date": [
+      "2016"
+    ],
+    "title": [
+      "Biotic and abiotic impacts of doublecrested cormorant breeding colonies on forested islands in the southeastern United States"
+    ],
+    "volume": [
+      "369"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Forest Ecology and Management"
+    ],
+    "pages": [
+      "10–19"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Laidlaw",
+        "given": "M.A."
+      },
+      {
+        "family": "Mielke",
+        "given": "H.W."
+      },
+      {
+        "family": "Filippelli",
+        "given": "G.M."
+      },
+      {
+        "family": "Johnson",
+        "given": "D.L."
+      },
+      {
+        "family": "Gonzales",
+        "given": "C.R."
+      }
+    ],
+    "date": [
+      "2005"
+    ],
+    "title": [
+      "Seasonality and children's blood lead levels: Developing a predictive model using climatic variables and blood lead data from Indianapolis"
+    ],
+    "location": [
+      "Indiana, Syracuse, New York, and New Orleans, Louisiana, USA"
+    ],
+    "note": [
+      "Environmental Health Perspectives 113:793–800."
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "family": "Lantry",
+        "given": "B.F."
+      },
+      {
+        "family": "Eckert",
+        "given": "T.H."
+      },
+      {
+        "family": "Schneider",
+        "given": "C.P."
+      },
+      {
+        "family": "Chrisman",
+        "given": "J.R."
+      }
+    ],
+    "date": [
+      "2002"
+    ],
+    "title": [
+      "The relationship between the abundance of Smallmouth Bass and Double-crested Cormorants in the eastern basin of Lake Ontario"
+    ],
+    "volume": [
+      "28"
+    ],
+    "pages": [
+      "193–201"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Journal of Great Lakes Research"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Lemmon",
+        "given": "C.R."
+      },
+      {
+        "family": "Burgbee",
+        "given": "G."
+      },
+      {
+        "family": "Stephens",
+        "given": "G.R."
+      }
+    ],
+    "date": [
+      "1994"
+    ],
+    "title": [
+      "Tree damage by nesting double-crested cormorants in Connecticut"
+    ],
+    "volume": [
+      "14"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Connecticut Warbler"
+    ],
+    "pages": [
+      "27–30"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Lewis",
+        "given": "H.F."
+      }
+    ],
+    "date": [
+      "1929"
+    ],
+    "title": [
+      "The natural history of the double-crested cormorant (Phalacrocorax auritus"
+    ],
+    "publisher": [
+      "Ru-MiLou Books"
+    ],
+    "location": [
+      "Ottawa, Ontario"
+    ],
+    "type": "book"
+  },
+  {
+    "author": [
+      {
+        "family": "Lichatowich",
+        "given": "J."
+      }
+    ],
+    "date": [
+      "2001"
+    ],
+    "title": [
+      "Salmon without rivers: a history of the Pacific salmon crisis"
+    ],
+    "publisher": [
+      "Island Press"
+    ],
+    "location": [
+      "Washington, D.C"
+    ],
+    "type": "book"
+  },
+  {
+    "author": [
+      {
+        "family": "Linnell",
+        "given": "M.A."
+      },
+      {
+        "family": "Conover",
+        "given": "M.R."
+      },
+      {
+        "family": "Ohashi",
+        "given": "T.J."
+      }
+    ],
+    "date": [
+      "1996"
+    ],
+    "title": [
+      "Analysis of bird strikes at a tropical airport"
+    ],
+    "volume": [
+      "60"
+    ],
+    "pages": [
+      "935–945"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Journal of Wildlife Management"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Lyons",
+        "given": "D.E."
+      },
+      {
+        "family": "Roby",
+        "given": "D.D."
+      },
+      {
+        "family": "Evans",
+        "given": "A.F."
+      },
+      {
+        "family": "Hostetter",
+        "given": "N.J."
+      },
+      {
+        "family": "Collis",
+        "given": "K."
+      }
+    ],
+    "date": [
+      "2014"
+    ],
+    "title": [
+      "Benefits to Columbia River anadromous salmonids from potential reductions in predation by double-crested cormorants nesting at the East Sand Island colony: A report to the U.S"
+    ],
+    "note": [
+      "Available on-line at www.birdresearchnw.org."
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Army Corps of Engineers Portland District. Bird Research Northwest"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Madura",
+        "given": "P.T."
+      },
+      {
+        "family": "Jones",
+        "given": "H.P."
+      }
+    ],
+    "date": [
+      "2016"
+    ],
+    "title": [
+      "Invasive species sustain double-crested cormorants in southern Lake Michigan"
+    ],
+    "volume": [
+      "42"
+    ],
+    "pages": [
+      "413–420"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Journal of Great Lakes Research"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Mattison",
+        "given": "P.M."
+      }
+    ],
+    "date": [
+      "2006"
+    ],
+    "title": [
+      "Quantifying disturbance factors and effects in common terns (Sterna hiundo) using visual, audio, and reproductive data"
+    ],
+    "genre": [
+      "M.S. Thesis,"
+    ],
+    "publisher": [
+      "Cornell University"
+    ],
+    "location": [
+      "Ithaca, New York"
+    ],
+    "type": "thesis"
+  },
+  {
+    "author": [
+      {
+        "family": "Meadows",
+        "given": "S.A."
+      }
+    ],
+    "date": [
+      "2007"
+    ],
+    "title": [
+      "food habits of Double-crested Cormorants in southern Green Bay with emphasis on impacts on the yellow perch fishery - final summary report"
+    ],
+    "note": [
+      "Report prepared for the Wisconsin Department of Natural Resources."
+    ],
+    "type": "report"
+  },
+  {
+    "author": [
+      {
+        "family": "McGrath",
+        "given": "D.M."
+      },
+      {
+        "family": "Murphy",
+        "given": "S.D."
+      }
+    ],
+    "date": [
+      "2012"
+    ],
+    "title": [
+      "Double-crested cormorant (Phalacrocorax auritus) nesting effects on understory composition and diversity on island ecosystems in Lake Erie"
+    ],
+    "volume": [
+      "50"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Environmental Management"
+    ],
+    "pages": [
+      "304–314"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Mercer",
+        "given": "D.M."
+      }
+    ],
+    "date": [
+      "2008"
+    ],
+    "title": [
+      "Phylogeography and population genetic structure of double-crested cormorants (Phalacrocorax auritus"
+    ],
+    "genre": [
+      "M.S. thesis,"
+    ],
+    "publisher": [
+      "Oregon State University"
+    ],
+    "location": [
+      "Corvallis, Oregon"
+    ],
+    "type": "thesis"
+  },
+  {
+    "author": [
+      {
+        "family": "Mercer",
+        "given": "D.M."
+      },
+      {
+        "family": "Haig",
+        "given": "S.M."
+      },
+      {
+        "family": "Roby",
+        "given": "D.D."
+      }
+    ],
+    "title": [
+      "Phylogeography and population genetic structure of doublecrested cormorants (Phalacrocorax auritus"
+    ],
+    "volume": [
+      "14"
+    ],
+    "pages": [
+      "823–836"
+    ],
+    "date": [
+      "2013"
+    ],
+    "url": [
+      "https://doi.org/10.1007/s10592-013-0477-8"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Conserv Genet"
+    ],
+    "doi": [
+      "10.1007/s10592-013-0477-8"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Moore",
+        "given": "D."
+      },
+      {
+        "family": "Weseloh",
+        "given": "D.V.C."
+      },
+      {
+        "family": "Careless",
+        "given": "P."
+      },
+      {
+        "family": "Tyerman",
+        "given": "D."
+      }
+    ],
+    "date": [
+      "2005"
+    ],
+    "title": [
+      "Effects of culling cormorants on sympatrically nesting herons and egrets on Lake Ontario"
+    ],
+    "publisher": [
+      "Waterbird Society Meeting Abstracts, Jekyll Island"
+    ],
+    "location": [
+      "Georgia"
+    ],
+    "type": "book"
+  },
+  {
+    "author": [
+      {
+        "family": "Moore",
+        "given": "D.J."
+      },
+      {
+        "family": "Blokpoel",
+        "given": "H."
+      },
+      {
+        "family": "Lampman",
+        "given": "K.P."
+      },
+      {
+        "family": "Weseloh",
+        "given": "D."
+      }
+    ],
+    "date": [
+      "1995"
+    ],
+    "title": [
+      "Status, ecology and management of colonial waterbirds nesting in Hamilton Harbour, Lake Ontario, 1988–1994"
+    ],
+    "genre": [
+      "Tech. Rep. Ser. 213."
+    ],
+    "publisher": [
+      "Canadian Wildlife Service"
+    ],
+    "location": [
+      "Ontario Region"
+    ],
+    "type": "report"
+  },
+  {
+    "author": [
+      {
+        "family": "Mortensen",
+        "given": "S."
+      },
+      {
+        "family": "Ringle",
+        "given": "J."
+      }
+    ],
+    "date": [
+      "2007"
+    ],
+    "title": [
+      "Changes in colonial waterbird populations on Leech Lake"
+    ],
+    "volume": [
+      "79"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Loon"
+    ],
+    "pages": [
+      "130–142"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Mott",
+        "given": "D.F."
+      },
+      {
+        "family": "Glahn",
+        "given": "J.F."
+      },
+      {
+        "family": "Smith",
+        "given": "P.L."
+      },
+      {
+        "family": "Reinhold",
+        "given": "D.S."
+      },
+      {
+        "family": "Bruce",
+        "given": "K.J."
+      },
+      {
+        "family": "Sloan",
+        "given": "C.A."
+      }
+    ],
+    "date": [
+      "1998"
+    ],
+    "title": [
+      "An evaluation of winter roost harassment for dispersing double-crested cormorants away from catfish production areas in Mississippi"
+    ],
+    "volume": [
+      "26"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Wildlife Society Bulletin"
+    ],
+    "pages": [
+      "584–591"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Meyer",
+        "given": "K.A."
+      },
+      {
+        "family": "Sullivan",
+        "given": "C.L."
+      },
+      {
+        "family": "Kennedy",
+        "given": "P."
+      },
+      {
+        "family": "Schill",
+        "given": "Dl J."
+      },
+      {
+        "family": "Teuscher",
+        "given": "D.M."
+      },
+      {
+        "family": "Brimmer",
+        "given": "A.F."
+      },
+      {
+        "family": "King",
+        "given": "D.T."
+      }
+    ],
+    "date": [
+      "2016"
+    ],
+    "title": [
+      "Predation by American white pelicans and double-crested cormorants on catchable-sized hatchery rainbow rrout in select Idaho lentic waters"
+    ],
+    "volume": [
+      "36"
+    ],
+    "pages": [
+      "294308"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "North American Journal of Fisheries Management"
+    ],
+    "issue": [
+      "2"
+    ]
+  },
+  {
+    "container-title": [
+      "National Oceanic Atmospheric Administration (NOAA"
+    ],
+    "date": [
+      "2011"
+    ],
+    "title": [
+      "What is Aquaculture"
+    ],
+    "url": [
+      "https://www.noaa.gov/stories/what-is-aquaculture"
+    ],
+    "type": "chapter"
+  },
+  {
+    "title": [
+      "Species to Administer Maintenance or Improvement of Stormwater, Transportation or Utility Actions Authorized or Carried Out by the U.S. Army Corps of Engineers in Oregon (SLOPES for Stormwater, Transportation or Utilities"
+    ],
+    "note": [
+      "March 14, 2014) (Refer to: NMFS No.: NWR-2013-10411). National Marine Fisheries Service, Northwest Region. Portland, Oregon."
+    ],
+    "type": null
+  },
+  {
+    "title": [
+      "Ohio Division of Wildlife, USDA Wildlife Services, and Ottawa National Wildlife Refuge"
+    ],
+    "container-title": [
+      "2012. Report of DCCO Management Activities – PRDO"
+    ],
+    "date": [
+      "2012"
+    ],
+    "pages": [
+      "5"
+    ],
+    "type": "chapter"
+  },
+  {
+    "author": [
+      {
+        "given": "N.O.A.A."
+      }
+    ],
+    "date": [
+      "2020"
+    ],
+    "title": [
+      "Endangered Species Act Section 7(a)(2"
+    ],
+    "container-title": [
+      "Biological Opinion and Magnuson-Stevens Fishery Conservation and Management Act Essential Fish Habitat Response for the Continued Operation and Maintenance of the Columbia River System"
+    ],
+    "pages": [
+      "1,500"
+    ],
+    "type": "chapter"
+  },
+  {
+    "author": [
+      {
+        "family": "Organ",
+        "given": "J.F."
+      },
+      {
+        "family": "Geist",
+        "given": "V."
+      },
+      {
+        "family": "Mahoney",
+        "given": "S.P."
+      },
+      {
+        "family": "Williams",
+        "given": "S."
+      },
+      {
+        "family": "Krausman",
+        "given": "P.R."
+      },
+      {
+        "family": "Batcheller",
+        "given": "G.R."
+      },
+      {
+        "family": "Decker",
+        "given": "T.A."
+      },
+      {
+        "family": "Carmichael",
+        "given": "R."
+      },
+      {
+        "family": "Nanjappa",
+        "given": "P."
+      },
+      {
+        "family": "Regan",
+        "given": "R."
+      },
+      {
+        "family": "Medellin",
+        "given": "R.A."
+      },
+      {
+        "family": "Cantu",
+        "given": "R."
+      },
+      {
+        "family": "McCabe",
+        "given": "R.E."
+      },
+      {
+        "family": "Craven",
+        "given": "S."
+      },
+      {
+        "family": "Vecellio",
+        "given": "G.M."
+      },
+      {
+        "family": "Decker",
+        "given": "D.J."
+      }
+    ],
+    "date": [
+      "2012"
+    ],
+    "title": [
+      "The North American Model of Wildlife Conservation"
+    ],
+    "pages": [
+      "12–04"
+    ],
+    "publisher": [
+      "The Wildlife Society"
+    ],
+    "location": [
+      "Bethesda, Maryland, USA"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "The Wildlife Society Technical Review"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Council",
+        "given": "Pacific Flyway"
+      },
+      {
+        "family": "Council",
+        "given": "Pacific Flyway"
+      }
+    ],
+    "date": [
+      "2012",
+      "2013"
+    ],
+    "title": [
+      "Pacific Flyway plan: A framework for the management of doublecrested cormorant depredation on fish resources in the Pacific Flyway. Pacific Flyway Council, United States Fish and Wildlife Service, Portland",
+      "A monitoring strategy for the western Population of Double-crested Cormorants within the Pacific Flyway"
+    ],
+    "volume": [
+      "55"
+    ],
+    "pages": [
+
+    ],
+    "location": [
+      "Pacific Flyway Council",
+      "Portland, Oregon"
+    ],
+    "publisher": [
+      "U.S. Fish and Wildlife Service"
+    ],
+    "note": [
+      "37pp."
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Oregon"
+    ]
+  },
+  {
+    "editor": [
+      {
+        "family": "Palmer",
+        "given": "R.S."
+      }
+    ],
+    "date": [
+      "1962"
+    ],
+    "volume": [
+      "1"
+    ],
+    "publisher": [
+      "Yale University Press"
+    ],
+    "location": [
+      "New Haven, CT"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Handbook of North American birds"
+    ]
+  },
+  {
+    "author": [
+      {
+        "given": "Posadas"
+      }
+    ],
+    "title": [
+      "B.C"
+    ],
+    "volume": [
+      "7"
+    ],
+    "date": [
+      "2017-06-20"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Mississippi MarketMaker Newsletter"
+    ],
+    "issue": [
+      "12"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Price",
+        "given": "I.M."
+      },
+      {
+        "family": "Nickum",
+        "given": "J.G."
+      }
+    ],
+    "date": [
+      "1995"
+    ],
+    "title": [
+      "Aquaculture and birds: The context for controversy"
+    ],
+    "volume": [
+      "18"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Colonial Waterbirds"
+    ],
+    "pages": [
+      "33–45"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Reinhold",
+        "given": "D.S."
+      },
+      {
+        "family": "Sloan",
+        "given": "C.A."
+      }
+    ],
+    "date": [
+      "1999"
+    ],
+    "title": [
+      "Strategies to reduce double-crested cormorant depredation at aquaculture facilities in Mississippi"
+    ],
+    "genre": [
+      "Pg 99-105"
+    ],
+    "editor": [
+      {
+        "family": "Tobin",
+        "given": "M.E."
+      }
+    ],
+    "container-title": [
+      "Symposium on double-crested cormorants: Population status and management issues in the Midwest. 9"
+    ],
+    "type": "paper-conference"
+  },
+  {
+    "date": [
+      "1997-12"
+    ],
+    "title": [
+      "Milwaukee, Wisconsin"
+    ],
+    "genre": [
+      "Tech. Bull. 1879."
+    ],
+    "location": [
+      "Washington, D.C"
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "family": "Rippey",
+        "given": "E."
+      },
+      {
+        "family": "Rippey",
+        "given": "J.J."
+      },
+      {
+        "family": "Dunlop",
+        "given": "J.N."
+      }
+    ],
+    "date": [
+      "2002"
+    ],
+    "title": [
+      "Increasing numbers of pied cormorants breeding on the islands off Perth, Western Australia and the consequences for the vegetation"
+    ],
+    "volume": [
+      "26"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Corella"
+    ],
+    "pages": [
+      "61–64"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Roby",
+        "given": "D.D."
+      },
+      {
+        "family": "Collis",
+        "given": "K."
+      },
+      {
+        "family": "Lyons",
+        "given": "D."
+      },
+      {
+        "family": "Adkins",
+        "given": "J."
+      },
+      {
+        "family": "Suzuki",
+        "given": "Y."
+      },
+      {
+        "family": "Loschl",
+        "given": "P."
+      },
+      {
+        "family": "Lawes",
+        "given": "T."
+      },
+      {
+        "family": "Bixler",
+        "given": "K."
+      },
+      {
+        "family": "Peck‐Richardson",
+        "given": "A."
+      },
+      {
+        "family": "Patterson",
+        "given": "A."
+      },
+      {
+        "family": "Collar",
+        "given": "S."
+      },
+      {
+        "family": "Banet",
+        "given": "N."
+      },
+      {
+        "family": "Dickson",
+        "given": "K."
+      },
+      {
+        "family": "Gasper",
+        "given": "G."
+      },
+      {
+        "family": "Kreiensieck",
+        "given": "L."
+      },
+      {
+        "family": "Atkins",
+        "given": "K."
+      },
+      {
+        "family": "Drizd",
+        "given": "L."
+      },
+      {
+        "family": "Tennyson",
+        "given": "J."
+      },
+      {
+        "family": "Evans",
+        "given": "A.Mohoric A."
+      },
+      {
+        "family": "Cramer",
+        "given": "B."
+      },
+      {
+        "family": "Hawbecker",
+        "given": "M."
+      },
+      {
+        "family": "Hostetter",
+        "given": "N."
+      },
+      {
+        "family": "Zamon",
+        "given": "J."
+      },
+      {
+        "family": "Kuligowski",
+        "given": "D."
+      }
+    ],
+    "date": [
+      "2013"
+    ],
+    "note": [
+      "Research, monitoring and evaluation of avian predation on salmonid smolts in the lower and mid-Columbia River."
+    ],
+    "type": null
+  },
+  {
+    "title": [
+      "Final 2012 Annual Report. Prepared for Bonneville Power Administration and the U.S"
+    ],
+    "publisher": [
+      "Army Corp of Engineers"
+    ],
+    "pages": [
+      "239 10 9 2013"
+    ],
+    "note": [
+      "Available at:"
+    ],
+    "url": [
+      "www.birdresearchnw.org."
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "family": "Roby",
+        "given": "D.D."
+      },
+      {
+        "family": "Collis",
+        "given": "K."
+      },
+      {
+        "family": "Lyons",
+        "given": "D."
+      },
+      {
+        "family": "Adkins",
+        "given": "J."
+      },
+      {
+        "family": "Suzuki",
+        "given": "Y."
+      },
+      {
+        "family": "Loschl",
+        "given": "P."
+      },
+      {
+        "family": "Lawes",
+        "given": "T."
+      },
+      {
+        "family": "Bixler",
+        "given": "K."
+      },
+      {
+        "family": "Peck‐Richardson",
+        "given": "A."
+      },
+      {
+        "family": "Patterson",
+        "given": "A."
+      },
+      {
+        "family": "Collar",
+        "given": "S."
+      },
+      {
+        "family": "Piggott",
+        "given": "A."
+      },
+      {
+        "family": "Davis",
+        "given": "H."
+      },
+      {
+        "family": "Mannas",
+        "given": "J."
+      },
+      {
+        "family": "Laws",
+        "given": "A."
+      },
+      {
+        "family": "Mulligan",
+        "given": "J."
+      },
+      {
+        "family": "Young",
+        "given": "K."
+      },
+      {
+        "family": "Kostka",
+        "given": "P."
+      },
+      {
+        "family": "Banet",
+        "given": "N."
+      },
+      {
+        "family": "Schniedermeyer",
+        "given": "E."
+      },
+      {
+        "family": "Wilson",
+        "given": "A."
+      },
+      {
+        "family": "Mohoric",
+        "given": "A."
+      },
+      {
+        "family": "Evans",
+        "given": "A."
+      },
+      {
+        "family": "Cramer",
+        "given": "B."
+      },
+      {
+        "family": "Hawbecker",
+        "given": "M."
+      },
+      {
+        "family": "Hostetter",
+        "given": "N."
+      },
+      {
+        "family": "Turecek",
+        "given": "A."
+      },
+      {
+        "family": "Zamon",
+        "given": "J."
+      },
+      {
+        "family": "Kuligowski",
+        "given": "D."
+      }
+    ],
+    "date": [
+      "2014"
+    ],
+    "title": [
+      "Research, monitoring and evaluation of avian predation on salmonid smolts in the lower and mid-Columbia River"
+    ],
+    "container-title": [
+      "Final 2013 Annual Report. Prepared for the Bonneville Power Administration, the U.S. Army Corps of Engineers, and the Grant County Public Utility District"
+    ],
+    "pages": [
+      "251 7 31 2014"
+    ],
+    "note": [
+      "Available at:"
+    ],
+    "url": [
+      "www.birdresearchnw.org."
+    ],
+    "type": "chapter"
+  },
+  {
+    "author": [
+      {
+        "family": "Robinson",
+        "given": "M."
+      }
+    ],
+    "date": [
+      "1996",
+      "1980"
+    ],
+    "title": [
+      "The potential for significant financial loss resulting from bird strikes in or around an airport"
+    ],
+    "volume": [
+      "22"
+    ],
+    "pages": [
+      "353–367"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Proceedings of the Bird Strike Committee Europe"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Rudstam",
+        "given": "L.G."
+      },
+      {
+        "family": "VanDeValk",
+        "given": "A.J."
+      },
+      {
+        "family": "Adams",
+        "given": "C.M."
+      },
+      {
+        "family": "Coleman",
+        "given": "J.T.H."
+      },
+      {
+        "family": "Forney",
+        "given": "J.L."
+      },
+      {
+        "family": "Richmond",
+        "given": "M.E."
+      }
+    ],
+    "date": [
+      "2004"
+    ],
+    "title": [
+      "Cormorant predation and the population dynamics of walleye and yellow perch in Oneida Lake"
+    ],
+    "volume": [
+      "14"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Ecological Applications"
+    ],
+    "pages": [
+      "149–163"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Runge",
+        "given": "M.C."
+      },
+      {
+        "family": "Kendall",
+        "given": "W.L."
+      },
+      {
+        "family": "Nichols",
+        "given": "J.D."
+      }
+    ],
+    "date": [
+      "2004"
+    ],
+    "title": [
+      "Exploitation"
+    ],
+    "genre": [
+      "Pages 303–328"
+    ],
+    "editor": [
+      {
+        "family": "J.",
+        "given": "Sutherland W."
+      },
+      {
+        "family": "Newton",
+        "given": "I."
+      },
+      {
+        "family": "Green",
+        "given": "R.E."
+      }
+    ],
+    "container-title": [
+      "Bird Ecology and Conservation: A Handbook of Techniques"
+    ],
+    "publisher": [
+      "Oxford University Press"
+    ],
+    "location": [
+      "Oxford, UK"
+    ],
+    "type": "chapter"
+  },
+  {
+    "author": [
+      {
+        "family": "Schramm",
+        "given": "H.L.",
+        "suffix": "Jr."
+      },
+      {
+        "family": "French",
+        "given": "B."
+      },
+      {
+        "family": "Ednoff",
+        "given": "M."
+      }
+    ],
+    "date": [
+      "1984"
+    ],
+    "title": [
+      "Depredation of channel catfish by Florida double-crested cormorants"
+    ],
+    "volume": [
+      "46"
+    ],
+    "pages": [
+      "41–43"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Progr. Fish-Cult"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Schultz",
+        "given": "D.W."
+      },
+      {
+        "family": "Carlson",
+        "given": "A.J."
+      },
+      {
+        "family": "Mortensen",
+        "given": "S."
+      },
+      {
+        "family": "Pereira",
+        "given": "D.L."
+      }
+    ],
+    "date": [
+      "2013"
+    ],
+    "title": [
+      "Modeling population dynamics and fish consumption of managed double-crested cormorant colony in Minnesota"
+    ],
+    "volume": [
+      "33"
+    ],
+    "pages": [
+      "1283–1300"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "North American Journal of Fisheries Management"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Sebring",
+        "given": "S.H."
+      },
+      {
+        "family": "Carper",
+        "given": "M.C."
+      },
+      {
+        "family": "Ledgerwood",
+        "given": "R.D."
+      },
+      {
+        "family": "Sandford",
+        "given": "B.P."
+      },
+      {
+        "family": "Matthews",
+        "given": "G.M."
+      },
+      {
+        "family": "Evans",
+        "given": "A.F."
+      }
+    ],
+    "date": [
+      "2013"
+    ],
+    "title": [
+      "Relative vulnerability of PIT-tagged subyearling fall Chinook salmon to predation by Caspian terns and double-crested cormorants in the Columbia River Estuary"
+    ],
+    "volume": [
+      "142"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Transactions of the American Fisheries Society"
+    ],
+    "pages": [
+      "1321–1334"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Seefelt",
+        "given": "N.E."
+      },
+      {
+        "family": "Gillingham",
+        "given": "J.C."
+      }
+    ],
+    "date": [
+      "2008"
+    ],
+    "title": [
+      "Bioenergetics and prey consumption of breeding double-crested cormorants in the Beaver Archipelago, Northern Lake Michigan"
+    ],
+    "volume": [
+      "34"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Journal of Great Lakes Research"
+    ],
+    "pages": [
+      "122–133"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Sheehan",
+        "given": "K."
+      }
+    ],
+    "date": [
+      "2013"
+    ],
+    "title": [
+      "Distribution, ecology, and trophic relationships of a colonial waterbird: the doublecrested cormorant"
+    ],
+    "genre": [
+      "PhD Dissertation,"
+    ],
+    "publisher": [
+      "Clemson University"
+    ],
+    "note": [
+      "Available at:"
+    ],
+    "url": [
+      "https://tigerprints.clemson.edu/all_dissertations/1230"
+    ],
+    "type": "thesis"
+  },
+  {
+    "author": [
+      {
+        "family": "Shieldcastle",
+        "given": "M.C."
+      },
+      {
+        "family": "Martin",
+        "given": "L."
+      },
+      {
+        "family": "Shwiff",
+        "given": "Stephanie A."
+      },
+      {
+        "family": "Kirkpatrick",
+        "given": "Katy N."
+      },
+      {
+        "family": "DeVault",
+        "given": "Travis L."
+      },
+      {
+        "family": "Shwiff",
+        "given": "Steven S."
+      }
+    ],
+    "date": [
+      "1999",
+      "2015",
+      "1717"
+    ],
+    "title": [
+      "Colonial waterbird nesting on West Sister Island national wildlife refuge and the arrival of double-crested cormorants. Pages 115–119 in Symposium on double-crested cormorants: Population status and management issues in the Midwest",
+      "Modeling the economic impacts of doublecrested cormorant damage to a recreational fishery"
+    ],
+    "editor": [
+      {
+        "family": "Tobin",
+        "given": "M.E."
+      }
+    ],
+    "container-title": [
+      "technical coordinator. 9 December 1997, Technical Bulletin 1879. U.S. Department of Agriculture"
+    ],
+    "location": [
+      "APHIS, Washington, D.C., USA"
+    ],
+    "publisher": [
+      "USDA National Wildlife Research Center - Staff Publications"
+    ],
+    "url": [
+      "https://digitalcommons.unl.edu/icwdm_usdanwrc/1717"
+    ],
+    "type": "chapter"
+  },
+  {
+    "author": [
+      {
+        "family": "Somers",
+        "given": "C.M."
+      },
+      {
+        "family": "Doucette",
+        "given": "J.L."
+      },
+      {
+        "family": "Weseloh",
+        "given": "D.V.C."
+      },
+      {
+        "family": "Kjoss",
+        "given": "V.A."
+      },
+      {
+        "family": "Brigham",
+        "given": "R.M."
+      }
+    ],
+    "date": [
+      "2011"
+    ],
+    "title": [
+      "Interactions between Double-crested Cormorants and other ground-nesting species"
+    ],
+    "volume": [
+      "34"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Waterbirds"
+    ],
+    "issue": [
+      "2"
+    ],
+    "pages": [
+      "168–176"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "W.",
+        "given": "Stansley"
+      },
+      {
+        "family": "Widjeskog",
+        "given": "L."
+      },
+      {
+        "family": "Roscoe",
+        "given": "D.E."
+      }
+    ],
+    "date": [
+      "1992"
+    ],
+    "title": [
+      "Lead contamination and mobility in surface water at trap and skeet ranges"
+    ],
+    "volume": [
+      "49"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Bulletin of Environmental Contamination and Toxicology"
+    ],
+    "pages": [
+      "640–647"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Staudinger",
+        "given": "M.D."
+      },
+      {
+        "family": "Goyert",
+        "given": "H."
+      },
+      {
+        "family": "Suca",
+        "given": "J.J."
+      },
+      {
+        "family": "Coleman",
+        "given": "K."
+      },
+      {
+        "family": "Welch",
+        "given": "L."
+      },
+      {
+        "family": "Llopiz",
+        "given": "J.K."
+      },
+      {
+        "family": "Wiley",
+        "given": "D."
+      },
+      {
+        "family": "Altman",
+        "given": "I."
+      },
+      {
+        "family": "Applegate",
+        "given": "A."
+      },
+      {
+        "family": "Auster",
+        "given": "P."
+      },
+      {
+        "family": "Baumann",
+        "given": "H."
+      },
+      {
+        "family": "Beaty",
+        "given": "J."
+      },
+      {
+        "family": "Boelke",
+        "given": "D."
+      },
+      {
+        "family": "Kaufman",
+        "given": "L."
+      },
+      {
+        "family": "Loring",
+        "given": "P."
+      },
+      {
+        "family": "Moxley",
+        "given": "J."
+      },
+      {
+        "family": "Paton",
+        "given": "S."
+      },
+      {
+        "family": "Powers",
+        "given": "K."
+      },
+      {
+        "family": "Richardson",
+        "given": "D."
+      },
+      {
+        "family": "Robbins",
+        "given": "J."
+      },
+      {
+        "family": "Runge",
+        "given": "J."
+      },
+      {
+        "family": "Smith",
+        "given": "B."
+      },
+      {
+        "family": "Spiegel",
+        "given": "C."
+      },
+      {
+        "family": "Steinmetz",
+        "given": "H."
+      }
+    ],
+    "title": [
+      "In Press. The role of sand lances (Ammodytes sp.) in the Northwest Atlantic Ecosystem: A synthesis of current knowledge with implications for conservation and management"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Fish and Fisheries"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Stickley",
+        "given": "A.R.",
+        "suffix": "Jr"
+      }
+    ],
+    "date": [
+      "1991"
+    ],
+    "title": [
+      "Cormorant feeding rates on commercially grown catfish"
+    ],
+    "volume": [
+      "17"
+    ],
+    "pages": [
+      "89–90"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Aquacult. Mag"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Stickley",
+        "given": "A.R."
+      },
+      {
+        "family": "Andrews",
+        "given": "K.J."
+      }
+    ],
+    "date": [
+      "1989"
+    ],
+    "title": [
+      "Survey of Mississippi catfish farmers on means, effort, and costs to repel fish-eating birds from ponds"
+    ],
+    "volume": [
+      "4"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Fourth Eastern Wildlife Damage Control Conference"
+    ],
+    "pages": [
+      "105–108"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Stickley",
+        "given": "A.R.",
+        "suffix": "Jr."
+      },
+      {
+        "family": "Warrick",
+        "given": "G.L."
+      },
+      {
+        "family": "Glahn",
+        "given": "J.F."
+      }
+    ],
+    "date": [
+      "1992"
+    ],
+    "title": [
+      "Impact of Double-crested Cormorant depredations on channel catfish farms"
+    ],
+    "volume": [
+
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "J. World Aquacult. Soc"
+    ],
+    "issue": [
+      "23:192-198"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Tanskanen",
+        "given": "H."
+      },
+      {
+        "family": "Kukkonen",
+        "given": "I."
+      },
+      {
+        "family": "Kaija",
+        "given": "J."
+      }
+    ],
+    "date": [
+      "1991"
+    ],
+    "title": [
+      "Heavy metal pollution in the environment of a shooting range"
+    ],
+    "volume": [
+      "12"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Finland Geol. Surv. Special Paper"
+    ],
+    "pages": [
+      "187–193"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Taylor",
+        "given": "J.D.",
+        "suffix": "II"
+      },
+      {
+        "family": "Dorr",
+        "given": "B."
+      }
+    ],
+    "date": [
+      "2003",
+      "2003"
+    ],
+    "title": [
+      "Double-crested cormorant impacts to commercial and natural Resources"
+    ],
+    "editor": [
+      {
+        "family": "Fagerstone",
+        "given": "K."
+      },
+      {
+        "family": "Witmer",
+        "given": "G."
+      }
+    ],
+    "container-title": [
+      "Tenth Wildlife Damage Management Conference Proceedings"
+    ],
+    "location": [
+      "Hot Springs, Arkansas, USA"
+    ],
+    "type": "paper-conference"
+  },
+  {
+    "author": [
+      {
+        "family": "Taylor",
+        "given": "P.W."
+      }
+    ],
+    "date": [
+      "1992"
+    ],
+    "title": [
+      "Fish-eating birds as potential vectors of Edwardsiella ictaluri"
+    ],
+    "volume": [
+      "4"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Journal of Aquatic Animal Health"
+    ],
+    "pages": [
+      "240–243"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "M.",
+        "given": "Telesford-Checkley J."
+      },
+      {
+        "family": "Mora",
+        "given": "M.A."
+      },
+      {
+        "family": "Gentry",
+        "given": "T.J."
+      },
+      {
+        "family": "McDonald",
+        "given": "T.J."
+      },
+      {
+        "family": "Boellstorff",
+        "given": "D.E."
+      }
+    ],
+    "date": [
+      "2017"
+    ],
+    "title": [
+      "Impacts of heronries on water quality as evaluated through Escherichia coli and fecal sterol analyses"
+    ],
+    "volume": [
+      "89"
+    ],
+    "pages": [
+      "508–518"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Water Environment Research"
+    ],
+    "issue": [
+      "6"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Thorpe",
+        "given": "J."
+      }
+    ],
+    "date": [
+      "1996"
+    ],
+    "title": [
+      "Fatalities and destroyed civil aircraft due to bird strikes, 1912-1995"
+    ],
+    "container-title": [
+      "Proceedings of the International Bird Strike Conference"
+    ],
+    "volume": [
+      "23"
+    ],
+    "pages": [
+      "17–31"
+    ],
+    "type": "paper-conference"
+  },
+  {
+    "author": [
+      {
+        "family": "Tobin",
+        "given": "M.E."
+      },
+      {
+        "family": "King",
+        "given": "D.T."
+      },
+      {
+        "family": "Dorr",
+        "given": "B.S."
+      },
+      {
+        "family": "Reinhold",
+        "given": "D.S."
+      }
+    ],
+    "date": [
+      "2002"
+    ],
+    "title": [
+      "The effect of roost harassment on cormorant movements and roosting in the Delta region of Mississippi"
+    ],
+    "volume": [
+      "25"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Waterbirds"
+    ],
+    "pages": [
+      "44–51"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Trapp",
+        "given": "J.L."
+      },
+      {
+        "family": "Lewis",
+        "given": "S.J."
+      },
+      {
+        "family": "Pence",
+        "given": "D.M."
+      }
+    ],
+    "date": [
+      "1999"
+    ],
+    "title": [
+      "Double-crested cormorant impacts on sport fish: literature review, agency survey, and strategies"
+    ],
+    "genre": [
+      "Pages 87-96"
+    ],
+    "container-title": [
+      "Symposium on Double-crested Cormorants: Population Status and Management Issues in the Midwest. USDA-APHIS Tech. Bull"
+    ],
+    "volume": [
+
+    ],
+    "issue": [
+      "1879"
+    ],
+    "type": "article-journal"
+  },
+  {
+    "author": [
+      {
+        "family": "Tyson",
+        "given": "L.A."
+      },
+      {
+        "family": "Belant",
+        "given": "J.L."
+      },
+      {
+        "family": "Cuthbert",
+        "given": "F.J."
+      },
+      {
+        "family": "Weseloh",
+        "given": "D.V."
+      }
+    ],
+    "date": [
+      "1999"
+    ],
+    "title": [
+      "Nesting populations of Double-crested Cormorants in the United States and Canada"
+    ],
+    "note": [
+      "Pages 17-25 in M. E. Tobin, technical coordinator."
+    ],
+    "type": null
+  },
+  {
+    "title": [
+      "Symposium on Double-crested Cormorants: Population status and management issues in the Midwest, Technical Bulletin 1879"
+    ],
+    "container-title": [
+      "U. S. Department of Agriculture"
+    ],
+    "location": [
+      "APHIS, Washington, D.C., USA"
+    ],
+    "type": "chapter"
+  },
+  {
+    "author": [
+      {
+        "family": "FactFinder",
+        "given": "U.S.Census Bureau/American"
+      }
+    ],
+    "date": [
+      "2010",
+      "2010",
+      "2020-03"
+    ],
+    "title": [
+      "Census"
+    ],
+    "genre": [
+      "Web."
+    ],
+    "note": [
+      "Accessed 3"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "U.S. Census Bureau"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Engineers",
+        "given": "U.S.Army Corps",
+        "particle": "of"
+      },
+      {
+        "family": "Agriculture",
+        "particle": "aspx U.S. Department of"
+      }
+    ],
+    "date": [
+      "2015",
+      "2004"
+    ],
+    "title": [
+      "Double-crested cormorant management plan to reduce predation of juvenile salmonids in the Columbia River Estuary-Final Environmental Impact Statement",
+      "Catfish Losses to Wildlife"
+    ],
+    "url": [
+      "http://www.nwp.usace.army.mil/Missions/Current/CormorantEIS"
+    ],
+    "container-title": [
+      "National Agricultural Statistics Service U.S. Department of Agriculture. 2019. Wildlife Services Strategic Plan: FY 2020-2024. United States Department of Agriculture, Animal and Plant Health Inspection Service, Wildlife Services"
+    ],
+    "pages": [
+      "30"
+    ],
+    "type": "chapter"
+  },
+  {
+    "author": [
+      {
+        "family": "Bureau",
+        "given": "U.S.Census"
+      }
+    ],
+    "date": [
+      "2016",
+      "2020",
+      "2020-03"
+    ],
+    "title": [
+      "National Survey of Fishing, Hunting, and Wildlife-Associated Recreation. U.S. Department of the Interior, Bureau of Indian Affairs. Frequently Asked Questions"
+    ],
+    "genre": [
+      "Web. www.bia.gov/frequently-asked-questions."
+    ],
+    "note": [
+      "Accessed 3"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Department of the Interior"
+    ]
+  },
+  {
+    "author": [
+      {
+        "given": "U.S.D.I."
+      }
+    ],
+    "date": [
+      "1959"
+    ],
+    "title": [
+      "The waterfowl councils, a conservation partnership"
+    ],
+    "volume": [
+      "78"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Circular"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Fish",
+        "given": "U.S."
+      },
+      {
+        "family": "Service",
+        "given": "Wildlife"
+      }
+    ],
+    "date": [
+      "1986"
+    ],
+    "title": [
+      "Final supplemental environmental impact statement. Use of lead shot for hunting migratory birds in the United States"
+    ],
+    "volume": [
+      "16"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "U.S. Department of Interior Fish and Wildlife Service. FES"
+    ],
+    "pages": [
+      "1–559"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Fish",
+        "given": "U.S."
+      },
+      {
+        "family": "Service",
+        "given": "Wildlife"
+      }
+    ],
+    "date": [
+      "2003"
+    ],
+    "title": [
+      "Final Environmental Impact Statement: Double-crested Cormorant Management. U.S"
+    ],
+    "note": [
+      "of the Interior, USFWS, Div. of Migratory Bird Management, 4401 N. Fairfax Drive MS 634, Arlington, VA 22203."
+    ],
+    "url": [
+      "https://downloads.regulations.gov/FWS-HQ-MB-2019-01031409/content.pdf"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Dept"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Fish",
+        "given": "U.S."
+      },
+      {
+        "family": "Service",
+        "given": "Wildlife"
+      }
+    ],
+    "date": [
+      "2009"
+    ],
+    "title": [
+      "Migratory Bird Permits; Revision of Expiration Dates for DoubleCrested Cormorant Depredation Orders"
+    ],
+    "note": [
+      "of the Interior, USFWS, Div. of Migratory Bird Management, 4401 N. Fairfax Drive MS 634, Arlington, VA 22203."
+    ],
+    "url": [
+      "https://www.federalregister.gov/documents/2009/04/06/E9-7650/migratory-bird-permits-revision-ofexpiration-dates-for-double-crested-cormorant-depredation-orders."
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "U.S. Dept"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Fish",
+        "given": "U.S."
+      },
+      {
+        "family": "Service",
+        "given": "Wildlife"
+      }
+    ],
+    "date": [
+      "2014"
+    ],
+    "title": [
+      "Species Profile and links"
+    ],
+    "note": [
+      "Bull Trout (Salvelinus confluentus). Available at:"
+    ],
+    "url": [
+      "https://nas.er.usgs.gov/queries/FactSheet.aspx?speciesID=938."
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "family": "Fish",
+        "given": "U.S."
+      },
+      {
+        "family": "Service",
+        "given": "Wildlife"
+      },
+      {
+        "family": "Fish",
+        "given": "U.S."
+      },
+      {
+        "family": "Service",
+        "given": "Wildlife"
+      }
+    ],
+    "date": [
+      "2017",
+      "2018"
+    ],
+    "title": [
+      "Environmental Assessment for Issuing Depredation Permits for Double-crested Cormorant Management",
+      "Double-crested cormorants and free-swimming fish"
+    ],
+    "pages": [
+      "116"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Regional Meeting Summary"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Fish",
+        "given": "U.S."
+      },
+      {
+        "family": "Service",
+        "given": "Wildlife"
+      }
+    ],
+    "date": [
+      "2020"
+    ],
+    "title": [
+      "About the U.S"
+    ],
+    "publisher": [
+      "Fish and Wildlife Service"
+    ],
+    "type": "book"
+  },
+  {
+    "url": [
+      "https://www.fws.gov/help/about_us.html."
+    ],
+    "note": [
+      "Accessed February 27,"
+    ],
+    "date": [
+      "2020"
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "family": "VanDeValk",
+        "given": "A.J."
+      },
+      {
+        "family": "Adams",
+        "given": "C.M."
+      },
+      {
+        "family": "Rudstam",
+        "given": "L.G."
+      },
+      {
+        "family": "Forney",
+        "given": "J.L."
+      },
+      {
+        "family": "Brooking",
+        "given": "T.E."
+      },
+      {
+        "family": "Gerkin",
+        "given": "M.A."
+      },
+      {
+        "family": "Young",
+        "given": "B.P."
+      },
+      {
+        "family": "Hooper",
+        "given": "J.T."
+      }
+    ],
+    "date": [
+      "2002"
+    ],
+    "title": [
+      "Comparison of angler and cormorant harvest of walleye and yellow perch in Oneida Lake, New York"
+    ],
+    "volume": [
+      "131"
+    ],
+    "pages": [
+      "27–39"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Transactions of American Fisheries Society"
+    ],
+    "issue": [
+      "1"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Veen",
+        "given": "H.E.",
+        "particle": "Van Der"
+      }
+    ],
+    "date": [
+      "1973"
+    ],
+    "title": [
+      "Some aspects of the breeding biology and demography of the Double-crested Cormorants (Phalacrocorax auritus) of Mandarte Island"
+    ],
+    "genre": [
+      "Ph.D. thesis."
+    ],
+    "type": "thesis"
+  },
+  {
+    "title": [
+      "Zoologisch Laboratorium der Rijksuniversiteit te Groningen"
+    ],
+    "location": [
+      "Groningen"
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "family": "Guilder",
+        "given": "M.A.",
+        "particle": "Van"
+      },
+      {
+        "family": "Seefelt",
+        "given": "N.E."
+      }
+    ],
+    "date": [
+      "2013"
+    ],
+    "title": [
+      "Double-crested Cormorant (Phalacrocorax auritus) chick bioenergetics following round goby (Neogobius melanostomus) invasion and implementation of cormorant population control"
+    ],
+    "volume": [
+      "39"
+    ],
+    "pages": [
+      "153–161"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Journal of Great Lakes Research"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Weber",
+        "given": "W.J."
+      }
+    ],
+    "date": [
+      "1979"
+    ],
+    "title": [
+      "Health hazards from pigeons, starlings and English sparrows: diseases and parasites associated with pigeons, starlings, and English sparrows which affect domestic animals"
+    ],
+    "publisher": [
+      "Thomson Publications"
+    ],
+    "location": [
+      "Fresno, California, USA"
+    ],
+    "type": "book"
+  },
+  {
+    "author": [
+      {
+        "family": "Weseloh",
+        "given": "D.V."
+      },
+      {
+        "family": "Collier",
+        "given": "B."
+      }
+    ],
+    "date": [
+      "1995"
+    ],
+    "title": [
+      "The rise of the double-crested cormorant on the Great Lakes : winning the war against contaminants"
+    ],
+    "container-title": [
+      "Great Lakes Fact Sheet. Canadian Wildlife Service"
+    ],
+    "location": [
+      "Environment Canada, Burlington, Ontario"
+    ],
+    "type": "chapter"
+  },
+  {
+    "author": [
+      {
+        "family": "Weseloh",
+        "given": "D.V."
+      },
+      {
+        "family": "Ewins",
+        "given": "P.J."
+      }
+    ],
+    "date": [
+      "1994"
+    ],
+    "title": [
+      "Characteristics of a rapidly increasing colony of double-crested cormorants (Phalacrocorax auritus) in Lake Ontario: population size, reproductive parameters and band recoveries"
+    ],
+    "volume": [
+      "20"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Journal of Great Lakes Research"
+    ],
+    "pages": [
+      "443–456"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Weseloh",
+        "given": "D.V."
+      },
+      {
+        "family": "Ewins",
+        "given": "P.J."
+      },
+      {
+        "family": "Struger",
+        "given": "J."
+      },
+      {
+        "family": "Mineau",
+        "given": "P."
+      },
+      {
+        "family": "Bishop",
+        "given": "C.A."
+      },
+      {
+        "family": "Postupalsky",
+        "given": "S."
+      },
+      {
+        "family": "Ludwig",
+        "given": "J.P."
+      }
+    ],
+    "date": [
+      "1995"
+    ],
+    "title": [
+      "Double- crested Cormorants of the Great Lakes: changes in population size, breeding distribution and reproductive output between 1913 and 1991"
+    ],
+    "note": [
+      "Colonial Waterbirds 18 (Special Publication):48-59."
+    ],
+    "type": null
+  },
+  {
+    "author": [
+      {
+        "family": "Wires",
+        "given": "L.R."
+      },
+      {
+        "family": "Wires",
+        "given": "L.R."
+      },
+      {
+        "family": "Cuthbert",
+        "given": "F.J."
+      },
+      {
+        "family": "Trexel",
+        "given": "D.R."
+      },
+      {
+        "family": "Joshi",
+        "given": "A.R."
+      }
+    ],
+    "date": [
+      "2014",
+      "2001"
+    ],
+    "title": [
+      "The double-crested cormorant: plight of a feathered pariah",
+      "Status of the double-crested cormorant (Phalacrocorax auritus"
+    ],
+    "publisher": [
+      "Yale University Press"
+    ],
+    "pages": [
+      "366"
+    ],
+    "container-title": [
+      "North America. Report to the U.S. Fish and Wildlife Service"
+    ],
+    "location": [
+      "Arlington, Virginia"
+    ],
+    "type": "chapter"
+  },
+  {
+    "author": [
+      {
+        "family": "Wires",
+        "given": "L.R."
+      },
+      {
+        "family": "Cuthbert",
+        "given": "F.J."
+      }
+    ],
+    "title": [
+      "Historic Populations of the Double-crested Cormorant (Phalacrocorax auritus): Implications for Conservation and Management in the 21st Century"
+    ],
+    "volume": [
+      "29"
+    ],
+    "pages": [
+      "9–37,"
+    ],
+    "date": [
+      "2006-03-01"
+    ],
+    "url": [
+      "https://doi.org/10.1675/1524-4695(2006)29"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Waterbirds"
+    ],
+    "issue": [
+      "1"
+    ],
+    "doi": [
+      "10.1675/1524-4695(2006)29"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Withers",
+        "given": "K."
+      },
+      {
+        "family": "Brooks",
+        "given": "T.S."
+      }
+    ],
+    "date": [
+      "2004"
+    ],
+    "title": [
+      "Diet of Double-Crested Cormorants (Phalacrocorax auritus) Wintering on the Central Texas Coast"
+    ],
+    "volume": [
+      "49"
+    ],
+    "pages": [
+      "48–53"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "The Southwestern Naturalist"
+    ]
+  },
+  {
+    "author": [
+      {
+        "family": "Wyman",
+        "given": "K.E."
+      },
+      {
+        "family": "Wires",
+        "given": "L.R."
+      },
+      {
+        "family": "Cuthbert",
+        "given": "F.J."
+      }
+    ],
+    "date": [
+      "2016",
+      "1997"
+    ],
+    "title": [
+      "Assessment of the Double-Crested Cormorant breeding population in the North American Great Lakes",
+      "Report submitted to the U.S"
+    ],
+    "publisher": [
+      "Fish and Wildlife Service"
+    ],
+    "location": [
+      "Bloomington, MN"
+    ],
+    "pages": [
+      "44"
+    ],
+    "type": "book"
+  },
+  {
+    "author": [
+      {
+        "family": "Wyman",
+        "given": "K.E."
+      },
+      {
+        "family": "Wires",
+        "given": "L.R."
+      },
+      {
+        "family": "Cuthbert",
+        "given": "F.J."
+      }
+    ],
+    "date": [
+      "2018"
+    ],
+    "title": [
+      "Great Lakes double-crested cormorant management affects co-nester colony growth"
+    ],
+    "volume": [
+      "82"
+    ],
+    "type": "article-journal",
+    "container-title": [
+      "Journal of Wildlife Management"
+    ],
+    "pages": [
+      "93–102"
+    ]
+  }
+]

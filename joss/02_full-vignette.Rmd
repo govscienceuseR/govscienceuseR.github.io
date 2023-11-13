@@ -1,0 +1,828 @@
+---
+pagetitle: "govscienceuseR"
+title: "govscienceuseR"
+subtitle: "The science informing US Environmental Impact Statements"
+author: 
+  - Tyler A. Scott 
+  - Liza Wood
+  - Arthur Koehl
+output:
+  pdf_document
+---
+
+```{r chunk setup, include = F}
+knitr::opts_chunk$set(warning = F, message = F)
+```
+
+# Introduction
+
+The `govscienceuseR` tools provide a computational approach for indexing and summarizing references from PDF documents, particularly policy documents. This is a vignette walking through the steps of the R packages in the `govscienceuseR` tool set: `referenceExtract`, `referenceClassify`, `indexBuild`, and `referenceSearch`. Together, these four packages allow researchers to go from PDF documents to a data frame of indexed citations in only a handful of steps in the R coding language (steps mapped below). The goal of these tools is to allow researchers working with various types of policy documents to analyze citations using a systematic and reproducible approach.  
+
+## Installations  
+
+**TEAM NOTES & ISSUES:** 
+
+1. Need to make sure dependencies are all there  
+2. Can we turn this into a 'bundle' to download all at once?
+3. We need better instructions on downloading Ruby, Anystyle, and Solr  
+
+To begin, download all four packages from the [govscienceuseR GitHub page](https://github.com/govscienceuseR):  
+
+```{r package download, warning = F, message = F, results = F}
+devtools::install_github("govscienceuseR/referenceExtract")
+devtools::install_github("govscienceuseR/referenceClassify")
+devtools::install_github("govscienceuseR/indexBuild")
+devtools::install_github("govscienceuseR/referenceSearch")
+```
+
+There are several dependent packages, through eventually we should make sure these are built into the packages. 
+```{r}
+library(dplyr)
+library(data.table)
+library(stringr)
+library(httr)
+library(tidyr)
+```
+
+This software is built around two other tools. First, the `referenceExtract` package relies on operating [AnyStyle via RubyGem](https://rubydoc.info/gems/anystyle). The `referenceSearch` package also requires [Solr](https://solr.apache.org). Both of these softwares need to be installed -- see linked resources for instructions. 
+
+## 1. `referenceExtract` 
+
+-------
+
+**TEAM NOTES & ISSUES:** 
+
+1. Need to understand why Ruby does not run via RStudio when it does run in Terminal  
+2. Check in appendix: does the cleaning really even work?  
+3. In whatever cleaning is decided, need to get rid of having double years as this messes with Solr's referenceSearch function down the line -- or change the query function so that we can use an or | pattern? 
+
+-------
+
+This workflow begins with extracting references from PDFs by using the Anystyle client. The functions in this package are helpers to organize documents, run Anystyle through R, and 'clean' the references extracted by Anytyle. 
+
+```{r}
+library(referenceExtract)
+proj_dir <- "~/Documents/Davis/R-Projects/govscienceuseR.github.io/"
+```
+
+## 1.1 `reference_extract()` 
+
+We start with `r nrow(list.files(paste0(proj_dir, 'joss/data/documents/'))[1:5])` EIS reports. **NOTE:** Later down the line I will bump this number up to 10, and perhaps even 20 to do the pairs.
+
+```{r}
+list.files(paste0(proj_dir, 'joss/data/documents/'))[1:5]
+```
+
+The first step of extracting references is to input PDF documents into the `reference_extract()` function. This function reads in every PDF in the document directory (doc_dir), and runs them through anystyle.io. Anystyle extracts probable citations and exports them to the reference directory (ref_dir) as JSON files. Depending on the number and size of files, this can take some time.  
+
+```{r, eval = F}
+# Currently not working because of Ruby issue
+reference_extract(doc_dir = paste0(proj_dir, 'joss/data/documents/'), 
+                  ref_dir = paste0(proj_dir, 'joss/data/reference_extracts'), 
+                  layout = "no_layout")
+```
+
+```{r, eval = F}
+# For now I have to manually enter into Terminal
+sample_fls <- list.files('joss/data/documents', full.names = T)
+doc_dir = paste0(proj_dir, 'joss/data/documents/')
+ref_dir = paste0(proj_dir, 'joss/data/reference_extracts')
+base_fls <- basename(sample_fls)
+fls <- paste0(doc_dir, base_fls)
+json_files <- paste(ref_dir, base_fls, sep = '/')
+json_files <- gsub('PDF$|pdf$', 'json', json_files)
+json_dirs <- dirname(json_files)
+
+for(i in 1:length(base_fls)){
+  runinterminal <- paste('anystyle --overwrite -f json find --no-layout',
+                         fls[i], json_dirs[i])
+  print(runinterminal)
+}
+```
+
+## 1.2 `reference_compile()` 
+
+Next, the `reference_compile()` function transforms the JSON files into tabular data and compiles them all in one data table, adding the file name as an identifier.  
+
+```{r}
+dt <- reference_compile(paste0(proj_dir, 'joss/data/reference_extracts'))
+```
+
+```{r, echo = F}
+#Reducing down to 5 for now
+fls <- list.files(paste0(proj_dir, 'joss/data/reference_extracts'), full.names = T)[1:5]
+dt <- dt[dt$File %in% fls] 
+```
+
+After these first two steps we can take a look at our probable citations according to the Anystyle software. Initially, there are `r nrow(dt)` probable citations across these `r length(list.files(ref_directory))` documents.  
+
+```{r show compiled data, echo = F}
+DT::datatable(head(select(dt, author, date, title, `container-title`),
+                   n = 100), rownames = F)
+```
+
+It is noticeable above that the data provided by Anystyle has its challenges for further analysis. The first is related to data structure: authors are nested into matrices, some rows (such as the date) have multiple listed values, etc., all of which make the data hard to analyze. For example, here is what seems to be two probable citations combined into one observation:  
+
+<!--- Are these examples necessary? --->
+
+```{r challenge example 1}
+tidyr::unnest(dt[23, c(2,3)])
+```
+
+The second challenge is related to quality: many of the probable citations are not sensible. The Anystyle software seems sensitive to multiple formats like numbers and short-form sentences, such as addresses, resulting in false positive identification of references. For example, here is a figure caption with an in-text citation, which is not what we're looking to extract:  
+```{r challenge example 2}
+unlist(dt[1, c(1,2,3)])
+```
+
+This can be further evaluated by looking at a sample of references that Anystyle classifies as journals. According to the reference types classified by Anystyle, there are `r table(dt$type)[[1]]` journal references. When manually reviewing 50 (or maximum) from each report, however, we see that while some extractions are quite good, others are not. Reports had false positive or partial positive (nested references where some were reference but not all) rates of 40%, 66%, 22%, 50%, and 44%, respectively. 
+
+
+```{r}
+dt_articles <- dt[dt$type == 'article-journal',]
+check1_50 <- c('F', 'P', 'P', 'T', 'T', 'P', 'T', 'T', 'F', 'P', 'F', 'T', 'P', 'T', 'T', 'T', 'T', 'F', 'F', 'P', 'F', 'T', 'T', 'T', 'P', 'T', 'T', 'T', 'T', 'P', 'T', 'T', 'T', 'T', 'P', 'T', 'T','P', 'F', 'T', 'T', 'P', 'P', 'T', 'T', 'T', 'T', 'T', 'T', 'P')
+prop.table(table(check1_50))
+check73_122 <- c('T', 'T', 'T', 'T', 'F', 'T', 'T', 'T', 'T', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'T', 'T', 'T', 'T', 'F', 'F', 'F', 'T', 'T', 'T', 'F', 'F', 'F', 'F', 'F', 'F', 'T','T', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F')
+prop.table(table(check73_122))
+check218_267 <- c('P', 'T', 'T', 'T', 'F', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'F', 'T', 'F', 'P', 'T', 'F', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'P', 'P', 'T', 'T','T', 'T', 'T', 'T', 'F', 'T', 'F', 'T', 'P', 'T', 'T', 'T', 'T')
+prop.table(table(check218_267))
+check480_501 <- c('F', 'F', 'T', 'T', 'T', 'P', 'F', 'T', 'F', 'F', 'T', 'T', 'F', 'F', 'T', 'T', 'T', 'F', 'T', 'F', 'T', 'F')
+prop.table(table(check480_501))
+check502_517 <- c('F', 'F', 'F', 'T', 'T', 'F', 'F', 'T', 'T', 'T', 'F', 'T', 'T', 'T', 'P', 'T')
+prop.table(table(check502_517))
+```
+
+
+## 1.3 `reference_clean()` 
+
+To try to address the challenges in these probable citations, the `reference_clean()` function goes through a series of steps. For each column the function unlists the data and filters out unlikely candidates for that column. For instance, if a number listed in the date column does not match any reasonable date format or expectation, it is removed. If a string in the URL column actually resembles a DOI, it is moved to that column. And so on. Furthermore, if there seem to be multiple citations listed in one row that can be broken apart in parallel across all of the columns, we unnest these rows. (Note: depending on the size of the files this function may take some time). 
+
+------
+
+**INTERNAL:** Comparing Tyler's reference_clean2() and Liza's reference_clean3().  
+
+* `reference_clean()`: This broke easily and seemed unsatisfactory so Tyler revamped a while ago; still breaks so best to abandon, I think.  
+* `reference_clean2()`: There seems to be 3 issues. 1. Had to do with the `final_clean()` utility function that was concatenating everything so it has C's at the start of authors, especially. 2. It wasn't using cleaned up authors -- it was running an author clean code but then re-binding with old authors. 3. It also had a MIN/MAX problem for identifying columns because it was making decisions like author9 > author30, which ultimately led to dropping a bunch of information. 
+  * Ths is true for some other data that's been used, e.g.'~/Box/truckee/common_inputs/eis_reference/classified_refs.rds', so that should be checked in other work. 
+* `reference_clean3()`: I tried to address the issues above: I took authors out of the final clean list so that the C/concatenate issue  went away and then made adjustments to include the cleaned authors instead of just unnesting. Last I fixed the MIN/MAX issue. 
+
+```{r}
+#cleaned_dt <- reference_clean(dt)
+cleaned_dt2 <- reference_clean2(dt)
+cleaned_dt3 <- reference_clean3(dt)
+```
+
+So even with the differences noted above, it is worth comparing to see if anything is radically different in how these two 'cleaned'  products work down the line.
+
+Before any built in disambiguation, let's compare journal and agency matching. These are essentially the same for journals, which makes sense because the improvements to cleaned_dt3 are all about authors rather than journals. 
+```{r}
+library(referenceClassify)
+table(journal_match(cleaned_dt2$container))
+table(journal_match(cleaned_dt3$container))
+```
+
+When we look at agencies, however, we see the change. It isn't massive, but we see the increase in agency matches with cleaned_dt3 compared to cleaned_dt2. 
+```{r}
+table(agency_match(cleaned_dt2$container, cleaned_dt2$author))
+table(agency_match(cleaned_dt3$container, cleaned_dt3$author))
+```
+What about when we run the journal_disam() function? Cleaning up journal name ambiguity adds 10 references, which is a minor but okay improvement. And again we see that cleaned_dt3 identified agencies better. 
+```{r}
+cleaned_dt2$journal_disam <- journal_disambig(cleaned_dt2$container)
+cleaned_dt2 <- regex_classify(cleaned_dt2, 'journal_disam')
+table(cleaned_dt2$class)
+```
+
+```{r}
+cleaned_dt3$journal_disam <- journal_disambig(cleaned_dt3$container)
+cleaned_dt3 <- regex_classify(cleaned_dt3, 'journal_disam')
+table(cleaned_dt3$class)
+```
+
+So at each stage, we see that cleaned_dt3 is slightly better than cleaned_dt2, and so we move forward with cleaned_dt3.
+
+```{r}
+saveRDS(cleaned_dt3, paste0(proj_dir, 'joss/data/cleaned_dt.rds'))
+```
+
+-------
+
+
+```{r}
+cleaned_dt3 <- readRDS(paste0(proj_dir, 'joss/data/cleaned_dt.rds'))
+```
+
+## 2. `referenceClassify`
+
+-------
+
+**TEAM NOTES & ISSUES:** 
+
+1. Do we want to move the prepared_by() and journal_disam() functions into reference_clean()? 
+2. Should there be some like 'match_extract()' function to pull out an agency and journal column for each regex match? 
+3. Check that keras classify works across machines?   
+
+-------
+
+The `referenceClassify` package is designed to take a data frame of tabular, tagged citation data (author, year, container, publisher, doi, etc), look for exact matches between those tags and various high-level indices (mainly journal and agency names), and begin to classify probable citations into these high-level categories. These indices are 1) an index of academic journals from the [`sjr` package](https://rdrr.io/github/ikashnitsky/sjrdata/man/sjr_journals.html) relying on the [Scimago database](https://www.scimagojr.com/), 2) an index of academic conference papers/proceedings also from the Scimago database, 3) and an index of US state and federal agencies, curated by the package authors. All three of these indices are built into this package and can be accessed with `data('scimago.j')` for journals, `data('scimago.c')` for conferences, and `data('agencies')` for agencies.  
+
+
+## 2.1 `prepared_by()` and `journal_disambig()`  
+
+Before classifying our probable references, we can further clean and refine these potential citations with the `prepared_by()` function, which removes commonly-seen lead-ins to references ('prepared for/by', etc.) to improve exact matching.  
+
+```{r prepared by}
+library(referenceClassify)
+cleaned_dt3 <- prepared_by(cleaned_dt3, x = 'container', 
+                           y = 'author', z = 'publisher')
+```
+
+Additionally, we disambiguate the journals with the `journal_disambig()` function, which references indices of common journal abbreviations and through manual cleaning of journals referenced in transportation documents.  
+
+```{r journal disam}
+cleaned_dt3$container <- journal_disambig(cleaned_dt3$container)
+```
+
+## 2.2 `regex_classify()`  
+
+Now with probable references as 'clean' as possible, we use regular expressions to classify our data based on exact matches using the `regex_classify()` function. This function does two things. First it looks across all of the columns for exact matches to our indices, and if there is an exact match, it pulls out that value into a 'input' column. If there is no exact match, the value in the input column will be selected in the following order of preference: doi, container, publisher, title, author. Second, based on the matches the function will assign the potential citation into one of four classes: journal, agency, conference, or none. If none of the potential citations' data is not an exact match to any of the indices, the classification is NA. The class is added to the data frame as a 'class' column. There also also several other columns added that describe the match, as well as an added "traning column"
+
+```{r regex classify}
+# Extract most descriptive 'input' and look for exact match to index 
+cleaned_dt3 <- regex_classify(cleaned_dt3, 'container')
+```
+
+Based on these classifications, we can see the counts of exact matches, and which ones have not been classified.  
+
+```{r}
+table(cleaned_dt3$class, exclude = NULL)
+```
+
+<!--- So below I am pulling out the exact matches for agencies into their own column. Right now the function does not pull out the agency per se, it just tags whether or not it sees a match inside the columns specified in the function. So below I am doing it manually, but this should be built in --->
+
+```{r exact match agencies, echo = F, eval = F}
+data("agencies")
+x = cleaned_dt3$training_input[cleaned_dt3$class == "agency" &
+                                 !is.na(cleaned_dt3$class)]
+abbr <- agencies$Abbr[agencies$Abbr != ""]
+y = c(agencies$Agency, abbr)
+
+dt_agencies <- filter(cleaned_dt3, class == "agency" & !is.na(class)) %>% 
+  select(ID, training_input)
+dt_agencies$agency = NA
+
+for(i in 1:length(x)){
+  for(j in 1:length(y)){
+    match <- str_extract(x[i], y[j])
+  if(!is.na(match)){
+  dt_agencies$agency[i] <- match
+  }
+  }
+    if(!is.na(match)){
+      next
+  }
+}
+
+cleaned_dt3 <- left_join(cleaned_dt3, dt_agencies)
+
+cleaned_dt3$agency <- str_replace(cleaned_dt3$agency, "^Us", "US")
+cleaned_dt3$agency <- ifelse(cleaned_dt3$agency == "Geological Survey", 
+                    "US Geological Survey", cleaned_dt3$agency)
+cleaned_dt3$agency <- ifelse(cleaned_dt3$agency == "Army", 
+                    "US Army", cleaned_dt3$agency)
+cleaned_dt3$agency <- ifelse(cleaned_dt3$agency == "Army Corps of Engineers", 
+                    "US Army Corps of Engineers", cleaned_dt3$agency)
+cleaned_dt3$agency <- ifelse(cleaned_dt3$agency == "Bureau of Reclamation", 
+                    "US Bureau of Reclamation", cleaned_dt3$agency)
+cleaned_dt3$agency <- ifelse(cleaned_dt3$agency == "Census Bureau", 
+                    "US Census Bureau", cleaned_dt3$agency)
+cleaned_dt3$agency <- ifelse(cleaned_dt3$agency == "Department of Agriculture", 
+                    "US Department of Agriculture", cleaned_dt3$agency)
+cleaned_dt3$agency <- ifelse(cleaned_dt3$agency == "Department of Health and Human Services", 
+                    "US Department of Health and Human Services", cleaned_dt3$agency)
+cleaned_dt3$agency <- ifelse(cleaned_dt3$agency == "Department of the Interior", 
+                    "US Department of the Interior", cleaned_dt3$agency)
+cleaned_dt3$agency <- ifelse(cleaned_dt3$agency == "Environmental Protection Agency", 
+                    "US Environmental Protection Agency", cleaned_dt3$agency)
+cleaned_dt3$agency <- ifelse(cleaned_dt3$agency == "Fish and Wildlife Service", 
+                    "US Fish and Wildlife Service", cleaned_dt3$agency)
+cleaned_dt3$agency <- ifelse(cleaned_dt3$agency == "Forest Service", 
+                    "US Forest Service", cleaned_dt3$agency)
+saveRDS(cleaned_dt3, paste0(proj_dir, 'joss/data/cleaned_dt_matched.rds'))
+```
+
+## 2.3 `keras_classify()`  
+
+Next we want to classify the probable references that are not exact matches to any of our indices. To do this, we use `keras_classify()`, in which we input our probable references into a neural network trained to predict the reference class. To train this model, we used data from Environmental Impact Statements, classified through both manual classification and the semi-automated regex classification explained above.  
+
+```{r keras, eval = F}
+cleaned_dt3 <- readRDS(paste0(proj_dir, 'joss/data/cleaned_dt_matched.rds'))
+# Use the descriptive 'input' to probabilistically identify the reference class
+predictions <- keras_classify(cleaned_dt3, probability = .85, 
+                              'container', auto_input = F,
+                              'training_input') 
+cleaned_dt3 <- cbind(cleaned_dt3, select(predictions, predict_class))
+table(cleaned_dt3$predict_class)
+```
+
+Because we ran this model on the whole data frame, we can compare our regex classification with the Keras classifications to get a sense of the model performance. In short, we can see that the model is quite good at predicting compared to the exact matches.
+
+```{r, echo = F, fig.align='center'}
+dt <- cleaned_dt3 %>% 
+  mutate(class = case_when(
+           class == "remove_row" ~ "delete",
+           T ~ class),
+         method = case_when(
+           is.na(class) ~ "keras",
+           T ~ "regex"),
+         method_comparison = case_when(
+           method == "regex" & class == predict_class ~ "match",
+           method == "regex" & predict_class == "unsure" ~ "unsure",
+           method == "regex" & class != predict_class ~ "incorrect",
+           T ~ NA_character_))
+table(dt$method_comparison)
+```
+
+These results, altogether, suggest that the Keras model is `r 100*round(table(dt$method_comparison)[[2]]/sum(table(dt$method_comparison)),2)`% accurate in its prediction of the citations we are able to do exact matching for. Now, let's unify the classification columns and have a look at the total for each estimated grouping.   
+
+And we'll tidy up these data by filtering out the citations classified into 'delete' (the false positives) in preparation for our indexing in the next step.   
+```{r}
+dt <- dt %>% 
+  filter(predict_class != "delete") %>% 
+  select(-c(class, method_comparison)) 
+table(dt$predict_class)
+```
+
+## 3. `indexBuild`  
+
+-------
+
+**TEAM NOTES & ISSUES:** 
+
+1. queryTitle and queryConcept function differently. queryTitle extracts works within the function (via processOA though it used to be processWorks) while queryConcepts requires the appended extractWorks, which relies on processWorks. So this idea of 'querying' has two different modes, and I wonder which one we actually have in mind. 
+2. We should decide what the standard/recommended query mode is: title vs concept...
+3. Didn't we once want to store a 'base' index?
+
+------
+
+Now that we have a general sense of the kinds of reference types that are represented within the probable references, the next step is to try to index these reference exactly. The `indexBuild` package is designed to query the [openAlex API](https://docs.openalex.org/), an open access catalog of research, in order to build a personalized catalog relevant to the field of research. 
+
+## 3.1 Choose method of querying OpenAlex to build the index database
+
+Building the index is based on the decision of the researcher. The goal is to create a pool of potential references that we will use as candidates for matching with our observed references in Step 4. 
+
+First we'll take the probable journals to draw on the references that you'll use to match. Essentially, anything that hasn't already been categorized likely as an agency. 
+
+```{r}
+dt_agencies <- dt[dt$predict_class == 'agency',]
+dt_journals <- dt[dt$predict_class %in% c('journal', 'unsure'),]
+```
+
+
+### 3.1.1 `queryTitle()` 
+
+Then with this data frame we can use the titles to query OpenAlex. OpenAlex will return works with potential title matches, up to 10. Note that not all titles get matches. OA tried to give back the top matches but many do not yield any. 
+
+```{r}
+library(indexBuild)
+# Updated query Title to have other processOA function instead of processWorks because processWorks did not flatten the OA list correctly
+## Right now these are in the lw-edit branch of indexbuild, which do not seem to download, so I will source directly
+source('https://raw.githubusercontent.com/govscienceuseR/indexBuild/lw-edit/R/processOA.R')
+source('https://raw.githubusercontent.com/govscienceuseR/indexBuild/lw-edit/R/queryTitles.R')
+title_index1 <- queryTitle(title = dt_journals$title[50], 
+                    mailto = 'belwood@ucdavis.edu',
+                    max_results = 10)
+```
+
+For the single title, `r `dt_journals$title[50]`, we get the following candidates. We see a match, but we also get similar titles. It is this reliance on generic, related titles that help us build a wider data base. 
+```{r}
+DT::datatable(title_index1[,c(3,2)], rownames = F)
+```
+
+So we can iterate across this indexing process to get a much larger index built around titles. So we are able to generate an index of nearly 3000 works to match against. The choice to use a title index makes more sense when you're working with a large number of citations, as they help widen your pool of candidates. In this case, a pool of only 3000 is quite small. 
+
+```{r, eval = F}
+title_index_all <- pbapply::pblapply(seq_along(dt_journals$title),function(x)
+  queryTitle(dt_journals$title[[x]], mailto = 'belwood@ucdavis.edu',
+             max_results = 10, data_style = "citation", wait_time = 20))
+```
+ 
+```{r}
+title_index_all <- rbindlist(title_index_all,use.names = T,fill = T)
+title_index_all <- title_index_all[!duplicated(title_index_all),] 
+title_index_all <- title_index_all[!is.na(title_index_all$work.id),]
+saveRDS(title_index_all, 'joss/data/title_index_all.RDS')
+```
+
+### 3.1.2.1 `queryConcept()`
+
+A **MUCH** broader approach is to query 'concepts' to build a concept-based index. Concepts are attributes of the OpenAlex data base, but which concept to choose depends on the references we know. One way of identifying key words and concepts is to use the Scimago database to get journal metadata for all of the journals we can identify so far. These metadata include their disciplinary categories.  So first we can identify the categories of concepts in all of the journals in the Scimago database, then narrow it down to those journals in our data. 
+```{r}
+# Get metadata to be a summarize of 
+journal_metadata <- data.frame(sjrdata::sjr_journals) %>% 
+  group_by(sourceid, title) %>% 
+  summarize(sjr_avg = mean(sjr, na.rm = T)) %>% 
+  right_join(select(data.frame(sjrdata::sjr_journals), sourceid, title, categories)) %>% 
+  separate(categories, into = paste0("cat", 1:15), sep = ";") %>% 
+  pivot_longer(cols = cat1:cat15, 
+               names_to = "number",
+               values_to = "cat") %>% 
+  filter(!is.na(cat)) %>% 
+  mutate(cat = trimws(str_remove_all(cat, '\\(Q\\d\\)'))) %>% 
+  mutate(cat = trimws(str_remove_all(tolower(cat),
+                                     '\\(miscellaneous\\)|,|-'))) %>% 
+  select(-number) %>% 
+  unique() %>% 
+  rename("journal_title" = "title") %>% 
+  group_by(sourceid, journal_title, sjr_avg) %>% 
+  mutate(number = paste0('cat', 1:n())) %>% 
+  pivot_wider(id_cols = c(sourceid, journal_title, sjr_avg),
+              names_from = "number", values_from = "cat") %>% 
+  unique()
+
+
+dt_journals_metadata <- dt_journals %>% 
+  left_join(scimago.j, by = c("journal_disam" = "title")) %>% 
+  left_join(journal_metadata, by = "sourceid") %>% 
+  filter(!is.na(sourceid))
+```
+
+Based on the journals we know are in our data, we can pull out their themes and isolate these as concepts to potentially match in OpenAlex. We identify themes, break them into key words, and then combine them again so that we search the full concept and its component parts in OpenAlex.
+
+```{r}
+themes <- dt_journals_metadata %>% 
+  select(sourceid, journal_title, cat1:cat13) %>% 
+  pivot_longer(cols = cat1:cat13, 
+               names_to = "number",
+               values_to = "cat") %>% 
+  filter(!is.na(cat)) %>% 
+  group_by(cat) %>% 
+  count() %>% 
+  arrange(n)
+
+# Using custome stop words since these are too generic for the OpenAlex system
+personal_stop <- c("science", "theory", "apply", "theoretical", "information",
+                   "uncertainty", "system", "plan", "model", "change")
+keywords <- themes %>% 
+  tidytext::unnest_tokens(word, cat) %>% 
+  dplyr::filter(!word %in% tidytext::stop_words$word & 
+                  !word %in% personal_stop) %>% 
+  mutate(word = textstem::lemmatize_words(word)) %>% 
+  unique()
+
+key_themes <- unique(c(themes$cat, keywords$word))
+```
+
+Briefly, we pull out a wide variety of themes, for example, a random sample of 10 include: `r sample(key_themes, 10)`. We can then use `indexBuild`'s `queryConcepts` function, entering in our theme names and getting OpenAlex concepts that match. For example, with one theme, `r key_themes[1]`, we get back 25 matching concepts in OpenAlex. It returns several levels, 1-5, where the higher the level the more general. The more general the level the more the works, for instance the level 1 Anthropology concept has 1.6 million associated works, while the levels below have only a magnitude of a couple thousand.
+```{r}
+concept_index1 <- queryConcepts(key_themes[1], per_page = 50, 
+                                mailto = 'belwood@ucdavis.edu')
+DT::datatable(concept_index1[,2:4], rownames = F)
+```
+
+We can apply this function across all of our keywords and themes to get a large concept index.  
+```{r, eval = F}
+concept_index_all <- pbapply::pblapply(seq_along(key_themes),function(x)
+  queryConcepts(key_themes[[x]], per_page = 50, mailto = 'belwood@ucdavis.edu'))
+concept_index_all <- rbindlist(concept_index_all, use.names = T, fill = T)
+concept_index_all <- concept_index_all[!duplicated(concept_index_all),] 
+saveRDS(concept_index_all, 'joss/data/concept_index_all.RDS')
+```
+
+```{r, echo = F}
+concept_index_all <- readRDS('joss/data/concept_index_all.RDS')
+```
+
+The concept index, without limited to any level, has `r nrow(concept_index_all)` concepts and almost a billion associated works (`r sum(concept_index_all$works_count)`!). So we want to limit these works to an extent. For example, if we take only level-1 concepts, we'd be working with about a quarter of a billion works, and if we take only level-2 concepts, we'd be working with about 85M works.
+
+```{r}
+concept_index_level4 <- concept_index_all[concept_index_all$level == 4,]
+sum(concept_index_level4$works_count)
+```
+
+
+### 3.1.2.2 `extractWorks()`  
+
+To get works from our concept index, we use the `extractWorks()` function. Using the concept page ID from the previous function, the `extractWorks()` function extracts the associated works from the openAlex API and saves them as compressed .json.gz files. The .json.gz files are stored in the `dest_file` specified.  
+
+We won't run this here, however, as it takes forever.
+      
+```{r, eval = F}
+# For each concept
+t1 <- Sys.time()
+for(i in 1:nrow(concept_index_level1)){
+  c = stringr::str_extract(concept_index_level2$id[i],'[A-Za-z0-9]+$')
+  # Run per year so it doesn't take forever
+  for(j in 1990:2020){
+    # Then, if this concept-year combination has not already been extracted:
+    if(!(paste0(c, '_', j, ".json.gz") %in% 
+     list.files("~/Box/govscienceuseR/openalex_concept_index_eis"))){
+      # Extract the works...
+     extractWorks(mailto = "belwood@ucdavis.edu",
+                  concept_page = concept_index_level2$id[i],
+                  dest_file =
+                  paste0("~/Box/govscienceuseR/openalex_concept_index_eis/", 
+                              c,'_', j,  ".json.gz"),
+                  per_page = 200, # must be between 1 and 200
+                  to_date = j,
+                  from_date = j,
+                  sleep_time = 1.5,
+                  data_style = "citation") # other types not supported, need to look at processWork
+    }
+  }
+}
+t2 <- Sys.time()
+```
+
+Instead, we will use an index built from the titles of the wider EIS database. This index is just about 1 million works large. 
+
+```{r}
+shard_index <- lapply(list.files('~/Box/truckee/common_inputs/eis_reference/index_shards', full.names = T), readRDS)
+shard_index_dt <- rbindlist(shard_index, fill = T)
+```
+
+## 4. `referenceSearch`
+
+-------
+
+**TEAM NOTES & ISSUES:** 
+
+1. do we want publisher to remain in, above?
+
+------
+
+Now to match the journal references to the index, we need two data frames: the index, which we just built using OpenAlex, and the references, which are the probable references we extracted from PDFs, cleaned, and classified. 
+
+## 4.1 `index_records()`
+
+We first want to 'index' our records (i.e. our index) so that it is search-able. To do this, we first wan to make sure it is formatted correctly. It takes only a few column names: title, authors, year, doi, journal_title, id, publisher, and source.
+
+```{r}
+# Selecting the right columns
+shard_index_dt <- shard_index_dt[,c(3,14,4,16,2,1)]
+colnames(shard_index_dt) <- c('title', 'authors', 'year',
+                              'journal_title', 'doi', 'miscid')
+shard_index_dt$year <- lubridate::year(shard_index_dt$year)
+# Keep publisher in processOA?
+shard_index_dt$publisher <- NA
+shard_index_dt$source <- "ShardIndex"
+```
+
+Then, this is the stage of the process where we also use the Solr software. To start a Solr instance, in the command line/terminal, navigate to your solr download, then start a cloud instance with the `start -c` command. 
+
+```{bash start solr, eval = F}
+solr start -c
+```
+
+```{bash, echo = F}
+~/Applications/solr-9.1.0/bin/solr start -c
+```
+
+Once solr is running, we use the `index_records()` function to take our index data table, and assign it a collection name so that indexed records are saved. 
+```{r}
+library(referenceSearch)
+index_records(shard_index_dt, collection_name="ShardIndex",
+              overwrite = T)
+```
+
+Now we have a 'collection' called ShardIndex that is local within our R session, operable in Solr.  
+
+
+## 4.2 `create_queries()` 
+
+Next, the `create_queries()` function takes our probable references extracted and processed in Steps 1 and 2, and converts them into a syntax that allows us to query our index. Since we are querying an index of journals, we use only the probable references that would likely map onto our index of academic references, and make sure that it has the appropriate column names. 
+
+Likewise, let's make sure the input references are formatted correctly.
+```{r}
+# I pull out a file identifier so that I can re-append to the searched references after
+file_identifier <- dt_journals$File
+colnames(dt_journals)[10] <- 'journal_title'
+colnames(dt_journals)[1] <- 'authors'
+dt_journals_clean <- dt_journals[,c(1:3, 5:6, 10)]
+dt_journals_clean$year <- as.numeric(str_extract(dt_journals_clean$year, '^\\d{4}'))
+# right now getting rid of publisher because treat_as_phrase publisher is not permitted?
+dt_journals_clean$publisher <- NA
+```
+
+I then feed that data frame of probable references directly into the `create_queries()` function. I specify which columns to 'treat as a phrase' (i.e. to suggest that word order matters here). 
+
+```{r}
+queries <- create_queries(dt_journals_clean,
+                          treat_as_phrase = c("title", "journal_title"))
+```
+
+We can see that the data have been reformatting to query a data base.  
+
+```{r}
+queries[8]
+```
+
+### 4.3 `search_collection()`  
+
+Now we are ready to input our queries into the indexed collection to look for reference matches. We input the query into the `search_collection()` function, specify the collection_name, and the number of top-matches that we'd like to view.  
+
+An example of one query is below.  
+```{r query index one}
+results <- search_collection(q = queries[8], 
+			                       collection_name = "ShardIndex", 
+			                       topn = 3)
+DT::datatable(unique(results[,c(2,3,4,6,8)]), rownames = F)
+```
+
+We can then iterate this querying process across all `r length(queries)` of our queries.  
+
+```{r query index large, eval = F}
+results = list()
+count = 1
+for (q in queries) {
+  res = search_collection(q, collection_name = "ShardIndex")
+  # if it doesn't return anything, leave it NA to re-match with file identifier
+  if(nrow(res) == 0){
+    res <- data.frame("title" = NA,
+                      "authors" = NA,
+                      "year" = NA, "journal_title" = NA, "miscid" = NA,
+                      "source" = NA, "score" = NA, "id" = count, 
+                      "q" = q,  "doi" = NA)
+  } else {
+  # Choose the highest already
+  res = res[res$score == max(res$score),]
+  res$id = count
+  res$q = q
+  }
+  results[[count]] = res
+  count = count + 1
+}
+results_df = do.call(dplyr::bind_rows, results)
+results_df$File <- file_identifier
+```
+
+```{r}
+saveRDS(results_df, 'joss/data/results_df.RDS')
+saveRDS(dt_journals, 'joss/data/dt_journals.RDS')
+saveRDS(dt_agencies, 'joss/data/dt_agencies.RDS')
+```
+
+
+And let's stop the Solr instance before inspecting our final product
+
+```{bash end solr false, eval = F}
+solr stop
+```
+
+
+```{bash end solr 2, eval = T, warning = F, message = F, echo = F}
+~/Applications/solr-9.1.0/bin/solr stop
+```
+
+
+```{r}
+results_df <- readRDS('joss/data/results_df.RDS')
+results_df <- results_df[!str_detect(results_df$journal_title, 'eBooks'), ]
+dt_journals <- readRDS('joss/data/dt_journals.RDS')
+dt_agencies <- readRDS('joss/data/dt_agencies.RDS')
+```
+
+Now, we have this results df with match scores according to the `search_collection()` function. Match scores range from 100 to 0, though in our data the maximum score is `r max(results_df$score, na.rm = T)`. We can see how the query matches the result.
+
+```{r}
+str_extract(results_df[results_df$score == max(results_df$score, na.rm = T) &
+             !is.na(results_df$score), 
+           c('q')], 'title\\:.*')
+results_df[results_df$score == max(results_df$score, na.rm = T) &
+             !is.na(results_df$score), 
+           c('title', 'journal_title')]
+```
+The average match score in our referencing searching, however, is `r `mean(results_df$score, na.rm = T)`. At this score, matches are _generally_ pretty good. In the example below, we can see that the query, as extracted from the documents, mashes together 2 titles though keeping one journal. The matching exercise is able to still find a match for one citation.
+
+```{r}
+str_extract(results_df[round(results_df$score) == 19 &
+             !is.na(results_df$score), 
+           c('q')][2,], 'title\\:.*')
+results_df[round(results_df$score) == 19 &
+             !is.na(results_df$score), 
+           c('title', 'journal_title')][2,]
+```
+
+
+```{r}
+results_df[round(results_df$score) == 19 &
+             !is.na(results_df$score), 
+           c('q')][3,]
+results_df[round(results_df$score) == 19 &
+             !is.na(results_df$score), 
+           c('authors', 'year', 'title', 'journal_title')][3,]
+```
+
+However, not all are convincing. In fact, a score of 19 is very misleading here.
+
+```{r}
+str_extract(results_df[round(results_df$score) == 19 &
+             !is.na(results_df$score), 
+           c('q')][1,], 'title\\:.*')
+results_df[round(results_df$score) == 19 &
+             !is.na(results_df$score), 
+           c('title', 'journal_title')][1,]
+```
+Based on this, we can consider a score of 20 or more a conservative cut-point for the scores. A less conservative cut point might be around a score of 12. 
+
+
+## 5. Descriptions of references 
+
+
+## 6. Ground-truthing
+
+We know this process isn't perfect -- compare to manual review.
+
+```{r}
+manual <- readRDS('joss/data/manual.RDS')
+results_df12 <- readRDS('joss/data/results_df12.RDS')
+results_df20 <- readRDS('joss/data/results_df20.RDS')
+```
+
+
+```{r}
+calculate_confusion = function(manual, automatic){
+  manual <- manual[manual$journal != "",]
+  manual <- mutate(manual, id = row_number(), .by = journal,
+                   journal = paste(journal, id),
+                   df = "manual") %>% select(journal, df)
+#journal_counts_m <- count(manual[manual$journal != "",], .by = journal) %>% 
+#  arrange() %>% 
+#  rename('n_m' = n) %>% 
+#  mutate(journal = str_squish(trimws(.by))) %>% 
+#  select(-.by)
+#  
+#journal_counts_a <- count(automatic, .by = journal_title) %>% 
+#  arrange() %>% 
+#  rename('n_a' = n) %>% 
+#  mutate(journal = str_squish(trimws(.by))) %>% 
+#  select(-.by)
+  
+  automatic <- mutate(automatic, id = row_number(), .by = journal_title,
+                   journal = paste(journal_title, id),
+                   df = "automatic") %>% select(journal, df)
+
+  compare <- full_join(journal_counts_m, journal_counts_a, by = 'journal')
+compare[is.na(compare)] <- 0
+compare$diff = compare$n_m - compare$n_a
+
+for(i in 1:nrow(compare)){
+  if(compare$diff[i] == 0){
+  compare$TP[i] = compare$n_m[i]
+  compare$FP[i] = 0
+  compare$FN[i] = 0
+  } else if(compare$diff[i] < 0 & compare$n_m[i] == 0){
+    compare$FP[i] = compare$n_a[i]
+    compare$TP[i] = 0
+    compare$FN[i] = 0
+    } else if (compare$diff[i] < 0 & compare$n_m[i] != 0){
+      compare$TP[i] = compare$n_m[i]
+      compare$FP[i] = abs(compare$diff[i])
+      compare$FN[i] = 0
+      } else if(compare$diff[i] > 0 & compare$n_a[i] == 0){
+        compare$FN[i] = compare$n_m[i]
+        compare$TP[i] = 0
+        compare$FP[i] = 0
+        } else if(compare$diff[i] > 0 & compare$n_a[i] != 0){
+          compare$TP[i] = compare$n_a[i]
+          compare$FN[i] = compare$diff[i]
+          compare$FP[i] = 0
+         }
+}
+
+return(compare)
+}
+
+results_df12 <- results_df12[!is.na(results_df12$journal_title),]
+compare12 <- calculate_confusion(manual, results_df12)
+results_df20 <- results_df20[!is.na(results_df20$journal_title),]
+compare20 <- calculate_confusion(manual, results_df20)
+
+P = sum(compare12$n_m)
+PP = sum(compare12$n_a)
+PN = nrow(compare12[compare12$n_a == 0,])
+TP = sum(compare12$TP)
+FP = sum(compare12$FP)
+FN = sum(compare12$FN)
+
+PPV = TP/PP
+FOR = FN/PN
+TP/P
+
+accuracy12 = TP/P
+
+TP = sum(compare20$TP)
+FP = sum(compare20$FP)
+FN = sum(compare20$FN)
+P = sum(compare20$n_m)
+accuracy20 = TP/P
+```
+
+
+Confusion matrix
+
+```{r}
+
+```
+
+
+So what can it tell us: a representation of references, a sense of quantity -- systematically under-represents agencies and over-represents journals because all tools are built to focus on journals.

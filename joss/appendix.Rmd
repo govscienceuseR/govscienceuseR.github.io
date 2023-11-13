@@ -1,0 +1,462 @@
+# Appendix: ground-truthing Anystyle and OpenAlex
+```{r}
+library(ggplot2)
+library(magrittr)
+library(stringr)
+library(dplyr)
+library(referenceExtract)
+```
+
+## Human coding
+
+```{r}
+sample_data <- read.csv('joss/data/sample_data_10.csv')
+ids <- unique(str_remove(list.files('joss/data/reference_extracts_manual'), '\\.csv|\\.json'))
+man_fls <- list.files('joss/data/reference_extracts_manual', 
+                      pattern = '.\\.csv',
+                      full.names = T)[1:5]
+manual <- data.frame()
+for(i in 1:length(man_fls)){
+  df <- read.csv(man_fls[i])
+  df$id <- ids[i]
+  df$type <- ifelse(df$agency != "" | is.na(df$agency), 'agency',
+             ifelse(df$organization != "" | is.na(df$organization), 'organization',
+             ifelse(df$journal != "" | is.na(df$journal), 'journal',
+             ifelse(df$university != "" | is.na(df$university), 'university', 
+                    'book'))))
+  manual <- rbind(df, manual)
+}
+
+counts_manual <- dplyr::count(manual, .groups = id) %>% 
+    arrange(-n) 
+counts_manual_type <- dplyr::count(manual, .groups = id, type) %>% 
+    mutate(type = tools::toTitleCase(type))
+counts_manual_type_only <- dplyr::count(manual, .groups = type) %>% 
+    arrange(-n) %>% 
+    mutate(.groups = tools::toTitleCase(.groups))
+ 
+min_refs <- min(counts_manual$n)
+max_refs <- max(counts_manual$n)
+min_report <- sample_data$FEIS_Title[sample_data$EIS_Number == counts_manual$.groups[counts_manual$n == min_refs]]
+max_report <- sample_data$FEIS_Title[sample_data$EIS_Number == counts_manual$.groups[counts_manual$n == max_refs]]
+min_agency <- sample_data$FEIS_Agency[sample_data$EIS_Number == counts_manual$.groups[counts_manual$n == min_refs]]
+max_agency <- sample_data$FEIS_Agency[sample_data$EIS_Number == counts_manual$.groups[counts_manual$n == max_refs]]
+```
+
+I review and classify 5 EISs in the sample and classify their references. In the `r lenght(ids)` documents, the reference lists report a total of `r sum(counts_manual$n)` references. These range from `r min_refs` in the `r min_report` EIS by the `r min_agency`, to `r max_refs` in the `max_report` EIS by the `r max_agency`.
+
+* Journals include journal articles or conference proceedings
+* Agency includes any government-led initiative, including federal or state level 
+* Book is any publication published in a book, including book chapters 
+* University includes reports and resources originating from a university, mainly extension and departmental reports
+* Organization is a broad grouping, including reports from NGOs like The Nature Conservancy, reports from the UN, as well as soceties, and consumer and marketing groups, for example
+
+We compare these 
+
+
+```{r}
+counts_manual_type_only %>% 
+  ggplot(aes(x = factor(.groups, .groups), 
+             y = n)) +
+  geom_col(position = position_dodge2(preserve = "single")) +
+  coord_flip() +
+  theme_minimal() +
+  theme(legend.position = "bottom") +
+  labs(x = "", y = "", fill = "") +
+  guides(fill = guide_legend(nrow = 2))
+```
+
+```{r}
+table(manual$type)
+```
+
+
+```{r}
+results_df <- readRDS('joss/data/results_df.RDS')
+results_df <- results_df[!str_detect(results_df$journal_title, 'eBooks'), ]
+```
+
+
+```{r}
+# Standardizing journal names to compare to manual since manual has no uniformity
+# So changing manualy to match the automatic
+results_df$journal_title <- ifelse(results_df$journal_title == "Proceedings of the National Academy of Sciences", "Proceedings of the National Academy of Sciences of the United States of America", results_df$journal_title)
+manual$journal <- ifelse(manual$journal == "Proceedings of the National Academy of Sciences", "Proceedings of the National Academy of Sciences of the United States of America", manual$journal)
+manual$journal <- ifelse(manual$journal == "Aquatic Conservation: Marine and Freshwater Ecosystems", "Aquatic Conservation-marine and Freshwater Ecosystems", manual$journal)
+# APPLIED AND ENVIRONMENTAL MICROBIOLGY
+manual$journal <- ifelse(manual$journal == "Applied and Environmental Microbiolgy", "Applied and Environmental Microbiology", manual$journal)
+# CAB REVIEWS: PERSPECTIVES IN AGRICULTURE, VETERINARY SCIENCE, NUTRITION AND NATURAL RESOURCES -- this is one that even though they look they same they aren'y joining
+manual$journal <- ifelse(manual$journal == "Cab Reviews: Perspectives in Agriculture, Veterinary Science, Nutrition and Natural Resources", "Cab Reviews: Perspectives in Agriculture, Veterinary Science, Nutrition and Natural Resources", manual$journal)
+manual$journal <- ifelse(manual$journal == "Comparative Biochemistry and Physiology A: molecular & Integrative Physiology", "Comparative Biochemistry and Physiology A-molecular & Integrative Physiology", manual$journal)
+manual$journal <- ifelse(manual$journal == "Groundwater Monitoring & Remediation", "Ground water Monitoring & Remediation", manual$journal)
+# Interdisciplinary toxicology?? -- this is one that even though they look they same they aren'y joining
+manual$journal <- ifelse(manual$journal == "Interdisciplinary Toxicology", "Interdisciplinary Toxicology", manual$journal)
+manual$journal <- ifelse(manual$journal == "International Journal of Comparitive Psychology", "International Journal of Comparative Psychology", manual$journal)
+# Journal of environmental quality?? -- this is one that even though they look they same they aren'y joining
+manual$journal <- ifelse(manual$journal == "Journal of Environmental Quality", "Journal of Environmental Quality", manual$journal)
+manual$journal <- ifelse(manual$journal == "Marine Ecology-Progress Series", "Marine Ecology Progress Series", manual$journal)
+# WATER AIR AND SOIL POLLUTION
+
+
+
+manual$journal <- trimws(str_replace_all(toupper(manual$journal), '&', 'AND'))
+results_df$journal_title <- trimws(str_replace_all(toupper(results_df$journal_title), '&', 'AND'))
+results_df12 <- results_df[results_df$score >=12,]
+results_df20 <- results_df[results_df$score >=20,]
+saveRDS(manual, 'joss/data/manual.RDS')
+saveRDS(results_df12, 'joss/data/results_df12.RDS')
+saveRDS(results_df20, 'joss/data/results_df20.RDS')
+```
+
+# Compare by journals overall
+
+```{r}
+journal_counts_m <- count(manual[manual$journal != "",], .by = journal) %>% 
+  arrange() %>% 
+  rename('n_m' = n)
+```
+
+
+```{r}
+results_df13 <- results_df13[!is.na(results_df13$journal_title),]
+journal_counts_a <- count(results_df13, .by = journal_title) %>% 
+  arrange() %>% 
+  rename('n_a' = n)
+```
+
+```{r}
+compare <- full_join(journal_counts_m, journal_counts_a)
+compare[is.na(compare)] <- 0
+compare$diff <- abs(compare$n_m - compare$n_a)
+sum(compare$diff)
+sum(compare$n_m)
+sum(compare$n_a)
+
+compare_match <- compare[compare$n_m != 0 & compare$n_a != 0,]
+# The automatic only got 46% of the journals
+nrow(compare_match)/nrow(compare)
+# But it got 79% of the citations
+sum(compare_match$n_a)/sum(compare$n_a)
+
+sum(compare_match$n_m)
+sum(compare_match$n_a)
+sum(compare_match$diff)
+underestimate <- ifelse(compare$n_m > compare$n_a, round(compare$n_a/compare$n_m, 2),
+                        NA)
+# 26 journals were underestimated by the automatic matching
+length(underestimate[underestimate > 0 & !is.na(underestimate)])
+# Averaging about 50% of the true
+median(underestimate[underestimate > 0 & !is.na(underestimate)])
+
+overestimate <- ifelse(compare$n_m < compare$n_a, round(compare$n_a/compare$n_m, 2),
+                        NA)
+# 10 journals were overestimated by the automatic matching
+length(overestimate[overestimate > 0 & !is.na(overestimate) & overestimate != Inf])
+# Averaging about 155% of the true
+median(overestimate[overestimate > 0 & !is.na(overestimate)& overestimate != Inf])
+
+```
+
+Give examples: What does the automatic process not get?
+
+```{r}
+whats_missing <- compare[compare$n_m > 0 & compare$n_a == 0,]
+whats_missing$.by
+table(str_detect(whats_missing$.by, 'SYMPOSIUM|MEETING|CONFERENCE|WORKSHOP|PROCEEDINGS OF THE'))
+```
+
+
+What does the automatic process get wrong?
+```{r}
+whats_madeup <- compare[compare$n_m == 0 & compare$n_a > 0,]
+whats_madeup$.by
+```
+
+# Compare by journals by report
+
+```{r}
+journal_report_counts_m <- count(manual[manual$journal != "",], .by = journal, id) %>% 
+  arrange() %>% 
+  rename('n_m' = n)
+results_df13$id <- str_extract(results_df13$File, "\\d{8}")
+journal_report_counts_a <- count(results_df13, .by = journal_title, id) %>% 
+  arrange() %>% 
+  rename('n_a' = n)
+```
+
+```{r}
+ids <- unique(journal_report_counts_a$id)
+
+report1_m <- journal_report_counts_m[journal_report_counts_m$id == ids[1],]
+report1_a <- journal_report_counts_a[journal_report_counts_a$id == ids[1],]
+sum(report1_m$n_m)
+sum(report1_a$n_a)
+round(sum(report1_a$n_a)/sum(report1_m$n_m),2)
+
+compare1 <- full_join(report1_m, report1_a)
+compare1[is.na(compare1)] <- 0
+compare1$diff <- abs(compare1$n_m - compare1$n_a)
+sum(compare1$diff)/sum(report1_m$n_m)
+
+report2_m <- journal_report_counts_m[journal_report_counts_m$id == ids[2],]
+report2_a <- journal_report_counts_a[journal_report_counts_a$id == ids[2],]
+sum(report2_m$n_m)
+sum(report2_a$n_a)
+round(sum(report2_a$n_a)/sum(report2_m$n_m),2)
+
+compare2 <- full_join(report2_m, report2_a)
+compare2[is.na(compare2)] <- 0
+compare2$diff <- abs(compare2$n_m - compare2$n_a)
+sum(compare2$diff)/sum(report2_m$n_m)
+
+report3_m <- journal_report_counts_m[journal_report_counts_m$id == ids[3],]
+report3_a <- journal_report_counts_a[journal_report_counts_a$id == ids[3],]
+sum(report3_m$n_m)
+sum(report3_a$n_a)
+round(sum(report3_a$n_a)/sum(report3_m$n_m),2)
+
+report4_m <- journal_report_counts_m[journal_report_counts_m$id == ids[4],]
+report4_a <- journal_report_counts_a[journal_report_counts_a$id == ids[4],]
+sum(report4_m$n_m)
+sum(report4_a$n_a)
+round(sum(report4_a$n_a)/sum(report4_m$n_m),2)
+
+report5_m <- journal_report_counts_m[journal_report_counts_m$id == ids[5],]
+report5_a <- journal_report_counts_a[journal_report_counts_a$id == ids[5],]
+sum(report5_m$n_m)
+sum(report5_a$n_a)
+round(sum(report5_a$n_a)/sum(report5_m$n_m),2)
+```
+
+
+
+
+
+
+```{r}
+counts_manual_type %>% 
+  mutate(.groups = as.numeric(.groups)) %>% 
+  left_join(sample_data, by = c('.groups' = 'EIS_Number')) %>% 
+  ggplot(aes(x = factor(type, counts_manual_type_only$.groups), 
+             y = n, fill = FEIS_Agency)) +
+  geom_col(position = position_dodge2(preserve = "single")) +
+  coord_flip() +
+  theme_minimal() +
+  theme(legend.position = "bottom") +
+  scale_fill_viridis_d() +
+  labs(x = "", y = "", fill = "") +
+  guides(fill = guide_legend(nrow = 2))
+```
+
+
+# How does my re-run of the process compare to the process done in June by SK/TS? 
+
+```{r}
+refs <- readRDS('~/Box/truckee/common_inputs/eis_reference/input/eis_references_oa_metadata.RDS')
+ids <- unique(results_df20$id)
+refs <- refs[refs$EIS.Number %in% ids,]
+table(manual$id[manual$type == "journal"])
+table(refs$EIS.Number)
+table(results_df20$id)
+
+```
+
+## Human coding vs. Anystyle reference insertion
+
+```{r}
+json_fls <- list.files('joss/data/reference_extracts_manual', 
+                      pattern = '.\\.json',
+                      full.names = T)
+keep_cols <- c('author', 'title', 'year',
+               'container-title', 'type',
+              'volume', 'issue', 'DOI', 'URL',
+              'publisher', 'publisher-place', 'editor')
+jsons <- data.frame()
+for(i in 1:length(json_fls)){
+  df <- jsonlite::fromJSON(json_fls[i])
+  df$year <- df$issued$`date-parts`
+  empty_df <- data.frame('author' = list(), 'title' = character(), 
+                         'year' = list(),
+                         'container-title' = character(), 'type' = character(),
+                         'volume' = character(), 'issue' = character(), 
+                         'DOI' = character(), 'URL' = character(),
+                         'publisher' = character(), 'publisher-place' = character(),
+                         'editor' = list())
+  df <- suppressMessages(full_join(empty_df, df)) %>%
+    dplyr::select(dplyr::all_of(keep_cols))
+  df$id <- ids[i]
+  df$type <- ifelse(df$type %in% c('article-journal', 'paper-conference'), 'journal',
+             ifelse(df$type == "chapter", 'book', NA))
+  jsons <- rbind(df, jsons)
+}
+
+counts_jsons <- dplyr::count(jsons, .groups = id) %>% 
+    arrange(-n) 
+counts_jsons_type <- dplyr::count(jsons, .groups = id, type) %>% 
+    mutate(type = tools::toTitleCase(type))
+counts_jsons_type_only <- dplyr::count(jsons, .groups = type) %>% 
+    arrange(-n) %>% 
+    mutate(.groups = tools::toTitleCase(.groups))
+
+```
+
+Loading references into Anystyle yields about the same counts, but here we leave the classification to Anystyle. Anystyle is designed to identify academic citations, and so as a result, here's what we see
+
+But, we can put this through out workflow and see how it improves....
+
+```{r}
+counts_jsons_type %>% 
+  mutate(.groups = as.numeric(.groups)) %>% 
+  left_join(sample_data, by = c('.groups' = 'EIS_Number')) %>% 
+  ggplot(aes(x = factor(type, counts_jsons_type_only$.groups), 
+             y = n, fill = FEIS_Agency)) +
+  geom_col(position = position_dodge2(preserve = "single")) +
+  coord_flip() +
+  theme_minimal() +
+  theme(legend.position = "bottom") +
+  scale_fill_viridis_d() +
+  labs(x = "", y = "", fill = "") +
+  guides(fill = guide_legend(nrow = 2))
+```
+
+
+
+
+
+## Human coding vs. Anystyle via PDF
+
+```{r}
+proj_dir <- "~/Documents/Davis/R-Projects/govscienceuseR.github.io/"
+pdfs <- reference_compile(paste0(proj_dir, 'joss/data/reference_extracts'))
+pdfs$id <- str_remove(str_extract(pdfs$File, '/\\d{8}'), '/')
+pdfs <- pdfs[pdfs$id %in% ids,]
+pdfs$type <- ifelse(pdfs$type %in% c('article-journal', 'paper-conference'), 
+                    'journal',
+             ifelse(pdfs$type == "chapter", 'book', NA))
+counts_pdfs <- dplyr::count(pdfs, .groups = id) %>% 
+    arrange(-n) 
+counts_pdfs_type <- dplyr::count(pdfs, .groups = id, type) %>% 
+    mutate(type = tools::toTitleCase(type))
+counts_pdfs_type_only <- dplyr::count(pdfs, .groups = type) %>% 
+    arrange(-n) %>% 
+    mutate(.groups = tools::toTitleCase(.groups))
+```
+
+Comparing them, as totals, it looks like the PDF extraction somewhat underestimates references. And because know that many are false positives
+```{r}
+counts_manual$v = "manual"
+counts_jsons$v = "AS_paste"
+counts_pdfs$v = "AS_pdf"
+counts_jsons %>% 
+  rbind(counts_manual) %>% 
+  rbind(counts_pdfs) %>% 
+  ungroup() %>% 
+  group_by(.groups, v) %>% 
+  summarize(n = sum(n)) %>% 
+  mutate(.groups = as.numeric(.groups)) %>% 
+  left_join(sample_data, by = c('.groups' = 'EIS_Number')) %>% 
+  ggplot(aes(x = FEIS_Agency, 
+             y = n, fill = v)) +
+  geom_col(position = position_dodge2(preserve = "single")) +
+  coord_flip() +
+  theme_minimal() +
+  theme(legend.position = "bottom") +
+  scale_fill_viridis_d() +
+  labs(x = "", y = "", fill = "") +
+  guides(fill = guide_legend(nrow = 2))
+```
+
+We can take another look grouping by potential journals
+```{r}
+counts_manual_type$v = "manual"
+counts_jsons_type$v = "AS_paste"
+counts_pdfs_type$v = "AS_pdf"
+counts_jsons_type %>% 
+  rbind(counts_manual_type) %>% 
+  rbind(counts_pdfs_type) %>% 
+  filter(type == "Journal") %>% 
+  ungroup() %>% 
+  group_by(.groups, v) %>% 
+  summarize(n = sum(n)) %>% 
+  mutate(.groups = as.numeric(.groups)) %>% 
+  left_join(sample_data, by = c('.groups' = 'EIS_Number')) %>% 
+  ggplot(aes(x = FEIS_Agency, 
+             y = n, fill = v)) +
+  geom_col(position = position_dodge2(preserve = "single")) +
+  coord_flip() +
+  theme_minimal() +
+  theme(legend.position = "bottom") +
+  scale_fill_viridis_d() +
+  labs(x = "", y = "", fill = "") +
+  guides(fill = guide_legend(nrow = 2))
+```
+
+## After Anystyle cleaning
+
+```{r}
+library(data.table)
+library(referenceClassify)
+colnames(pdfs)
+colnames(jsons)[c(3,4,8,9)] <- c('date', 'container', 'doi', 'url')
+colnames(manual)[c(4)] <- 'container'
+jsons$File <- "NA"
+jsons <- jsons[,c('author','title','date','publisher','container','doi','url','File')]
+
+manual$journal_disam <- journal_disambig(manual$container)
+jsons$journal_disam <- journal_disambig(jsons$container)
+#jsons_clean <- reference_clean3(data.table(jsons))
+#jsons_clean$journal_disam <- journal_disambig(jsons_clean$container)
+pdfs$unique_id <- 1:nrow(pdfs)
+pdfs$journal_disam <- journal_disambig(pdfs$container)
+pdfs_clean <- reference_clean3(data.table(pdfs))
+pdfs_clean$journal_disam <- journal_disambig(pdfs_clean$container)
+
+# How do we get the best matches in the manual?
+table(manual$type) # we know there are 352 journals and conferences
+table(journal_match(manual$container)) # Gets 244
+table(journal_match(manual$journal_disam)) # journal disam does very little
+
+# How does this compare to jsons (which we can't clean)
+table(journal_match(jsons$container)) # Gets 243
+table(journal_match(jsons$journal_disam)) # Disam actually makes it worse
+
+# What about the PDF read in? NEED TO GET UNIQUE ID TO STAY WITH CLEAN
+table(journal_match(pdfs$container)) # 266, so theoretically MORE than the manual
+table(journal_match(pdfs$journal_disam))
+table(journal_match(pdfs_clean$container)) # But the cleaned option drops this down to 
+
+# So clean seems to make it worse? Is it getting rid of false positives or true negatives?
+# Clean files get fewer matches than unclear. Are the unclean ones correct?
+check <- pdfs[journal_match(pdfs$container),]
+# If I had unique IDs I could do his
+cln_fls <- pdfs_clean$unique_id[journal_match(pdfs_clean$container)]
+uncln_fls <- pdfs$unique_id[journal_match(pdfs$container)]
+check <- pdfs[pdfs$unique_id %in% uncln_fls]
+
+table(manual$type)
+
+table(journal_match(manual$container))
+table(agency_match(manual$agency, manual$agency))
+
+table(journal_match(jsons$container))
+table(journal_match(jsons_clean$container))
+table(agency_match(jsons_clean$container, jsons_clean$author))
+
+table(journal_match(pdfs_clean$container))
+table(agency_match(pdfs_clean$container, pdfs_clean$author))
+```
+
+```{r}
+counts_manual_type %>% 
+  ggplot(aes(x = approach, y = n)) +
+  geom_col() +
+  coord_flip() +
+  facet_wrap(~ type)
+```
+
+Try to run openalex on the titles of the json data to see if it can identify them as our control, then compare to running on the titles of the pdfs
+
+```{r}
+
+```
+
