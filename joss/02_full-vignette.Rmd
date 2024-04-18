@@ -726,6 +726,14 @@ Based on this, we can consider a score of 20 or more a conservative cut-point fo
 
 
 ## 5. Descriptions of references 
+```{r}
+results_df12 <- readRDS('joss/data/results_df12.RDS')
+results_df20 <- readRDS('joss/data/results_df20.RDS')
+```
+
+Describe agencies
+
+Describe journals
 
 
 ## 6. Ground-truthing
@@ -734,36 +742,28 @@ We know this process isn't perfect -- compare to manual review.
 
 ```{r}
 manual <- readRDS('joss/data/manual.RDS')
-results_df12 <- readRDS('joss/data/results_df12.RDS')
-results_df20 <- readRDS('joss/data/results_df20.RDS')
 ```
 
 
 ```{r}
-calculate_confusion = function(manual, automatic){
-  manual <- manual[manual$journal != "",]
-  manual <- mutate(manual, id = row_number(), .by = journal,
-                   journal = paste(journal, id),
-                   df = "manual") %>% select(journal, df)
-#journal_counts_m <- count(manual[manual$journal != "",], .by = journal) %>% 
-#  arrange() %>% 
-#  rename('n_m' = n) %>% 
-#  mutate(journal = str_squish(trimws(.by))) %>% 
-#  select(-.by)
-#  
-#journal_counts_a <- count(automatic, .by = journal_title) %>% 
-#  arrange() %>% 
-#  rename('n_a' = n) %>% 
-#  mutate(journal = str_squish(trimws(.by))) %>% 
-#  select(-.by)
+# This makes a comparison that isn;t actually a confusion matrix, but helps me understand the data
+calculate_comparison = function(manual, automatic){
+  automatic <- automatic[!is.na(automatic$journal_title),]
+  journal_counts_m <- count(manual[manual$journal != "",], .by = journal) %>% 
+    arrange() %>% 
+    rename('n_m' = n) %>% 
+    mutate(journal = str_squish(trimws(.by))) %>% 
+    select(-.by)
+    
+  journal_counts_a <- count(automatic, .by = journal_title) %>% 
+    arrange() %>% 
+    rename('n_a' = n) %>% 
+    mutate(journal = str_squish(trimws(.by))) %>% 
+    select(-.by)
   
-  automatic <- mutate(automatic, id = row_number(), .by = journal_title,
-                   journal = paste(journal_title, id),
-                   df = "automatic") %>% select(journal, df)
-
   compare <- full_join(journal_counts_m, journal_counts_a, by = 'journal')
-compare[is.na(compare)] <- 0
-compare$diff = compare$n_m - compare$n_a
+  compare[is.na(compare)] <- 0
+  compare$diff = compare$n_m - compare$n_a
 
 for(i in 1:nrow(compare)){
   if(compare$diff[i] == 0){
@@ -792,37 +792,155 @@ for(i in 1:nrow(compare)){
 return(compare)
 }
 
-results_df12 <- results_df12[!is.na(results_df12$journal_title),]
-compare12 <- calculate_confusion(manual, results_df12)
-results_df20 <- results_df20[!is.na(results_df20$journal_title),]
-compare20 <- calculate_confusion(manual, results_df20)
+# This makes a more proper confusion matrix, but the data isn't actually suited to this
+calculate_confusion = function(manual, automatic){
+  manual <- manual[manual$journal != "",]
+  manual <- mutate(manual, id = row_number(), .by = journal,
+                   journal = paste(journal, id),
+                   df = "manual") %>% select(journal, df)
 
-P = sum(compare12$n_m)
-PP = sum(compare12$n_a)
-PN = nrow(compare12[compare12$n_a == 0,])
-TP = sum(compare12$TP)
-FP = sum(compare12$FP)
-FN = sum(compare12$FN)
+  automatic <- automatic[!is.na(automatic$journal_title),]
+  automatic <- mutate(automatic, id = row_number(), .by = journal_title,
+                   journal = paste(journal_title, id),
+                   df = "automatic") %>% select(journal, df)
 
-PPV = TP/PP
-FOR = FN/PN
-TP/P
+  compare <- full_join(manual, automatic, by = 'journal')
+  manual_list <- ifelse(!is.na(compare$df.x), compare$journal, "none")
+  automatic_list <- ifelse(!is.na(compare$df.y), compare$journal, "none")
+  confusion_matrix <- table(manual_list, automatic_list)
+  diag(confusion_matrix)
+  confusion_mat <- as.matrix(confusion_matrix)
 
-accuracy12 = TP/P
-
-TP = sum(compare20$TP)
-FP = sum(compare20$FP)
-FN = sum(compare20$FN)
-P = sum(compare20$n_m)
-accuracy20 = TP/P
+return(confusion_mat)
+}
 ```
-
-
-Confusion matrix
 
 ```{r}
+compare12 <- calculate_comparison(manual, results_df12)
+compare20 <- calculate_comparison(manual, results_df20)
+
+# P = positive; number of true citations
+P = sum(compare12$n_m)
+# PP = predicted positive; number of predicted citations
+PP = sum(compare12$n_a)
+# PN = predicted negative: number of underestimated predictions
+PN = nrow(compare12[compare12$n_a == 0,])
+# TP = true positives; number of correct predictions
+TP = sum(compare12$TP)
+TP/P # 58%
+# FP = false positive; number of incorrect -- chose others -- predictions
+FP = sum(compare12$FP)
+FP # 80 over-estimates
+# FN = false negative; number of missed predictions
+FN = sum(compare12$FN)
+# This is the opposite of the FP/P
+FN/P
+
+
+# More conservative: less true positives but also half the false guesses
+# P = positive; number of true citations
+P = sum(compare20$n_m)
+# PP = predicted positive; number of predicted citations
+PP = sum(compare20$n_a)
+# PN = predicted negative: number of underestimated predictions
+PN = nrow(compare20[compare20$n_a == 0,])
+# TP = true positives; number of correct predictions
+TP = sum(compare20$TP)
+TP/P # 48%
+# FP = false positive; number of incorrect -- chose others -- predictions
+FP = sum(compare20$FP)
+FP # 43 over-estimates
+# FN = false negative; number of missed predictions
+FN = sum(compare20$FN)
+# This is the opposite of the FP/P
+FN/P
+```
+
+
+So what does it miss?
+
+WHat does it over-estimate?
+
+
+
+Is this a fault of the PDF extraction or of the matching? 
+To see if it is PDF, look first at how many true positives we get when shit it just raw
+
+```{r}
+fls <- list.files(paste0(proj_dir, 'joss/data/reference_extracts'), full.names = T)[1:5]
+dt <- dt[dt$File %in% fls] 
+dt_articles <- dt[dt$type == 'article-journal',]
+colnames(dt_articles)
+dt_articles <- dt_articles[,c(1,2,3,9,18)]
+dt_articles$check <- NA
+check1_72 <- c('F', 'P', 'P', 'T', 'T', 'P', 'T', 'T', 'F', 'P', 
+               'F', 'T', 'T', 'P', 'T', 'T', 'F', 'F', 'F', 'F', 
+               'P', 'T', 'T', 'T', 'P', 'T', 'T', 'T', 'T', 'P', 
+               'T', 'T', 'T', 'T', 'P', 'T', 'T', 'P', 'F', 'T', 
+               'T', 'P', 'P', 'T', 'T', 'T', 'T', 'T', 'T', 'P',
+               'T', 'T', 'P', 'P', 'T', 'T', 'T', 'F', 'T', 'T', 
+               'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'T', 'T', 
+               'T', 'T')
+dt_articles$check[1:72] <- check1_72
+
+check73_122 <- c('T', 'T', 'T', 'T', 'F', 'T', 'T', 'T', 'T', 'F', 
+                 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 
+                 'T', 'T', 'T', 'T', 'F', 'F', 'F', 'T', 'T', 'T', 
+                 'F', 'F', 'F', 'F', 'F', 'F', 'T', 'T', 'F', 'F', 
+                 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F')
+check123_172 <- c('F', 'F', 'F', 'F', 'T', 'T', 'T', 'T', 'T', 'T',
+                  'T', 'T', 'T', 'F', 'T', 'T', 'T', 'T', 'T', 'T',
+                  'F', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T',
+                  'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T',
+                  'F', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T')
+check173_217 <- c('T', 'T', 'F', 'T', 'T', 'T', 'T', 'F', 'T', 'T',
+                  'T', 'T', 'T', 'F', 'F', 'F', 'F', 'F', 'F', 'F',
+                  'F', 'F', 'F', 'F', 'T', 'T', 'T', 'T', 'T', 'P',
+                  'T', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F',
+                  'F', 'P', 'T', 'P', 'T')
+check73_217 <- c(check73_122, check123_172, check173_217)
+dt_articles$check[73:217] <- check73_217
+
+check218_267 <- c('P', 'T', 'T', 'T', 'F', 'T', 'T', 'T', 'T', 'T', 
+                  'T', 'T', 'T', 'T', 'T', 'F', 'T', 'F', 'P', 'T', 
+                  'F', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 
+                  'T', 'T', 'T', 'P', 'P', 'T', 'T', 'T', 'T', 'T', 
+                  'T', 'F', 'T', 'F', 'T', 'P', 'T', 'T', 'T', 'T')
+check268_317 <- c('T', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T',
+                  'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'P', 'T',
+                  'T', 'T', 'T', 'T', 'T', 'F', 'T', 'T', 'T', 'T',
+                  'T', 'T', 'F', 'F', 'T', 'T', 'T', 'T', 'T', 'T',
+                  'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T')
+check318_367 <- c('T', 'T', 'T', 'T', 'T', 'T', 'T', 'P', 'T', 'T',
+                  'T', 'F', 'T', 'T', 'T', 'T', 'F', 'T', 'T', 'T',
+                  'T', 'T', 'T', 'F', 'F', 'T', 'T', 'T', 'T', 'T',
+                  'T', 'T', 'F', 'F', 'T', 'F', 'T', 'T', 'F', 'F',
+                  'F', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T')
+check367_422 <- c('', '', '', '', '', '', '', '', '', '',
+                  '', '', '', '', '', '', '', '', '', '',
+                  '', '', '', '', '', '', '', '', '', '',
+                  '', '', '', '', '', '', '', '', '', '',
+                  '', '', '', '', '', '', '', '', '', '')
+check423_479 <- c('', '', '', '', '', '', '', '', '', '',
+                  '', '', '', '', '', '', '', '', '', '',
+                  '', '', '', '', '', '', '', '', '', '',
+                  '', '', '', '', '', '', '', '', '', '',
+                  '', '', '', '', '', '', '', '', '', '')
+check480_501 <- c('F', 'F', 'T', 'T', 'T', 'P', 'F', 'T', 'F', 'F', 
+                  'T', 'T', 'F', 'F', 'T', 'T', 'T', 'F', 'T', 'F', 
+                  'T', 'F')
+check502_517 <- c('F', 'F', 'F', 'T', 'T', 'F', 'F', 'T', 'T', 'T', 
+                  'F', 'T', 'T', 'T', 'P', 'T')
 
 ```
 
+So, we just don't pick up X% of citations
+
+So, we know there is a loss in the pdf reading. But if we were to read in perfectly, how does the cleaning do?
+
+To prove this point, if we take pasted in articles and run it through the workflow, we get much closer...
+
+
+Bottlenecks: PDF reference identification? Cleaning? Having a big enough index?
 
 So what can it tell us: a representation of references, a sense of quantity -- systematically under-represents agencies and over-represents journals because all tools are built to focus on journals.
